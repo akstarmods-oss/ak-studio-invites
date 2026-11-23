@@ -1,0 +1,2569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0E1B33" />
+  <title>Midnight Royale — Wedding Invitation | Ak ⭐ Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Oriya:wght@400;500;600;700&family=Noto+Serif+Oriya:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0E1B33;
+      --navy2: #1B3157;
+      --navyD: #081021;
+      --rose: #C8977A;
+      --roseL: #E2BAA0;
+      --champ: #E8D3B0;
+      --ivory: #F8F3EA;
+      --ivory2: #EFE6D8;
+      --card: #FFFDF9;
+      --ink: #16233B;
+      --muted: #656E7E;
+      --line: rgba(200, 151, 122, 0.36);
+      --lineN: rgba(232, 211, 176, 0.25);
+      --shN: 0 18px 42px rgba(4, 9, 20, 0.45);
+      --shI: 0 14px 34px rgba(14, 27, 51, 0.11);
+      --rL: 24px;
+      --rM: 16px;
+      --rS: 12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    html {
+      margin: 0; padding: 0; width: 100%; max-width: 100%;
+      overflow-x: clip; scroll-behavior: smooth; background: var(--navy);
+    }
+
+    body {
+      margin: 0; padding: 0; width: 100%; max-width: 100%;
+      overflow-x: clip; background: var(--navy); color: var(--ivory);
+      font-family: 'Jost', 'Noto Sans Oriya', 'Noto Sans Devanagari', system-ui, sans-serif;
+      font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+    }
+
+    body.locked { overflow: hidden; height: 100vh; height: 100svh; }
+    body.reduce-motion *, body.reduce-motion *::before, body.reduce-motion *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    button, input, textarea, select { font-family: inherit; color: inherit; }
+    button { border: none; background: none; padding: 0; cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .serif { font-family: 'Cormorant Garamond', 'Noto Serif Oriya', 'Noto Sans Devanagari', Georgia, serif; }
+    .hidden { display: none !important; }
+
+    /* 1. LOADER */
+    #preloader {
+      position: fixed; inset: 0; z-index: 140;
+      background: radial-gradient(circle at 50% 40%, var(--navy2), var(--navyD));
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+      transition: opacity .45s ease, visibility .45s ease;
+    }
+    #preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .pl-ring {
+      position: relative; width: 92px; height: 92px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pl-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: spinSlow 4s linear infinite; }
+    @keyframes spinSlow { to { transform: rotate(360deg); } }
+    .pl-mono {
+      font-family: 'Cormorant Garamond', 'Noto Serif Oriya', serif;
+      font-size: 26px; font-weight: 600; color: var(--champ); letter-spacing: .06em;
+    }
+    .pl-k { font-size: 10px; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: var(--roseL); }
+    .pl-s { font-family: 'Cormorant Garamond', 'Noto Serif Oriya', serif; font-style: italic; font-size: 15px; color: rgba(248,243,234,.72); }
+
+    /* PAUSED SCREEN */
+    #paused-screen {
+      position: fixed; inset: 0; z-index: 130;
+      background: radial-gradient(circle at 50% 35%, var(--navy2), var(--navyD));
+      display: none; align-items: center; justify-content: center; padding: 24px; text-align: center;
+    }
+    #paused-screen.show { display: flex; }
+    .paused-card {
+      width: 100%; max-width: 380px; background: rgba(14,27,51,.94);
+      border: 1px solid var(--line); border-radius: var(--rL);
+      padding: 32px 22px; box-shadow: var(--shN);
+    }
+
+    /* STARFIELD & GOLD DUST CANVAS (fixed behind navy sections) */
+    #dust-canvas {
+      position: fixed; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 1; opacity: .78;
+    }
+
+    /* 2. WAX-SEAL ENVELOPE OVERLAY */
+    #envelope-overlay {
+      position: fixed; inset: 0; z-index: 100;
+      background: radial-gradient(circle at 50% 34%, #1a2f55 0%, var(--navy) 58%, var(--navyD) 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: calc(24px + env(safe-area-inset-top, 0px)) 20px calc(24px + env(safe-area-inset-bottom, 0px));
+      text-align: center; overflow: hidden;
+      transition: opacity .82s cubic-bezier(.22,1,.36,1), transform .82s cubic-bezier(.22,1,.36,1), visibility .82s ease;
+    }
+    #envelope-overlay.opened { opacity: 0; transform: scale(1.1); visibility: hidden; pointer-events: none; }
+    #burst-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 12; }
+
+    .env-guest {
+      font-family: 'Cormorant Garamond', 'Noto Serif Oriya', 'Noto Sans Devanagari', serif;
+      font-style: italic; font-size: 26px; font-weight: 600; color: var(--ivory);
+      margin: 0 0 4px; position: relative; z-index: 3;
+    }
+    .env-invited {
+      font-size: 10px; font-weight: 600; letter-spacing: .32em; text-transform: uppercase;
+      color: var(--roseL); margin: 0 0 28px; position: relative; z-index: 3;
+    }
+
+    .env-stage {
+      position: relative; z-index: 4; width: min(310px, 84vw); aspect-ratio: 1.52 / 1;
+      perspective: 1100px; cursor: pointer;
+    }
+    .env-body {
+      position: relative; width: 100%; height: 100%;
+      border-radius: 14px;
+      background: linear-gradient(155deg, #213a66 0%, #15284a 60%, #10203d 100%);
+      border: 1.4px solid var(--rose);
+      box-shadow: 0 24px 56px rgba(3, 8, 20, 0.58), inset 0 0 0 5px rgba(200,151,122,.1);
+      overflow: visible;
+    }
+    .env-card-slip {
+      position: absolute; left: 7%; right: 7%; top: 10%; bottom: 10%;
+      border-radius: 10px; background: var(--ivory); border: 1px solid var(--rose);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 12px; color: var(--navy); z-index: 2;
+      transition: transform .85s cubic-bezier(.22,1,.36,1);
+    }
+    .env-stage.opening .env-card-slip { transform: translate3d(0, -68%, 0) scale(1.03); }
+
+    .env-pocket {
+      position: absolute; inset: 0; border-radius: 13px; overflow: hidden; z-index: 4; pointer-events: none;
+    }
+    .env-pocket::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(155deg, rgba(33,58,102,.96), rgba(16,32,61,.98));
+      clip-path: polygon(0 0, 50% 54%, 100% 0, 100% 100%, 0 100%);
+    }
+    .env-pocket::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(200,151,122,.22), transparent 55%);
+      clip-path: polygon(0 100%, 50% 48%, 100% 100%);
+    }
+    .env-lines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 5; pointer-events: none; }
+
+    .env-flap {
+      position: absolute; left: 0; right: 0; top: 0; height: 58%;
+      transform-origin: 50% 0%; transform-style: preserve-3d; z-index: 6;
+      transition: transform .72s cubic-bezier(.22,1,.36,1);
+    }
+    .env-flap-face {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, #244070 0%, #172d53 100%);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      border-top-left-radius: 13px; border-top-right-radius: 13px;
+      filter: drop-shadow(0 6px 10px rgba(4,10,24,.35));
+    }
+    .env-stage.opening .env-flap { transform: rotateX(168deg); z-index: 1; }
+
+    .wax-seal {
+      position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%);
+      z-index: 8; width: 72px; height: 72px; border-radius: 50%;
+      background: radial-gradient(circle at 32% 28%, #f0ceb4 0%, #c8977a 52%, #8e5f45 100%);
+      box-shadow: 0 10px 26px rgba(4,9,20,.55), inset 0 2px 4px rgba(255,244,232,.65), inset 0 -4px 8px rgba(72,40,24,.45);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .36s ease, opacity .36s ease;
+    }
+    .wax-seal::before {
+      content: ""; position: absolute; inset: 6px; border-radius: 50%;
+      border: 1.2px solid rgba(255,244,230,.55);
+    }
+    .wax-mono {
+      font-family: 'Cormorant Garamond', 'Noto Serif Oriya', serif;
+      font-style: italic; font-weight: 700; font-size: 20px; color: #191f2e;
+      letter-spacing: .04em;
+    }
+    .env-stage.opening .wax-seal { transform: translate(-50%, -50%) scale(1.24) rotate(12deg); opacity: 0; }
+
+    .seal-cue {
+      margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 11px;
+      position: relative; z-index: 4; cursor: pointer;
+    }
+    .seal-ring {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1.5px solid var(--roseL); display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .seal-ring::after {
+      content: ""; position: absolute; inset: -7px; border-radius: 50%;
+      border: 1px solid rgba(226,186,160,.45); animation: pulseOut 2.1s ease-out infinite;
+    }
+    @keyframes pulseOut { 0% { transform: scale(.86); opacity: .9; } 100% { transform: scale(1.42); opacity: 0; } }
+    .seal-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--champ); }
+    .seal-lbl { font-size: 10.5px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--champ); }
+
+    /* MAIN SHELL */
+    .app-shell {
+      width: 100%; max-width: 440px; margin-inline: auto;
+      position: relative; z-index: 2; overflow-x: clip;
+      padding-bottom: calc(82px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .sec { position: relative; padding: 42px 20px; }
+    .sec-navy {
+      background: linear-gradient(180deg, var(--navy) 0%, #132546 50%, var(--navy) 100%);
+      color: var(--ivory);
+    }
+    .sec-ivory {
+      background: linear-gradient(180deg, var(--ivory) 0%, #f4ecdf 100%);
+      color: var(--ink);
+    }
+    .blend-n-to-i {
+      height: 44px; background: linear-gradient(180deg, var(--navy) 0%, var(--ivory) 100%);
+    }
+    .blend-i-to-n {
+      height: 44px; background: linear-gradient(180deg, #f4ecdf 0%, var(--navy) 100%);
+    }
+
+    .rv {
+      opacity: 0; transform: translate3d(0, 20px, 0);
+      transition: opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1);
+    }
+    .rv.in { opacity: 1; transform: translate3d(0, 0, 0); }
+
+    .kicker {
+      font-size: 10px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--rose); text-align: center; margin: 0;
+    }
+    .sec-navy .kicker { color: var(--roseL); }
+    .sec-h {
+      font-family: 'Cormorant Garamond', 'Noto Serif Oriya', 'Noto Sans Devanagari', Georgia, serif;
+      font-size: 32px; font-weight: 600; text-align: center; margin: 6px 0 0; line-height: 1.2;
+      color: var(--ink);
+    }
+    .sec-navy .sec-h { color: var(--ivory); }
+    .sec-sub {
+      font-size: 13px; text-align: center; margin: 6px auto 0; max-width: 310px;
+      color: var(--muted); line-height: 1.55;
+    }
+    .sec-navy .sec-sub { color: rgba(248,243,234,.75); }
+
+    /* 3. THE UNION — FIRST SCREEN (TWO ARCH PORTRAITS + OPTIONAL HERO VIDEO) */
+    .hero-sec {
+      position: relative; min-height: 100vh; min-height: 100svh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: calc(22px + env(safe-area-inset-top, 0px)) 18px 26px;
+      text-align: center; overflow: hidden;
+      background: radial-gradient(circle at 50% 24%, #1a3058 0%, var(--navy) 64%, var(--navyD) 100%);
+    }
+    .hero-media-bg {
+      position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+    }
+    .hero-media-bg video, .hero-media-bg img {
+      width: 100%; height: 100%; object-fit: cover; opacity: .26;
+    }
+    .hero-media-veil {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(14,27,51,.72) 0%, rgba(14,27,51,.56) 45%, rgba(14,27,51,.94) 100%);
+    }
+    .hero-inner { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
+
+    .hero-top-inv {
+      font-size: 11.5px; font-weight: 500; letter-spacing: .12em; color: var(--champ);
+      margin: 0 0 4px;
+    }
+    .hero-wedding-of {
+      font-size: 10px; font-weight: 600; letter-spacing: .32em; text-transform: uppercase;
+      color: var(--roseL); margin: 0 0 18px;
+    }
+
+    .arches-row {
+      position: relative; width: 100%; max-width: 344px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      align-items: center; margin: 0 auto 20px;
+    }
+    .arch-divider {
+      position: absolute; left: 50%; top: 14%; bottom: 8%; width: 1.5px;
+      transform: translateX(-50%) scaleY(0); transform-origin: top center;
+      background: linear-gradient(180deg, transparent, var(--champ), transparent);
+      transition: transform .9s cubic-bezier(.22,1,.36,1) .45s;
+    }
+    .arches-row.go .arch-divider { transform: translateX(-50%) scaleY(1); }
+
+    .arch-frame {
+      position: relative; aspect-ratio: 3 / 4.25;
+      border-radius: 120px 120px 16px 16px;
+      border: 1.5px solid var(--rose);
+      padding: 5px;
+      background: linear-gradient(180deg, rgba(200,151,122,.22), rgba(14,27,51,.6));
+      box-shadow: 0 16px 34px rgba(4,9,22,.45);
+      opacity: 0;
+      transition: transform .85s cubic-bezier(.22,1,.36,1), opacity .75s ease;
+    }
+    .arch-frame.left { transform: translate3d(-44px, 0, 0); }
+    .arch-frame.right { transform: translate3d(44px, 0, 0); }
+    .arches-row.go .arch-frame { opacity: 1; transform: translate3d(0, 0, 0); }
+
+    .arch-window {
+      width: 100%; height: 100%; border-radius: 114px 114px 11px 11px;
+      overflow: hidden; background: var(--navy2); position: relative;
+    }
+    .arch-window img {
+      width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%;
+    }
+
+    .couple-name {
+      font-family: 'Cormorant Garamond', 'Noto Serif Oriya', 'Noto Sans Devanagari', Georgia, serif;
+      font-size: clamp(36px, 10.5vw, 48px); font-weight: 600; color: var(--ivory);
+      margin: 0; line-height: 1.12;
+    }
+    .couple-name .ch {
+      display: inline-block; opacity: 0; transform: translate3d(0, 12px, 0);
+      transition: opacity .45s ease, transform .45s cubic-bezier(.22,1,.36,1);
+    }
+    .couple-name.go .ch { opacity: 1; transform: translate3d(0, 0, 0); }
+
+    .weds-word {
+      font-family: 'Cormorant Garamond', 'Noto Serif Oriya', 'Noto Sans Devanagari', Georgia, serif;
+      font-style: italic; font-size: 21px; color: var(--roseL); margin: 2px 0;
+    }
+    .parents-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      width: 100%; max-width: 356px; margin: 14px auto 0;
+      padding-top: 12px; border-top: 1px solid var(--lineN);
+    }
+    .par-col small {
+      display: block; font-size: 9px; font-weight: 600; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--roseL); margin-bottom: 3px;
+    }
+    .par-col p { margin: 0; font-size: 11.5px; color: rgba(248,243,234,.86); line-height: 1.45; }
+
+    .hero-date-city {
+      margin-top: 16px; font-size: 11.5px; font-weight: 600; letter-spacing: .24em;
+      text-transform: uppercase; color: var(--champ);
+    }
+    .hero-city { font-size: 12px; color: rgba(248,243,234,.74); margin: 4px 0 0; }
+
+    .scroll-hint {
+      margin-top: 18px; display: flex; flex-direction: column; align-items: center; gap: 4px;
+      color: var(--roseL);
+    }
+    .scroll-hint span { font-size: 9px; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; }
+    .bob { animation: bob 1.9s ease-in-out infinite; }
+    @keyframes bob { 0%,100%{transform:translate3d(0,0,0)} 50%{transform:translate3d(0,6px,0)} }
+
+    /* 4. COUPLE BANNER & PRE-WEDDING VIDEO */
+    .banner-wrap {
+      position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden;
+      background: var(--navyD);
+    }
+    .banner-img {
+      width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%;
+      animation: kenBurns 18s ease-in-out infinite alternate; will-change: transform;
+    }
+    @keyframes kenBurns { from{transform:scale(1)} to{transform:scale(1.1)} }
+    .banner-grad {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(14,27,51,.2) 0%, rgba(14,27,51,.1) 45%, rgba(14,27,51,.94) 100%);
+    }
+    .banner-text {
+      position: absolute; left: 18px; right: 18px; bottom: 16px; text-align: center; z-index: 2;
+    }
+    .banner-quote {
+      font-family: 'Cormorant Garamond', 'Noto Serif Oriya', 'Noto Sans Devanagari', serif;
+      font-style: italic; font-size: 17px; color: var(--ivory); margin: 0; line-height: 1.5;
+    }
+
+    .video-card {
+      margin-top: 18px; border-radius: var(--rL); overflow: hidden;
+      border: 1px solid var(--line); background: #070d1a; box-shadow: var(--shN);
+    }
+    .video-card video { width: 100%; display: block; max-height: 290px; background: #000; }
+    .yt-frame-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+    .yt-frame-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .video-cap {
+      padding: 11px 14px; text-align: center; font-size: 13px; font-weight: 500;
+      color: var(--champ); border-top: 1px solid var(--lineN);
+    }
+
+    /* 5. OUR STORY VERTICAL TIMELINE */
+    .timeline {
+      position: relative; margin: 28px auto 0; max-width: 390px; padding: 6px 0;
+    }
+    .tl-track {
+      position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+      transform: translateX(-50%); background: rgba(200,151,122,.22);
+    }
+    .tl-fill {
+      position: absolute; left: 50%; top: 0; width: 2px; height: 0%;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, var(--rose), var(--navy2));
+      transition: height .25s ease-out;
+    }
+    .tl-item {
+      position: relative; display: grid; grid-template-columns: 1fr 28px 1fr;
+      align-items: center; margin-bottom: 28px;
+    }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      grid-column: 2; justify-self: center; width: 12px; height: 12px; border-radius: 50%;
+      background: var(--rose); border: 2.5px solid var(--ivory);
+      box-shadow: 0 0 0 3px rgba(200,151,122,.3); z-index: 2;
+    }
+    .tl-text { padding: 0 8px; }
+    .tl-year {
+      font-family: 'Cormorant Garamond', 'Noto Serif Oriya', serif;
+      font-size: 26px; font-weight: 700; color: var(--rose); line-height: 1;
+    }
+    .tl-cap { font-size: 12.5px; color: var(--ink); margin: 5px 0 0; line-height: 1.48; }
+    .tl-photo-box { padding: 0 8px; display: flex; justify-content: center; }
+    .tl-arch {
+      width: 112px; aspect-ratio: 3 / 3.8; border-radius: 60px 60px 10px 10px;
+      border: 1.5px solid var(--rose); padding: 3px; background: var(--card);
+      box-shadow: var(--shI); overflow: hidden;
+    }
+    .tl-arch img { width: 100%; height: 100%; object-fit: cover; border-radius: 56px 56px 7px 7px; }
+
+    /* 6. FLIP-CLOCK COUNTDOWN */
+    .flip-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px;
+      margin: 22px auto 0; max-width: 360px;
+    }
+    .flip-tile {
+      background: linear-gradient(180deg, #1e355e 0%, #142544 49%, #0f1d38 51%, #16294b 100%);
+      border: 1px solid var(--line); border-radius: 14px;
+      padding: 14px 4px 11px; text-align: center; position: relative;
+      box-shadow: 0 12px 26px rgba(3,8,20,.4);
+    }
+    .flip-tile::after {
+      content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+      background: rgba(8, 16, 33, 0.55);
+    }
+    .flip-num {
+      font-family: 'Cormorant Garamond', 'Noto Serif Oriya', serif;
+      font-size: 32px; font-weight: 700; color: var(--champ); line-height: 1;
+      display: block; transition: transform .24s ease;
+    }
+    .flip-num.tick { transform: scaleY(.82); }
+    .flip-lbl {
+      display: block; margin-top: 6px; font-size: 9px; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--roseL);
+    }
+    .cd-date-banner {
+      margin: 18px auto 0; text-align: center; font-family: 'Cormorant Garamond', 'Noto Serif Oriya', serif;
+      font-size: 20px; color: var(--ivory);
+    }
+    .cd-muhurat { font-size: 12px; color: var(--roseL); margin: 4px 0 16px; text-align: center; }
+
+    /* BUTTONS */
+    .btn {
+      min-height: 46px; padding: 0 20px; border-radius: 999px;
+      font-size: 11.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      transition: transform .15s ease, opacity .2s ease; white-space: nowrap;
+    }
+    .btn:active { transform: scale(.96); }
+    .btn-rose {
+      background: linear-gradient(135deg, #d7a88a, var(--rose) 60%, #a9785b);
+      color: #131c2e; box-shadow: 0 10px 24px rgba(200,151,122,.28);
+    }
+    .btn-navy {
+      background: linear-gradient(135deg, var(--navy2), var(--navy));
+      color: var(--ivory); box-shadow: 0 10px 24px rgba(14,27,51,.25);
+    }
+    .btn-outline-light {
+      border: 1.3px solid var(--rose); color: var(--champ); background: rgba(200,151,122,.08);
+    }
+    .btn-outline-dark {
+      border: 1.3px solid var(--line); color: var(--ink); background: var(--card);
+    }
+    .btn-sm { min-height: 38px; padding: 0 14px; font-size: 10.5px; letter-spacing: .12em; }
+    .btn-full { width: 100%; }
+
+    /* 7. EVENTS — TICKET-STYLE EVENT PASSES (SNAP CAROUSEL) */
+    .pass-stage {
+      position: relative; margin-top: 22px; overflow: visible; touch-action: pan-y; user-select: none;
+    }
+    .pass-track {
+      position: relative; width: 100%; height: 422px; perspective: 1050px;
+    }
+    .pass-card {
+      position: absolute; top: 0; left: 50%; width: 282px; margin-left: -141px;
+      background: var(--card); border: 1.4px solid var(--line); border-radius: 22px;
+      box-shadow: var(--shI); overflow: visible;
+      transition: transform .45s cubic-bezier(.22,1,.36,1), opacity .45s ease;
+      pointer-events: none;
+    }
+    .pass-card.pos-0 { z-index: 5; opacity: 1; transform: translate3d(0, 0, 0) scale(1); pointer-events: auto; }
+    .pass-card.pos-1 { z-index: 3; opacity: .52; transform: translate3d(78%, 12px, -80px) scale(.86); pointer-events: auto; cursor: pointer; }
+    .pass-card.pos-n1 { z-index: 3; opacity: .52; transform: translate3d(-78%, 12px, -80px) scale(.86); pointer-events: auto; cursor: pointer; }
+    .pass-card.pos-hide { z-index: 1; opacity: 0; transform: translate3d(0, 18px, -160px) scale(.75); }
+
+    .pass-top { padding: 18px 18px 14px; text-align: center; }
+    .pass-ico {
+      width: 50px; height: 50px; border-radius: 50%; margin: 0 auto 10px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(14,27,51,.06); border: 1.4px solid var(--rose);
+    }
+    .pass-thumb {
+      width: 100%; height: 92px; border-radius: 14px; object-fit: cover; margin-bottom: 10px;
+    }
+    .pass-name {
+      font-family: 'Cormorant Garamond', 'Noto Serif Oriya', 'Noto Sans Devanagari', serif;
+      font-size: 25px; font-weight: 700; color: var(--ink); margin: 0; line-height: 1.25;
+    }
+    .pass-dt {
+      font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--rose); margin: 6px 0 4px;
+    }
+    .pass-venue { font-size: 12.5px; color: var(--muted); margin: 0; min-height: 2.8em; line-height: 1.4; }
+
+    /* Ticket Notches & Dotted Tear Line */
+    .pass-tear {
+      position: relative; height: 22px; display: flex; align-items: center;
+    }
+    .pass-tear::before, .pass-tear::after {
+      content: ""; position: absolute; top: 50%; width: 22px; height: 22px; border-radius: 50%;
+      background: #f5ede1; border: 1.4px solid var(--line); transform: translateY(-50%);
+    }
+    .pass-tear::before { left: -12px; clip-path: inset(0 0 0 50%); }
+    .pass-tear::after { right: -12px; clip-path: inset(0 50% 0 0); }
+    .pass-tear i {
+      display: block; width: calc(100% - 28px); margin: 0 auto;
+      border-top: 1.5px dashed rgba(200,151,122,.55);
+    }
+
+    .pass-bot { padding: 8px 16px 16px; }
+    .dress-box {
+      display: flex; align-items: center; gap: 10px; padding: 9px 12px;
+      border-radius: 13px; background: var(--ivory); border: 1px solid rgba(200,151,122,.28);
+      margin-bottom: 11px;
+    }
+    .dress-sw {
+      width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+      border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.15);
+    }
+    .dress-box small { display: block; font-size: 8.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--rose); }
+    .dress-box span { display: block; font-size: 12px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+    .pass-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+    .pass-mini-btn {
+      min-height: 36px; border-radius: 10px; border: 1px solid var(--line);
+      background: var(--ivory); color: var(--ink); font-size: 10.5px; font-weight: 600;
+      display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+    }
+
+    .car-nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 14px; }
+    .car-arrow {
+      width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line);
+      background: var(--card); color: var(--ink); font-size: 20px;
+      display: inline-flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 12px rgba(14,27,51,.08);
+    }
+    .car-dots { display: flex; align-items: center; gap: 6px; }
+    .car-dot { width: 7px; height: 7px; border-radius: 999px; background: rgba(14,27,51,.2); transition: all .22s ease; }
+    .car-dot.on { width: 22px; background: var(--rose); }
+
+    /* 8. SWIPE-DECK PHOTO GALLERY */
+    .deck-stage {
+      position: relative; width: 274px; height: 356px; margin: 24px auto 0;
+      touch-action: pan-y; user-select: none;
+    }
+    .deck-card {
+      position: absolute; inset: 0; border-radius: 22px; overflow: hidden;
+      background: var(--navy2); border: 1.5px solid var(--rose);
+      box-shadow: var(--shN); will-change: transform, opacity;
+      transition: transform .42s cubic-bezier(.22,1,.36,1), opacity .38s ease;
+    }
+    .deck-card img { width: 100%; height: 100%; object-fit: cover; }
+    .deck-cap-bar {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 14px 14px;
+      background: linear-gradient(180deg, transparent, rgba(8,16,33,.92));
+      color: var(--ivory); text-align: center;
+    }
+    .deck-cap-bar p { margin: 0; font-family: 'Cormorant Garamond', 'Noto Serif Oriya', serif; font-size: 16px; }
+    .deck-meta-row {
+      display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 16px;
+    }
+    .deck-count { font-size: 12px; font-weight: 600; letter-spacing: .16em; color: var(--champ); }
+
+    /* Lightbox */
+    #lightbox {
+      position: fixed; inset: 0; z-index: 150; background: rgba(6,11,24,.94);
+      display: none; flex-direction: column; align-items: center; justify-content: center; padding: 20px;
+    }
+    #lightbox.open { display: flex; }
+    #lb-img { max-width: 96vw; max-height: 76vh; border-radius: 16px; border: 1px solid var(--rose); }
+    #lb-cap { margin-top: 12px; color: var(--champ); text-align: center; font-size: 15px; max-width: 360px; }
+    #lb-close {
+      position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: 16px;
+      width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,.12);
+      border: 1px solid var(--rose); color: var(--ivory); font-size: 18px;
+    }
+
+    /* GRAND RECEPTION CARD */
+    .rec-card {
+      position: relative; border-radius: 24px; padding: 32px 22px; text-align: center;
+      background: linear-gradient(155deg, #1d3560 0%, var(--navy) 55%, var(--navyD) 100%);
+      border: 1.4px solid var(--rose); box-shadow: var(--shN); overflow: hidden;
+    }
+    .rec-card::before {
+      content: ""; position: absolute; inset: 9px; border: 1px solid rgba(232,211,176,.26);
+      border-radius: 17px; pointer-events: none;
+    }
+    .rec-title { font-family: 'Cormorant Garamond', 'Noto Serif Oriya', serif; font-size: 31px; color: var(--ivory); margin: 8px 0 4px; }
+    .rec-sub { font-size: 14px; color: var(--champ); margin: 0 0 14px; }
+    .rec-date { font-family: 'Cormorant Garamond', 'Noto Serif Oriya', serif; font-size: 22px; color: var(--ivory); margin: 12px 0 6px; }
+    .rec-meta { font-size: 13px; color: rgba(248,243,234,.82); margin: 4px 0; }
+    .rec-dress {
+      display: inline-block; margin-top: 14px; padding: 7px 16px; border-radius: 999px;
+      border: 1px solid var(--rose); color: var(--champ); font-size: 10px;
+      font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+    }
+
+    /* 9. VENUE & ILLUSTRATED MAP */
+    .map-card {
+      position: relative; display: block; border-radius: 22px; overflow: hidden;
+      border: 1.4px solid var(--line); background: var(--card); box-shadow: var(--shI);
+      margin-top: 18px;
+    }
+    .map-svg { width: 100%; height: 196px; display: block; }
+    .route-dash { stroke: var(--navy); stroke-width: 3; stroke-dasharray: 6 6; fill: none; animation: dashRun 16s linear infinite; }
+    @keyframes dashRun { to { stroke-dashoffset: -140; } }
+    .pin-bounce { animation: pinJump 2s ease-in-out infinite; transform-origin: 312px 72px; }
+    @keyframes pinJump { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    .map-badge {
+      position: absolute; left: 12px; bottom: 12px; max-width: 74%;
+      background: rgba(255,253,249,.95); border: 1px solid var(--line);
+      border-radius: 13px; padding: 8px 12px; text-align: left;
+    }
+    .map-badge b { display: block; font-family: 'Cormorant Garamond', 'Noto Serif Oriya', serif; font-size: 15px; color: var(--ink); }
+    .map-badge span { font-size: 10.5px; color: var(--muted); }
+    .venue-name { font-family: 'Cormorant Garamond', 'Noto Serif Oriya', serif; font-size: 24px; font-weight: 700; text-align: center; color: var(--ink); margin: 16px 0 4px; }
+    .venue-addr { font-size: 13px; color: var(--muted); text-align: center; margin: 0 auto 18px; max-width: 320px; }
+    .btn-stack { display: flex; flex-direction: column; gap: 10px; max-width: 280px; margin: 0 auto; }
+
+    /* 10. RSVP — IVORY CARD ON NAVY SECTION */
+    .rsvp-card {
+      background: var(--ivory); color: var(--ink); border-radius: 26px;
+      border: 1.5px solid var(--rose); padding: 24px 18px; margin-top: 20px;
+      box-shadow: var(--shN);
+    }
+    .seg-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; padding: 4px;
+      border-radius: 999px; background: var(--ivory2); border: 1px solid var(--line);
+      margin-bottom: 18px;
+    }
+    .seg-btn {
+      min-height: 44px; border-radius: 999px; font-size: 12.5px; font-weight: 600;
+      color: var(--muted); transition: all .2s ease;
+    }
+    .seg-btn.on { background: var(--navy); color: var(--ivory); box-shadow: 0 6px 14px rgba(14,27,51,.22); }
+
+    .f-grp { margin-bottom: 15px; text-align: left; }
+    .f-lbl {
+      display: block; font-size: 10px; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--rose); margin-bottom: 6px;
+    }
+    .f-in, .f-ta {
+      width: 100%; min-height: 44px; padding: 10px 12px; border-radius: 12px;
+      border: 1.25px solid var(--line); background: var(--card); color: var(--ink);
+      font-size: 14px; outline: none;
+    }
+    .f-in:focus, .f-ta:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(14,27,51,.09); }
+    .f-ta { min-height: 80px; resize: vertical; }
+
+    .stepper {
+      display: inline-flex; align-items: center; gap: 14px; padding: 5px 10px;
+      border-radius: 999px; background: var(--card); border: 1.25px solid var(--line);
+    }
+    .step-btn {
+      width: 34px; height: 34px; border-radius: 50%; background: var(--ivory2);
+      color: var(--ink); font-size: 18px; font-weight: 700;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .step-val { min-width: 24px; text-align: center; font-weight: 700; font-size: 15px; }
+
+    .meal-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .meal-chip {
+      min-height: 40px; padding: 0 16px; border-radius: 999px;
+      background: var(--ivory2); border: 1.2px solid var(--line);
+      font-size: 12.5px; font-weight: 600; color: var(--ink); transition: all .18s ease;
+    }
+    .meal-chip.on { background: var(--navy); color: var(--ivory); border-color: var(--navy); }
+
+    .rsvp-done { text-align: center; padding: 14px 4px; }
+    .rsvp-check {
+      width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 12px;
+      background: var(--navy); color: var(--champ); border: 1.5px solid var(--rose);
+      font-size: 24px; display: flex; align-items: center; justify-content: center;
+    }
+
+    /* 11. BLESSINGS, CLOSING & STUDIO FOOTER */
+    .closing-sec { text-align: center; padding: 40px 20px 26px; }
+    .emblem-circle {
+      width: 58px; height: 58px; border-radius: 50%; margin: 0 auto 14px;
+      border: 1.4px solid var(--rose); background: rgba(200,151,122,.1);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .closing-msg {
+      font-family: 'Cormorant Garamond', 'Noto Serif Oriya', 'Noto Sans Devanagari', serif;
+      font-size: 25px; color: var(--ivory); margin: 0 auto 8px; max-width: 320px; line-height: 1.4;
+    }
+    .closing-fam { font-size: 14px; font-weight: 500; color: var(--champ); margin: 0 0 16px; }
+    .closing-mono {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--lineN);
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px;
+      color: var(--roseL); margin-top: 14px;
+    }
+
+    .studio-foot { text-align: center; padding: 14px 18px 24px; }
+    .foot-div { display: flex; align-items: center; justify-content: center; gap: 10px; max-width: 240px; margin: 0 auto 16px; }
+    .foot-div i { height: 1px; flex: 1; background: linear-gradient(90deg, transparent, var(--rose), transparent); }
+    .foot-k { font-size: 9.5px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: var(--roseL); margin: 0; }
+    .foot-name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 25px; font-weight: 700; color: var(--ivory); margin: 4px 0 0; }
+    .foot-tag { font-size: 12px; color: rgba(248,243,234,.72); margin: 4px 0 0; }
+    .foot-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 14px; }
+    .foot-pill {
+      display: inline-flex; align-items: center; gap: 7px; min-height: 40px; padding: 0 16px;
+      border-radius: 999px; background: rgba(255,255,255,.07); border: 1px solid var(--line);
+      color: var(--champ); font-size: 12px; font-weight: 600;
+    }
+
+    /* 12. SLIM FLOATING BOTTOM NAV + AUDIO FAB + MOTION TOGGLE */
+    .bottom-nav {
+      position: fixed; left: 50%; bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+      transform: translateX(-50%) translateY(90px); opacity: 0; pointer-events: none;
+      z-index: 60; width: min(360px, calc(100% - 28px));
+      background: rgba(10, 20, 40, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--line); border-radius: 999px; padding: 5px;
+      display: flex; align-items: center; justify-content: space-around; gap: 2px;
+      box-shadow: 0 14px 32px rgba(4,9,22,.48);
+      transition: transform .35s cubic-bezier(.22,1,.36,1), opacity .35s ease;
+    }
+    .bottom-nav.show { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
+    .bnav-btn {
+      min-height: 38px; padding: 0 12px; border-radius: 999px;
+      font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+      color: rgba(248,243,234,.72); transition: all .2s ease;
+    }
+    .bnav-btn.on { background: var(--rose); color: #121c30; }
+
+    #audio-fab {
+      position: fixed; right: max(14px, calc(50% - 206px));
+      top: calc(14px + env(safe-area-inset-top, 0px)); z-index: 70;
+      min-width: 44px; height: 44px; padding: 0 12px; border-radius: 999px;
+      background: rgba(14,27,51,.9); border: 1.3px solid var(--rose); color: var(--champ);
+      box-shadow: 0 8px 22px rgba(4,9,22,.42);
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    }
+    .eq { display: inline-flex; align-items: flex-end; gap: 3px; height: 15px; }
+    .eq b { width: 2.8px; border-radius: 99px; background: var(--champ); height: 5px; }
+    .eq.play b:nth-child(1) { animation: eqB .8s ease-in-out infinite; }
+    .eq.play b:nth-child(2) { animation: eqB .65s ease-in-out infinite .15s; }
+    .eq.play b:nth-child(3) { animation: eqB .9s ease-in-out infinite .3s; }
+    @keyframes eqB { 0%,100%{height:5px} 50%{height:15px} }
+
+    #motion-btn {
+      position: fixed; left: max(14px, calc(50% - 206px));
+      top: calc(14px + env(safe-area-inset-top, 0px)); z-index: 70;
+      height: 34px; padding: 0 10px; border-radius: 999px;
+      background: rgba(14,27,51,.82); border: 1px solid var(--lineN);
+      color: rgba(248,243,234,.72); font-size: 10px; font-weight: 600;
+    }
+
+    #toast {
+      position: fixed; left: 50%; bottom: calc(74px + env(safe-area-inset-bottom, 0px));
+      transform: translate(-50%, 16px); z-index: 160;
+      background: var(--navy2); color: var(--ivory); border: 1px solid var(--rose);
+      border-radius: 999px; padding: 10px 18px; font-size: 12.5px; font-weight: 600;
+      opacity: 0; pointer-events: none; max-width: calc(100% - 32px); text-align: center;
+      transition: opacity .24s ease, transform .24s ease;
+    }
+    #toast.show { opacity: 1; transform: translate(-50%, 0); }
+  </style>
+</head>
+<body>
+  <canvas id="dust-canvas" aria-hidden="true"></canvas>
+
+  <!-- 1. LOADER -->
+  <div id="preloader" aria-live="polite">
+    <div class="pl-ring">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" stroke="rgba(200,151,122,0.22)" stroke-width="1.6" />
+        <path d="M50 4 A46 46 0 0 1 96 50" stroke="#C8977A" stroke-width="2.2" stroke-linecap="round" />
+      </svg>
+      <span id="pl-mono" class="pl-mono">A&amp;A</span>
+    </div>
+    <span id="pl-kicker" class="pl-k">MIDNIGHT ROYALE</span>
+    <span id="pl-sub" class="pl-s">Preparing your wedding invitation...</span>
+  </div>
+
+  <!-- PAUSED OVERLAY -->
+  <div id="paused-screen" role="status">
+    <div class="paused-card">
+      <p id="paused-kicker" class="kicker">TEMPORARILY PAUSED</p>
+      <h2 id="paused-title" class="sec-h" style="color:var(--ivory); font-size:25px;">Invitation Currently Unavailable</h2>
+      <p id="paused-sub" class="sec-sub" style="color:rgba(248,243,234,.75); margin-top:10px;">This digital invitation is temporarily paused by the host family.</p>
+    </div>
+  </div>
+
+  <!-- 2. WAX-SEAL ENVELOPE OVERLAY -->
+  <div id="envelope-overlay" role="dialog" aria-label="Wedding Invitation Envelope">
+    <canvas id="burst-canvas" aria-hidden="true"></canvas>
+    <p id="env-guest" class="env-guest">Dear Guest,</p>
+    <p id="env-invited" class="env-invited">YOU ARE INVITED</p>
+
+    <div id="env-stage" class="env-stage" role="button" tabindex="0" aria-label="Tap the wax seal to open">
+      <div class="env-body">
+        <div class="env-card-slip">
+          <small id="slip-kicker" style="font-size:9px; letter-spacing:.22em; color:#C8977A; text-transform:uppercase; font-weight:700;">THE WEDDING OF</small>
+          <div id="slip-names" class="serif" style="font-size:22px; font-weight:700; color:#0E1B33; margin:4px 0;">Aarav &amp; Ananya</div>
+          <small id="slip-date" style="font-size:10px; letter-spacing:.18em; color:#656E7E;">12 FEBRUARY 2027</small>
+        </div>
+        <div class="env-pocket"></div>
+        <svg class="env-lines" viewBox="0 0 310 204" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M 2 2 L 155 112 L 308 2" fill="none" stroke="rgba(226,186,160,0.68)" stroke-width="1.3" />
+          <path d="M 2 202 L 122 118 M 308 202 L 188 118" fill="none" stroke="rgba(226,186,160,0.34)" stroke-width="1.1" />
+        </svg>
+        <div class="env-flap"><div class="env-flap-face"></div></div>
+        <div class="wax-seal"><span id="wax-mono" class="wax-mono">A&amp;A</span></div>
+      </div>
+    </div>
+
+    <div id="seal-cue" class="seal-cue" role="button" tabindex="0">
+      <div class="seal-ring"><div class="seal-dot"></div></div>
+      <span id="seal-lbl" class="seal-lbl">TAP THE SEAL</span>
+    </div>
+  </div>
+
+  <!-- FLOATING TOP CONTROLS -->
+  <button type="button" id="motion-btn" aria-label="Toggle animations" title="Reduce Motion">✦ Motion</button>
+  <button type="button" id="audio-fab" class="hidden" aria-label="Toggle wedding music">
+    <span class="eq" id="audio-eq"><b></b><b></b><b></b></span>
+    <span id="audio-fab-txt" class="hidden" style="font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;">Our Song</span>
+  </button>
+  <audio id="bg-audio" loop preload="none" playsinline></audio>
+
+  <!-- MAIN 440px MOBILE SHELL -->
+  <main class="app-shell" id="app-shell">
+
+    <!-- 3. THE UNION (TWO-ARCH PORTRAIT REVEAL + OPTIONAL HERO VIDEO) -->
+    <section id="sec-hero" class="hero-sec">
+      <div id="hero-media-bg" class="hero-media-bg hidden">
+        <video id="hero-bg-video" autoplay loop muted playsinline class="hidden"></video>
+        <img id="hero-bg-img" alt="" class="hidden" />
+        <div class="hero-media-veil"></div>
+      </div>
+
+      <div class="hero-inner">
+        <p id="hero-top-line" class="hero-top-inv">॥ ଶ୍ରୀ ଗଣେଶାୟ ନମଃ ॥</p>
+        <p id="lbl-wedding-of" class="hero-wedding-of">THE WEDDING OF</p>
+
+        <div id="arches-row" class="arches-row">
+          <div class="arch-frame left">
+            <div class="arch-window"><img id="groom-arch-img" alt="Groom portrait" /></div>
+          </div>
+          <div class="arch-divider"></div>
+          <div class="arch-frame right">
+            <div class="arch-window"><img id="bride-arch-img" alt="Bride portrait" /></div>
+          </div>
+        </div>
+
+        <h1 id="hero-groom" class="couple-name">Aarav</h1>
+        <p id="lbl-weds" class="weds-word">weds</p>
+        <h2 id="hero-bride" class="couple-name">Ananya</h2>
+
+        <div id="parents-grid" class="parents-grid">
+          <div class="par-col">
+            <small id="lbl-son-of">SON OF</small>
+            <p id="hero-groom-parents"></p>
+          </div>
+          <div class="par-col">
+            <small id="lbl-daughter-of">DAUGHTER OF</small>
+            <p id="hero-bride-parents"></p>
+          </div>
+        </div>
+
+        <div id="hero-date-city" class="hero-date-city">12 FEBRUARY 2027</div>
+        <p id="hero-city" class="hero-city">Mayfair Lagoon, Bhubaneswar</p>
+
+        <div class="scroll-hint" aria-hidden="true">
+          <span id="lbl-scroll">SCROLL</span>
+          <svg class="bob" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/><polyline points="6 14 12 20 18 14"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. COUPLE HERO BANNER + PRE-WEDDING VIDEO -->
+    <section id="sec-banner" class="sec-navy rv" style="padding: 0 0 26px;">
+      <div id="banner-photo-wrap" class="banner-wrap">
+        <img id="banner-img" class="banner-img" alt="Couple banner" />
+        <div class="banner-grad"></div>
+        <div class="banner-text">
+          <p id="banner-quote" class="banner-quote"></p>
+        </div>
+      </div>
+
+      <div id="sec-video" class="hidden" style="padding: 28px 20px 6px;">
+        <p id="lbl-vid-k" class="kicker">WEDDING FILM</p>
+        <h2 id="lbl-vid-h" class="sec-h">Our Special Teaser</h2>
+        <div class="video-card">
+          <video id="main-mp4-video" controls playsinline preload="metadata" class="hidden"></video>
+          <div id="main-yt-wrap" class="yt-frame-wrap hidden">
+            <iframe id="main-yt-iframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Wedding Video"></iframe>
+          </div>
+          <div id="main-video-title" class="video-cap hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="blend-n-to-i" id="blend-story-top"></div>
+
+    <!-- 5. OUR STORY VERTICAL TIMELINE (IVORY) -->
+    <section id="sec-story" class="sec sec-ivory rv">
+      <p id="lbl-story-k" class="kicker">OUR JOURNEY</p>
+      <h2 id="lbl-story-h" class="sec-h">Our Story</h2>
+      <p id="lbl-story-sub" class="sec-sub">Moments that brought us together</p>
+
+      <div id="timeline-wrap" class="timeline">
+        <div class="tl-track"></div>
+        <div id="tl-fill" class="tl-fill"></div>
+        <div id="timeline-items"></div>
+      </div>
+    </section>
+
+    <div class="blend-i-to-n" id="blend-cd-top"></div>
+
+    <!-- 6. FLIP-CLOCK COUNTDOWN (NAVY) -->
+    <section id="sec-countdown" class="sec sec-navy rv">
+      <p id="lbl-cd-k" class="kicker">SAVE THE DATE</p>
+      <h2 id="lbl-cd-h" class="sec-h">Counting Down</h2>
+
+      <div id="flip-clock-wrap" class="flip-grid" aria-live="polite">
+        <div class="flip-tile"><span id="cd-d" class="flip-num">00</span><span id="u-d" class="flip-lbl">DAYS</span></div>
+        <div class="flip-tile"><span id="cd-h" class="flip-num">00</span><span id="u-h" class="flip-lbl">HRS</span></div>
+        <div class="flip-tile"><span id="cd-m" class="flip-num">00</span><span id="u-m" class="flip-lbl">MIN</span></div>
+        <div class="flip-tile"><span id="cd-s" class="flip-num">00</span><span id="u-s" class="flip-lbl">SEC</span></div>
+      </div>
+
+      <p id="cd-date-txt" class="cd-date-banner">Friday, 12 February 2027</p>
+      <p id="cd-muhurat-txt" class="cd-muhurat">Muhurat • 10:30 PM</p>
+
+      <div style="text-align:center;">
+        <button type="button" id="btn-calendar" class="btn btn-outline-light">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span id="lbl-add-cal">Add to Calendar</span>
+        </button>
+      </div>
+    </section>
+
+    <div class="blend-n-to-i" id="blend-ev-top"></div>
+
+    <!-- 7. TICKET-STYLE EVENT PASSES (IVORY) -->
+    <section id="sec-events" class="sec sec-ivory rv">
+      <p id="lbl-ev-k" class="kicker">THE CELEBRATIONS</p>
+      <h2 id="lbl-ev-h" class="sec-h">Wedding Events</h2>
+      <p id="lbl-ev-sub" class="sec-sub">Swipe through each pass for timing &amp; dress code</p>
+
+      <div id="pass-stage" class="pass-stage">
+        <div id="pass-track" class="pass-track"></div>
+        <div class="car-nav">
+          <button type="button" id="ev-prev" class="car-arrow" aria-label="Previous event">‹</button>
+          <div id="ev-dots" class="car-dots"></div>
+          <button type="button" id="ev-next" class="car-arrow" aria-label="Next event">›</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="blend-i-to-n" id="blend-gal-top"></div>
+
+    <!-- 8. SWIPE-DECK PHOTO GALLERY & GRAND RECEPTION (NAVY) -->
+    <section id="sec-gallery" class="sec sec-navy rv">
+      <p id="lbl-gal-k" class="kicker">CAPTURED MOMENTS</p>
+      <h2 id="lbl-gal-h" class="sec-h">Photo Gallery</h2>
+      <p id="lbl-gal-sub" class="sec-sub">Flick a card away or tap to view full screen</p>
+
+      <div id="deck-stage" class="deck-stage"></div>
+      <div class="deck-meta-row">
+        <button type="button" id="deck-prev" class="btn btn-outline-light btn-sm" aria-label="Previous photo">‹</button>
+        <span id="deck-count" class="deck-count">1 / 3</span>
+        <button type="button" id="deck-next" class="btn btn-outline-light btn-sm" aria-label="Next photo">›</button>
+      </div>
+    </section>
+
+    <section id="sec-reception" class="sec sec-navy rv" style="padding-top:10px;">
+      <div class="rec-card">
+        <p id="lbl-rec-k" class="kicker">YOU ARE INVITED TO THE</p>
+        <h2 id="rec-title" class="rec-title">Grand Reception</h2>
+        <p id="rec-sub" class="rec-sub"></p>
+        <p id="rec-date" class="rec-date"></p>
+        <p id="rec-time" class="rec-meta"></p>
+        <p id="rec-venue" class="rec-meta"></p>
+        <span id="rec-dress" class="rec-dress"></span>
+      </div>
+    </section>
+
+    <div class="blend-n-to-i" id="blend-ven-top"></div>
+
+    <!-- 9. VENUE & ILLUSTRATED MAP (IVORY) -->
+    <section id="sec-venue" class="sec sec-ivory rv">
+      <p id="lbl-loc-k" class="kicker">THE VENUE</p>
+      <h2 id="lbl-loc-h" class="sec-h">How to Reach</h2>
+
+      <a id="map-link-card" class="map-card" href="#" target="_blank" rel="noopener noreferrer">
+        <svg class="map-svg" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="200" fill="#F3EADB"/>
+          <rect x="16" y="14" width="112" height="62" rx="18" fill="#DFEAD9"/>
+          <rect x="280" y="114" width="106" height="72" rx="18" fill="#DFEAD9"/>
+          <ellipse cx="235" cy="76" rx="58" ry="28" fill="#D2E4E9" stroke="#B7D2DB" stroke-width="1.5"/>
+          <path d="M-10 155 Q 130 112 260 135 L 410 88" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round" fill="none"/>
+          <path d="M95 -10 Q 130 90 150 210 M290 -10 Q 308 90 278 210" stroke="#FFFFFF" stroke-width="8" fill="none"/>
+          <path class="route-dash" d="M 65 148 Q 150 112, 222 126 T 312 72"/>
+          <circle cx="65" cy="148" r="5" fill="#C8977A" stroke="#fff" stroke-width="2"/>
+          <g class="pin-bounce">
+            <path d="M312 42c-9.5 0-17 7.4-17 16.8 0 12.2 17 27.2 17 27.2s17-15 17-27.2c0-9.4-7.5-16.8-17-16.8z" fill="#0E1B33" stroke="#F8F3EA" stroke-width="2.2"/>
+            <circle cx="312" cy="58" r="5.5" fill="#E8D3B0"/>
+          </g>
+        </svg>
+        <div class="map-badge">
+          <b id="map-badge-name">Mayfair Lagoon</b>
+          <span id="lbl-tap-maps">Tap to open in Google Maps</span>
+        </div>
+      </a>
+
+      <h3 id="venue-name-txt" class="venue-name">Mayfair Lagoon, Bhubaneswar</h3>
+      <p id="venue-addr-txt" class="venue-addr"></p>
+
+      <div class="btn-stack">
+        <a id="btn-directions" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-navy">
+          <span id="lbl-directions">Get Directions</span>
+        </a>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <button type="button" id="btn-copy-addr" class="btn btn-outline-dark btn-sm"><span id="lbl-copy-addr">Copy Address</span></button>
+          <button type="button" id="btn-share-loc" class="btn btn-outline-dark btn-sm"><span id="lbl-share-loc">Share Map</span></button>
+        </div>
+      </div>
+    </section>
+
+    <div class="blend-i-to-n" id="blend-rsvp-top"></div>
+
+    <!-- 10. RSVP SECTION (IVORY CARD ON NAVY) -->
+    <section id="sec-rsvp" class="sec sec-navy rv">
+      <p id="lbl-rsvp-k" class="kicker">KINDLY RESPOND</p>
+      <h2 id="lbl-rsvp-h" class="sec-h">Will you join us?</h2>
+
+      <div class="rsvp-card">
+        <form id="rsvp-form" novalidate>
+          <div class="seg-wrap">
+            <button type="button" id="att-yes" class="seg-btn on">Accept</button>
+            <button type="button" id="att-no" class="seg-btn">Decline</button>
+          </div>
+
+          <div class="f-grp">
+            <label for="rsvp-name" id="lbl-rsvp-name" class="f-lbl">YOUR NAME</label>
+            <input id="rsvp-name" class="f-in" type="text" required placeholder="e.g. Sharma Family" autocomplete="name" />
+          </div>
+
+          <div class="f-grp">
+            <label for="rsvp-phone" id="lbl-rsvp-phone" class="f-lbl">PHONE NUMBER (OPTIONAL)</label>
+            <input id="rsvp-phone" class="f-in" type="tel" placeholder="+91 98765 43210" autocomplete="tel" />
+          </div>
+
+          <div id="rsvp-yes-fields">
+            <div class="f-grp">
+              <span id="lbl-rsvp-cnt" class="f-lbl">GUESTS</span>
+              <div class="stepper">
+                <button type="button" id="cnt-minus" class="step-btn" aria-label="Decrease guests">−</button>
+                <span id="cnt-val" class="step-val">2</span>
+                <button type="button" id="cnt-plus" class="step-btn" aria-label="Increase guests">+</button>
+              </div>
+            </div>
+
+            <div class="f-grp">
+              <span id="lbl-rsvp-meal" class="f-lbl">MEAL PREFERENCE</span>
+              <div class="meal-row" id="meal-row">
+                <button type="button" class="meal-chip on" data-meal="Veg">Veg</button>
+                <button type="button" class="meal-chip" data-meal="Non-veg">Non-veg</button>
+                <button type="button" class="meal-chip" data-meal="Jain">Jain</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="f-grp">
+            <label for="rsvp-msg" id="lbl-rsvp-msg" class="f-lbl">BLESSING MESSAGE (OPTIONAL)</label>
+            <textarea id="rsvp-msg" class="f-ta" placeholder="Wishing you a lifetime of love & joy..."></textarea>
+          </div>
+
+          <button type="submit" id="btn-rsvp-submit" class="btn btn-rose btn-full">CONFIRM RSVP</button>
+        </form>
+
+        <div id="rsvp-done" class="rsvp-done hidden">
+          <div class="rsvp-check">✓</div>
+          <h3 id="rsvp-done-h" class="serif" style="font-size:26px; color:var(--ink); margin:0 0 6px;">Thank You!</h3>
+          <p id="rsvp-done-p" style="font-size:13px; color:var(--muted); margin:0 auto 16px; max-width:270px;">Your response has been saved for the family.</p>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <button type="button" id="btn-rsvp-wa" class="btn btn-rose btn-full hidden">SEND ON WHATSAPP</button>
+            <button type="button" id="btn-rsvp-again" class="btn btn-outline-dark btn-sm">Update Response</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. BLESSINGS, CLOSING & STUDIO FOOTER -->
+    <section id="sec-closing" class="sec-navy closing-sec rv">
+      <div class="emblem-circle">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="#E8D3B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 10c-4 0-7 3-7 6 0 2 1 4 3 5-5 1-9 6-9 12 0 5 3 9 7 11-1 3 1 7 5 8 4 1 8-1 8-5 0-2-2-4-4-4s-3 1-3 3"/><path d="M32 10c4 0 7 3 7 6 0 2-1 4-3 5 5 1 9 6 9 12 0 4-2 8-6 10"/><path d="M22 25c-4-2-9 0-10 5-1 4 2 8 6 8"/><path d="M42 25c4-2 9 0 10 5 1 4-2 8-6 8"/></svg>
+      </div>
+      <h2 id="closing-msg" class="closing-msg">We can't wait to celebrate with you</h2>
+      <p id="closing-fam" class="closing-fam"></p>
+      <button type="button" id="btn-share-invite" class="btn btn-outline-light btn-sm">
+        <span id="lbl-share-inv">Share This Invite</span>
+      </button>
+      <div><span id="closing-mono" class="closing-mono">A&amp;A</span></div>
+    </section>
+
+    <footer id="sec-footer" class="sec-navy studio-foot rv">
+      <div class="foot-div"><i></i><span style="color:var(--rose);">✦</span><i></i></div>
+      <p id="foot-label" class="foot-k">CRAFTED &amp; DESIGNED BY</p>
+      <p id="foot-company" class="foot-name">Ak ⭐ Studio</p>
+      <p id="foot-tagline" class="foot-tag hidden"></p>
+      <div id="foot-links" class="foot-pills"></div>
+    </footer>
+  </main>
+
+  <!-- 12. SLIM FLOATING BOTTOM NAVIGATION -->
+  <nav id="bottom-nav" class="bottom-nav" aria-label="Section Navigation">
+    <button type="button" class="bnav-btn" data-jump="sec-story" id="nav-story">Story</button>
+    <button type="button" class="bnav-btn" data-jump="sec-events" id="nav-events">Events</button>
+    <button type="button" class="bnav-btn" data-jump="sec-venue" id="nav-venue">Venue</button>
+    <button type="button" class="bnav-btn" data-jump="sec-rsvp" id="nav-rsvp">RSVP</button>
+  </nav>
+
+  <!-- FULLSCREEN GALLERY LIGHTBOX -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Full screen photo">
+    <button type="button" id="lb-close" aria-label="Close">✕</button>
+    <img id="lb-img" alt="Gallery photo" />
+    <p id="lb-cap" class="serif"></p>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" defer>
+    'use strict';
+
+    const $ = (id) => document.getElementById(id);
+    const ODIA_DIGITS = ['୦','୧','୨','୩','୪','୫','୬','୭','୮','୯'];
+    const HI_DIGITS = ['०','१','२','३','४','५','६','७','८','९'];
+    const toOdiaNum = (v) => String(v).replace(/\d/g, (d) => ODIA_DIGITS[Number(d)]);
+    const toLatinNum = (v) => String(v)
+      .replace(/[୦-୯]/g, (d) => String(ODIA_DIGITS.indexOf(d)))
+      .replace(/[०-९]/g, (d) => String(HI_DIGITS.indexOf(d)));
+    const esc = (s) => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+    /* =========================================================================
+       1. STRICT 4-LANGUAGE LOCALIZATION PACK
+       ========================================================================= */
+    const LANG_PACKS = {
+      'odia-en': {
+        htmlLang: 'or', plK: 'SHUBH VIVAAH', plS: 'Preparing your royal invitation...',
+        pausedK: 'TEMPORARILY PAUSED', pausedH: 'Invitation Currently Unavailable', pausedP: 'This digital invitation is temporarily paused by the host family.',
+        dear: 'Dear', guestFallback: 'Guest', youInvited: 'YOU ARE INVITED', tapSeal: 'TAP THE SEAL',
+        weddingOf: 'THE WEDDING OF', weds: 'weds', joiner: '&', sonOf: 'SON OF', daughterOf: 'DAUGHTER OF', scroll: 'SCROLL',
+        vidK: 'WEDDING FILM', vidH: 'Our Special Teaser',
+        storyK: 'OUR JOURNEY', storyH: 'Our Story', storySub: 'Moments that brought us together',
+        cdK: 'SAVE THE DATE', cdH: 'Counting Down', days: 'DAYS', hrs: 'HRS', min: 'MIN', sec: 'SEC', addCal: 'Add to Calendar',
+        evK: 'THE CELEBRATIONS', evH: 'Wedding Events', evSub: 'Swipe through each pass for timing & dress code', dressCode: 'DRESS CODE',
+        calBtn: 'Calendar', dirBtn: 'Directions',
+        galK: 'CAPTURED MOMENTS', galH: 'Photo Gallery', galSub: 'Flick a card away or tap for full screen',
+        recK: 'YOU ARE INVITED TO THE', locK: 'THE VENUE', locH: 'How to Reach', tapMaps: 'Tap to open in Google Maps',
+        directions: 'Get Directions', copyAddr: 'Copy Address', shareLoc: 'Share Map', copied: 'Address copied!',
+        rsvpK: 'KINDLY RESPOND', rsvpH: 'Will you join us?', accept: 'Accept', decline: 'Decline',
+        fName: 'YOUR NAME', pName: 'e.g. Sharma Family', fPhone: 'PHONE NUMBER (OPTIONAL)', fCnt: 'GUESTS',
+        fMeal: 'MEAL PREFERENCE', meals: ['Veg', 'Non-veg', 'Jain'], fMsg: 'BLESSING MESSAGE (OPTIONAL)', pMsg: 'Wishing you a lifetime of love & joy...',
+        sendRsvp: 'CONFIRM RSVP', sendWa: 'SEND ON WHATSAPP', rsvpDoneH: 'Thank You!', rsvpDoneP: 'Your warm response has been saved for the family.',
+        updateRsvp: 'Update Response', shareInv: 'Share This Invite', linkCopied: 'Invite link copied!',
+        navStory: 'Story', navEvents: 'Events', navVenue: 'Venue', navRsvp: 'RSVP',
+        ourSong: 'Our Song', calSaved: 'Calendar invite (.ics) downloaded!', needName: 'Please enter your name first',
+        defTop: '॥ ଶ୍ରୀ ଗଣେଶାୟ ନମଃ ॥', defInv: 'ଆପଣଙ୍କୁ ସପରିବାର ଏହି ଶୁଭ ବିବାହ ଉତ୍ସବକୁ ସାଦର ନିମନ୍ତ୍ରଣ କରୁଛୁ',
+        defClose: 'ଆପଣଙ୍କ ଆଶୀର୍ବାଦ ଓ ଉପସ୍ଥିତି ଆମର ଏକାନ୍ତ କାମ୍ୟ', defRecT: 'Grand Reception', defRecS: 'ପ୍ରୀତିଭୋଜ ଓ ଅଭ୍ୟର୍ଥନା',
+        defRecD: 'BLACK TIE & SILK SAREES', defFootL: 'CRAFTED & DESIGNED BY'
+      },
+      'odia': {
+        htmlLang: 'or', plK: 'ଶୁଭ ବିବାହ', plS: 'ଆପଣଙ୍କ ନିମନ୍ତ୍ରଣ ପତ୍ର ପ୍ରସ୍ତୁତ ହେଉଛି...',
+        pausedK: 'ସାମୟିକ ବନ୍ଦ', pausedH: 'ନିମନ୍ତ୍ରଣ ପତ୍ର ବର୍ତ୍ତମାନ ଉପଲବ୍ଧ ନାହିଁ', pausedP: 'ଏହି ଡିଜିଟାଲ୍ ନିମନ୍ତ୍ରଣ ପତ୍ର ପରିବାର ପକ୍ଷରୁ ସାମୟିକ ବନ୍ଦ ରଖାଯାଇଛି।',
+        dear: 'ପ୍ରିୟ', guestFallback: 'ଅତିଥି', youInvited: 'ସାଦର ନିମନ୍ତ୍ରଣ', tapSeal: 'ଖୋଲିବା ପାଇଁ ସିଲ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ',
+        weddingOf: 'ଶୁଭ ବିବାହ', weds: 'ଓ', joiner: 'ଓ', sonOf: 'ସୁପୁତ୍ର', daughterOf: 'ସୁକନ୍ୟା', scroll: 'ତଳକୁ ଦେଖନ୍ତୁ',
+        vidK: 'ବିବାହ ଭିଡିଓ', vidH: 'ଆମର ବିଶେଷ ଭିଡିଓ',
+        storyK: 'ଆମ ଯାତ୍ରା', storyH: 'ଆମ କାହାଣୀ', storySub: 'ଚିରନ୍ତନ ସମ୍ପର୍କର ମଧୁର ମୁହୂର୍ତ୍ତ',
+        cdK: 'ଶୁଭ ତାରିଖ', cdH: 'ଶୁଭ ମୁହୂର୍ତ୍ତକୁ ଅପେକ୍ଷା', days: 'ଦିନ', hrs: 'ଘଣ୍ଟା', min: 'ମିନିଟ୍', sec: 'ସେକେଣ୍ଡ୍', addCal: 'କ୍ୟାଲେଣ୍ଡରରେ ଯୋଡ଼ନ୍ତୁ',
+        evK: 'ମାଙ୍ଗଳିକ କାର୍ଯ୍ୟକ୍ରମ', evH: 'ବିବାହ ଉତ୍ସବ', evSub: 'ପ୍ରତ୍ୟେକ ଉତ୍ସବ ଦେଖିବା ପାଇଁ ସ୍ୱାଇପ୍ କରନ୍ତୁ', dressCode: 'ପୋଷାକ',
+        calBtn: 'କ୍ୟାଲେଣ୍ଡର', dirBtn: 'ରାସ୍ତା',
+        galK: 'ମଧୁର ସ୍ମୃତି', galH: 'ଫଟୋ ଗ୍ୟାଲେରୀ', galSub: 'ଫଟୋ ଦେଖିବା ପାଇଁ ସ୍ୱାଇପ୍ କିମ୍ବା ଟ୍ୟାପ୍ କରନ୍ତୁ',
+        recK: 'ସାଦର ନିମନ୍ତ୍ରଣ', locK: 'ବିବାହ ସ୍ଥଳ', locH: 'କିପରି ପହଞ୍ଚିବେ', tapMaps: 'ଗୁଗୁଲ୍ ମ୍ୟାପ୍ ଖୋଲିବା ପାଇଁ ଟ୍ୟାପ୍ କରନ୍ତୁ',
+        directions: 'ରାସ୍ତା ଦେଖନ୍ତୁ', copyAddr: 'ଠିକଣା କପି', shareLoc: 'ମ୍ୟାପ୍ ସେୟାର୍', copied: 'ଠିକଣା କପି ହୋଇଗଲା!',
+        rsvpK: 'ଆପଣଙ୍କ ଉତ୍ତର', rsvpH: 'ଆପଣ ଯୋଗ ଦେବେ କି?', accept: 'ହଁ, ଆସିବୁ', decline: 'ଅସମର୍ଥ',
+        fName: 'ଆପଣଙ୍କ ନାମ', pName: 'ଯଥା: ସୁବ୍ରତ ଓ ମୀରା', fPhone: 'ଫୋନ୍ ନମ୍ବର (ଇଚ୍ଛାଧୀନ)', fCnt: 'ଅତିଥି ସଂଖ୍ୟା',
+        fMeal: 'ଭୋଜନ ପସନ୍ଦ', meals: ['ନିରାମିଷ', 'ଆମିଷ', 'ଜୈନ'], fMsg: 'ଶୁଭେଚ୍ଛା ବାର୍ତ୍ତା (ଇଚ୍ଛାଧୀନ)', pMsg: 'ନବଦମ୍ପତିଙ୍କ ପାଇଁ ଆଶୀର୍ବାଦ ଲେଖନ୍ତୁ...',
+        sendRsvp: 'ଉତ୍ତର ପଠାନ୍ତୁ', sendWa: 'ହ୍ୱାଟ୍ସଆପ୍‌ରେ ପଠାନ୍ତୁ', rsvpDoneH: 'ଧନ୍ୟବାଦ!', rsvpDoneP: 'ଆପଣଙ୍କ ଉତ୍ତର ଓ ଶୁଭେଚ୍ଛା ପରିବାର ନିକଟରେ ପହଞ୍ଚିଗଲା।',
+        updateRsvp: 'ଉତ୍ତର ବଦଳାନ୍ତୁ', shareInv: 'ନିମନ୍ତ୍ରଣ ସେୟାର୍ କରନ୍ତୁ', linkCopied: 'ଲିଙ୍କ୍ କପି ହୋଇଗଲା!',
+        navStory: 'କାହାଣୀ', navEvents: 'ଉତ୍ସବ', navVenue: 'ସ୍ଥଳ', navRsvp: 'ଉତ୍ତର',
+        ourSong: 'ଆମ ଗୀତ', calSaved: 'କ୍ୟାଲେଣ୍ଡର ଫାଇଲ୍ ଡାଉନଲୋଡ୍ ହେଲା!', needName: 'ଦୟାକରି ଆପଣଙ୍କ ନାମ ଲେଖନ୍ତୁ',
+        defTop: '॥ ଶ୍ରୀ ଗଣେଶାୟ ନମଃ ॥', defInv: 'ଆପଣଙ୍କୁ ସପରିବାର ଏହି ଶୁଭ ବିବାହ ଉତ୍ସବକୁ ସାଦର ନିମନ୍ତ୍ରଣ କରୁଛୁ',
+        defClose: 'ଆପଣଙ୍କ ଆଶୀର୍ବାଦ ଓ ଉପସ୍ଥିତି ଆମର ଏକାନ୍ତ କାମ୍ୟ', defRecT: 'ପ୍ରୀତିଭୋଜ ଓ ଅଭ୍ୟର୍ଥନା', defRecS: 'ଭବ୍ୟ ଅଭ୍ୟର୍ଥନା ଉତ୍ସବ',
+        defRecD: 'ପାରମ୍ପରିକ ଓ ଉତ୍ସବ ପୋଷାକ', defFootL: 'ନିର୍ମାଣ ଓ ଡିଜାଇନ୍'
+      },
+      'en': {
+        htmlLang: 'en', plK: 'THE WEDDING', plS: 'Preparing your royal invitation...',
+        pausedK: 'TEMPORARILY PAUSED', pausedH: 'Invitation Currently Unavailable', pausedP: 'This digital invitation is temporarily paused by the host family.',
+        dear: 'Dear', guestFallback: 'Guest', youInvited: 'YOU ARE INVITED', tapSeal: 'TAP THE SEAL',
+        weddingOf: 'THE WEDDING OF', weds: 'weds', joiner: '&', sonOf: 'SON OF', daughterOf: 'DAUGHTER OF', scroll: 'SCROLL',
+        vidK: 'WEDDING FILM', vidH: 'Our Special Teaser',
+        storyK: 'OUR JOURNEY', storyH: 'Our Story', storySub: 'Moments that brought us together',
+        cdK: 'SAVE THE DATE', cdH: 'Counting Down', days: 'DAYS', hrs: 'HRS', min: 'MIN', sec: 'SEC', addCal: 'Add to Calendar',
+        evK: 'THE CELEBRATIONS', evH: 'Wedding Events', evSub: 'Swipe through each pass for timing & dress code', dressCode: 'DRESS CODE',
+        calBtn: 'Calendar', dirBtn: 'Directions',
+        galK: 'CAPTURED MOMENTS', galH: 'Photo Gallery', galSub: 'Flick a card away or tap for full screen',
+        recK: 'YOU ARE INVITED TO THE', locK: 'THE VENUE', locH: 'How to Reach', tapMaps: 'Tap to open in Google Maps',
+        directions: 'Get Directions', copyAddr: 'Copy Address', shareLoc: 'Share Map', copied: 'Address copied!',
+        rsvpK: 'KINDLY RESPOND', rsvpH: 'Will you join us?', accept: 'Accept', decline: 'Decline',
+        fName: 'YOUR NAME', pName: 'e.g. Sharma Family', fPhone: 'PHONE NUMBER (OPTIONAL)', fCnt: 'GUESTS',
+        fMeal: 'MEAL PREFERENCE', meals: ['Veg', 'Non-veg', 'Jain'], fMsg: 'BLESSING MESSAGE (OPTIONAL)', pMsg: 'Wishing you a lifetime of love & joy...',
+        sendRsvp: 'CONFIRM RSVP', sendWa: 'SEND ON WHATSAPP', rsvpDoneH: 'Thank You!', rsvpDoneP: 'Your response has been joyfully received by the family.',
+        updateRsvp: 'Update Response', shareInv: 'Share This Invite', linkCopied: 'Invite link copied!',
+        navStory: 'Story', navEvents: 'Events', navVenue: 'Venue', navRsvp: 'RSVP',
+        ourSong: 'Our Song', calSaved: 'Calendar invite (.ics) downloaded!', needName: 'Please enter your name first',
+        defTop: '|| SHRI GANESHAYA NAMAH ||', defInv: 'Cordially invite you and your family to grace this auspicious wedding celebration',
+        defClose: 'Your presence and blessings are our greatest gift', defRecT: 'Grand Reception', defRecS: 'Dinner & Celebration',
+        defRecD: 'BLACK TIE & SILK SAREES', defFootL: 'CRAFTED & DESIGNED BY'
+      },
+      'hi': {
+        htmlLang: 'hi', plK: 'शुभ विवाह', plS: 'आपका शाही निमंत्रण तैयार हो रहा है...',
+        pausedK: 'अस्थायी रूप से बंद', pausedH: 'निमंत्रण अभी उपलब्ध नहीं है', pausedP: 'यह डिजिटल निमंत्रण परिवार द्वारा अस्थायी रूप से रोका गया है।',
+        dear: 'प्रिय', guestFallback: 'अतिथि', youInvited: 'सादर निमंत्रण', tapSeal: 'खोलने के लिए सील पर टैप करें',
+        weddingOf: 'शुभ विवाह', weds: 'संग', joiner: 'संग', sonOf: 'सुपुत्र', daughterOf: 'सुपुत्री', scroll: 'नीचे स्क्रॉल करें',
+        vidK: 'वेडिंग फ़िल्म', vidH: 'हमारा खास वीडियो',
+        storyK: 'हमारा सफ़र', storyH: 'हमारी कहानी', storySub: 'प्यार और साथ के खूबसूरत पल',
+        cdK: 'शुभ तिथि', cdH: 'शुभ दिन की उलटी गिनती', days: 'दिन', hrs: 'घंटे', min: 'मिनट', sec: 'सेकंड', addCal: 'कैलेंडर में जोड़ें',
+        evK: 'मांगलिक कार्यक्रम', evH: 'विवाह उत्सव', evSub: 'सभी कार्यक्रम देखने के लिए स्वाइप करें', dressCode: 'ड्रेस कोड',
+        calBtn: 'कैलेंडर', dirBtn: 'रास्ता',
+        galK: 'सुनहरी यादें', galH: 'फ़ोटो गैलरी', galSub: 'फ़ोटो देखने के लिए स्वाइप या टैप करें',
+        recK: 'सादर आमंत्रण', locK: 'विवाह स्थल', locH: 'कैसे पहुँचें', tapMaps: 'गूगल मैप में खोलने के लिए टैप करें',
+        directions: 'रास्ता देखें', copyAddr: 'पता कॉपी', shareLoc: 'मैप शेयर', copied: 'पता कॉपी हो गया!',
+        rsvpK: 'कृपया उत्तर दें', rsvpH: 'क्या आप शामिल होंगे?', accept: 'हाँ, आएंगे', decline: 'असमर्थ हैं',
+        fName: 'आपका नाम', pName: 'जैसे: शर्मा परिवार', fPhone: 'फ़ोन नंबर (वैकल्पिक)', fCnt: 'अतिथि संख्या',
+        fMeal: 'भोजन पसंद', meals: ['शाकाहारी', 'मांसाहारी', 'जैन'], fMsg: 'शुभकामना संदेश (वैकल्पिक)', pMsg: 'वर-वधू के लिए आशीर्वाद लिखें...',
+        sendRsvp: 'RSVP कन्फर्म करें', sendWa: 'व्हाट्सएप पर भेजें', rsvpDoneH: 'धन्यवाद!', rsvpDoneP: 'आपकी शुभकामनाएं और उत्तर परिवार तक पहुँच गया है।',
+        updateRsvp: 'उत्तर बदलें', shareInv: 'निमंत्रण शेयर करें', linkCopied: 'लिंक कॉपी हो गया!',
+        navStory: 'कहानी', navEvents: 'कार्यक्रम', navVenue: 'स्थल', navRsvp: 'RSVP',
+        ourSong: 'हमारा गीत', calSaved: 'कैलेंडर फ़ाइल डाउनलोड हो गई!', needName: 'कृपया अपना नाम लिखें',
+        defTop: '॥ श्री गणेशाय नमः ॥', defInv: 'आप सपरिवार इस शुभ विवाह उत्सव में पधारकर वर-वधू को आशीर्वाद प्रदान करें',
+        defClose: 'आपका आशीर्वाद एवं उपस्थिति हमारी कामना है', defRecT: 'भव्य रिसेप्शन', defRecS: 'प्रीतिभोज एवं स्वागत समारोह',
+        defRecD: 'पारंपरिक एवं उत्सव परिधान', defFootL: 'निर्मित एवं डिज़ाइन'
+      }
+    };
+
+    const KNOWN_DEFAULTS = {
+      topLine: new Set(['॥ ଶ୍ରୀ ଗଣେଶାୟ ନମଃ ॥', '॥ श्री गणेशाय नमः ॥', '|| SHRI GANESHAYA NAMAH ||']),
+      inviteLine: new Set([
+        'ଆପଣଙ୍କୁ ସପରିବାର ଏହି ଶୁଭ ବିବାହ ଉତ୍ସବକୁ ସାଦର ନିମନ୍ତ୍ରଣ କରୁଛୁ',
+        'ଆପଣଙ୍କୁ ସପରିବାର ଶୁଭ ବିବାହ ଉତ୍ସବକୁ ସାଦର ନିମନ୍ତ୍ରଣ',
+        'Cordially invite you and your family to grace this auspicious wedding celebration',
+        'आप सपरिवार इस शुभ विवाह उत्सव में पधारकर वर-वधू को आशीर्वाद प्रदान करें'
+      ]),
+      closingLine: new Set([
+        'ଆପଣଙ୍କ ଆଶୀର୍ବାଦ ଓ ଉପସ୍ଥିତି ଆମର ଏକାନ୍ତ କାମ୍ୟ',
+        'ଆପଣଙ୍କ ଆଶୀର୍ବାଦ ଆମର ଏକାନ୍ତ କାମ୍ୟ',
+        'Your presence and blessings are our greatest gift',
+        'आपका आशीर्वाद एवं उपस्थिति हमारी कामना है'
+      ]),
+      recTitle: new Set(['Grand Reception', 'ପ୍ରୀତିଭୋଜ', 'ପ୍ରୀତିଭୋଜ ଓ ଅଭ୍ୟର୍ଥନା', 'भव्य रिसेप्शन']),
+      recSub: new Set(['ପ୍ରୀତିଭୋଜ ଓ ଅଭ୍ୟର୍ଥନା', 'ଭବ୍ୟ ଅଭ୍ୟର୍ଥନା ଉତ୍ସବ', 'Grand Reception', 'Dinner & Celebration', 'प्रीतिभोज एवं स्वागत समारोह']),
+      recDress: new Set(['BLACK TIE & SILK SAREES', 'ପାରମ୍ପରିକ ପୋଷାକ', 'ପାରମ୍ପରିକ ଓ ଉତ୍ସବ ପୋଷାକ', 'पारंपरिक एवं उत्सव परिधान']),
+      footerLabel: new Set(['CRAFTED & DESIGNED BY', 'ନିର୍ମାଣ ଓ ଡିଜାଇନ୍', 'निर्मित एवं डिज़ाइन'])
+    };
+
+    const PRESET_RITUAL_TITLES = [
+      { keys: ['ନିର୍ବନ୍ଧ ଓ ମଙ୍ଗଳକୃତ୍ୟ', 'Mata Pujan', 'Engagement & Puja'], odia: 'ନିର୍ବନ୍ଧ ଓ ମଙ୍ଗଳକୃତ୍ୟ', 'odia-en': 'ନିର୍ବନ୍ଧ ଓ ମଙ୍ଗଳକୃତ୍ୟ', en: 'Engagement & Mata Pujan', hi: 'निबंध एवं मंगल पूजन' },
+      { keys: ['ହଳଦୀ ଉତ୍ସବ', 'Haldi Ceremony', 'Haldi'], odia: 'ହଳଦୀ ଉତ୍ସବ', 'odia-en': 'ହଳଦୀ ଉତ୍ସବ', en: 'Haldi Ceremony', hi: 'हल्दी उत्सव' },
+      { keys: ['ମେହେନ୍ଦୀ ସନ୍ଧ୍ୟା', 'Mehendi', 'Mehendi Evening'], odia: 'ମେହେନ୍ଦୀ ସନ୍ଧ୍ୟା', 'odia-en': 'ମେହେନ୍ଦୀ ସନ୍ଧ୍ୟା', en: 'Mehendi Evening', hi: 'मेहंदी संध्या' },
+      { keys: ['ସଙ୍ଗୀତ ସନ୍ଧ୍ୟା', 'Sangeet Night', 'Sangeet'], odia: 'ସଙ୍ଗୀତ ସନ୍ଧ୍ୟା', 'odia-en': 'ସଙ୍ଗୀତ ସନ୍ଧ୍ୟା', en: 'Sangeet Night', hi: 'संगीत संध्या' },
+      { keys: ['ମଙ୍ଗୁଳା ସ୍ନାନ ଓ ବରଯାତ୍ରୀ', 'Ghat Sthapana'], odia: 'ମଙ୍ଗୁଳା ସ୍ନାନ ଓ ବରଯାତ୍ରୀ', 'odia-en': 'ମଙ୍ଗୁଳା ସ୍ନାନ ଓ ବରଯାତ୍ରୀ', en: 'Mangala Snan & Baraat', hi: 'मंगल स्नान एवं बारात' },
+      { keys: ['ଶୁଭ ବିବାହ ଓ ହସ୍ତଗଣ୍ଠି', 'Baraat & Pheras'], odia: 'ଶୁଭ ବିବାହ ଓ ହସ୍ତଗଣ୍ଠି', 'odia-en': 'ଶୁଭ ବିବାହ ଓ ହସ୍ତଗଣ୍ଠି', en: 'Wedding & Pheras', hi: 'शुभ विवाह एवं फेरे' }
+    ];
+
+    const PRESET_DRESS_CODES = [
+      { keys: ['Traditional Pata & Kurta', 'Traditional Wear'], odia: 'ପାରମ୍ପରିକ ପାଟ ଓ କୁର୍ତ୍ତା', 'odia-en': 'Traditional Pata & Kurta', en: 'Traditional Attire', hi: 'पारंपरिक परिधान' },
+      { keys: ['Shades of Yellow', 'Wear Yellow'], odia: 'ହଳଦିଆ ରଙ୍ଗର ପୋଷାକ', 'odia-en': 'Shades of Yellow', en: 'Shades of Yellow', hi: 'पीले रंग के परिधान' },
+      { keys: ['Emerald & Mint Green', 'Wear Green'], odia: 'ସବୁଜ ରଙ୍ଗର ପୋଷାକ', 'odia-en': 'Emerald & Mint Green', en: 'Emerald & Mint Green', hi: 'हरे रंग के परिधान' },
+      { keys: ['Indo-Western • Purple & Pink', 'Indo-Western, Purple & Pink'], odia: 'ଉତ୍ସବ ପୋଷାକ • ବାଇଗଣୀ ଓ ଗୋଲାପୀ', 'odia-en': 'Indo-Western • Purple & Pink', en: 'Indo-Western • Purple & Pink', hi: 'इंडो-वेस्टर्न • बैंगनी एवं गुलाबी' },
+      { keys: ['Orange & Saffron'], odia: 'କମଳା ଓ ଗେରୁଆ ରଙ୍ଗ', 'odia-en': 'Orange & Saffron', en: 'Orange & Saffron', hi: 'नारंगी एवं केसरिया' },
+      { keys: ['Festive Red & Gold'], odia: 'ଉତ୍ସବ ଲାଲ୍ ଓ ସୁନେଲି', 'odia-en': 'Festive Red & Gold', en: 'Festive Red & Gold', hi: 'उत्सव लाल एवं सुनहरा' }
+    ];
+
+    function locDefault(val, key, langKey) {
+      const t = String(val || '').trim();
+      const L = LANG_PACKS[langKey] || LANG_PACKS['odia-en'];
+      const map = { topLine: L.defTop, inviteLine: L.defInv, closingLine: L.defClose, recTitle: L.defRecT, recSub: L.defRecS, recDress: L.defRecD, footerLabel: L.defFootL };
+      if (!t) return (key === 'topLine' || key === 'recTitle' || key === 'footerLabel') ? map[key] : '';
+      return KNOWN_DEFAULTS[key]?.has(t) ? map[key] : t;
+    }
+
+    function locPreset(val, list, langKey) {
+      const t = String(val || '').trim();
+      if (!t) return '';
+      const f = list.find((r) => r.keys.some((k) => k.toLowerCase() === t.toLowerCase()));
+      return f ? (f[langKey] || t) : t;
+    }
+
+    function locDate(str, langKey) {
+      let out = String(str || '');
+      if (!out) return '';
+      const months = [['January','ଜାନୁଆରୀ','जनवरी'],['February','ଫେବୃଆରୀ','फ़रवरी'],['March','ମାର୍ଚ୍ଚ','मार्च'],['April','ଅପ୍ରେଲ୍','अप्रैल'],['May','ମେ','मई'],['June','ଜୁନ୍','जून'],['July','ଜୁଲାଇ','जुलाई'],['August','ଅଗଷ୍ଟ','अगस्त'],['September','ସେପ୍ଟେମ୍ବର','सितंबर'],['October','ଅକ୍ଟୋବର','अक्टूबर'],['November','ନଭେମ୍ବର','नवंबर'],['December','ଡିସେମ୍ବର','दिसंबर']];
+      const mShort = [['JAN','ଜାନୁ','जन'],['FEB','ଫେବୃ','फ़र'],['MAR','ମାର୍ଚ୍ଚ','मार्च'],['APR','ଅପ୍ରେଲ୍','अप्रै'],['MAY','ମେ','मई'],['JUN','ଜୁନ୍','जून'],['JUL','ଜୁଲାଇ','जुला'],['AUG','ଅଗଷ୍ଟ','अग'],['SEP','ସେପ୍ଟେ','सित'],['OCT','ଅକ୍ଟୋ','अक्टू'],['NOV','ନଭେ','नव'],['DEC','ଡିସେ','दिस']];
+      const days = [['Sunday','ରବିବାର','रविवार'],['Monday','ସୋମବାର','सोमवार'],['Tuesday','ମଙ୍ଗଳବାର','मंगलवार'],['Wednesday','ବୁଧବାର','बुधवार'],['Thursday','ଗୁରୁବାର','गुरुवार'],['Friday','ଶୁକ୍ରବାର','शुक्रवार'],['Saturday','ଶନିବାର','शनिवार']];
+      const dShort = [['SUN','ରବି','रवि'],['MON','ସୋମ','सोम'],['TUE','ମଙ୍ଗଳ','मंगल'],['WED','ବୁଧ','बुध'],['THU','ଗୁରୁ','गुरु'],['FRI','ଶୁକ୍ର','शुक्र'],['SAT','ଶନି','शनि']];
+      if (langKey === 'odia') {
+        months.forEach(([e,o]) => out = out.replace(new RegExp(`\\b${e}\\b`,'gi'), o));
+        mShort.forEach(([e,o]) => out = out.replace(new RegExp(`\\b${e}\\b`,'gi'), o));
+        days.forEach(([e,o]) => out = out.replace(new RegExp(`\\b${e}\\b`,'gi'), o));
+        dShort.forEach(([e,o]) => out = out.replace(new RegExp(`\\b${e}\\b`,'gi'), o));
+        out = toOdiaNum(out.replace(/\bonwards\b/gi,'ରୁ').replace(/\bNOON\b/gi,'ମଧ୍ୟାହ୍ନ').replace(/\bAM\b/gi,'ସକାଳ').replace(/\bPM\b/gi,'ସନ୍ଧ୍ୟା'));
+      } else if (langKey === 'hi') {
+        months.forEach(([e,o,h]) => out = out.replace(new RegExp(`\\b${e}\\b`,'gi'), h).replaceAll(o, h));
+        mShort.forEach(([e,,h]) => out = out.replace(new RegExp(`\\b${e}\\b`,'gi'), h));
+        days.forEach(([e,o,h]) => out = out.replace(new RegExp(`\\b${e}\\b`,'gi'), h).replaceAll(o, h));
+        dShort.forEach(([e,,h]) => out = out.replace(new RegExp(`\\b${e}\\b`,'gi'), h));
+        out = toLatinNum(out.replace(/\bonwards\b/gi,'से आगे').replace(/\bNOON\b/gi,'दोपहर').replace(/\bAM\b/gi,'सुबह').replace(/\bPM\b/gi,'शाम'));
+      } else if (langKey === 'en') {
+        months.forEach(([e,o,h]) => out = out.replaceAll(o, e).replaceAll(h, e));
+        days.forEach(([e,o,h]) => out = out.replaceAll(o, e).replaceAll(h, e));
+        out = toLatinNum(out);
+      }
+      return out;
+    }
+
+    /* =========================================================================
+       2. FALLBACK EDITORIAL WebP ART (IF PHOTOS NOT UPLOADED YET)
+       ========================================================================= */
+    const ART = {};
+    function bakeWebP(w, h, fn) {
+      const c = document.createElement('canvas'); c.width = w; c.height = h;
+      fn(c.getContext('2d'), w, h);
+      try { const u = c.toDataURL('image/webp', 0.82); if (u.startsWith('data:image/webp')) return u; } catch {}
+      return c.toDataURL('image/png');
+    }
+
+    function initFallbackArt() {
+      const drawPortrait = (c1, c2, silColor) => bakeWebP(320, 440, (ctx, w, h) => {
+        const g = ctx.createLinearGradient(0, 0, 0, h);
+        g.addColorStop(0, c1); g.addColorStop(1, c2);
+        ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+        ctx.fillStyle = silColor;
+        ctx.beginPath(); ctx.arc(w / 2, h * .38, 44, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.ellipse(w / 2, h * .82, 92, 132, 0, Math.PI, 0, false); ctx.fill();
+        ctx.strokeStyle = 'rgba(232,211,176,0.35)'; ctx.lineWidth = 2;
+        ctx.strokeRect(14, 14, w - 28, h - 28);
+      });
+      ART.groom = drawPortrait('#d9b69a', '#9c7860', '#203763');
+      ART.bride = drawPortrait('#dfbda3', '#a67b69', '#5e2e40');
+      ART.banner = bakeWebP(640, 400, (ctx, w, h) => {
+        const g = ctx.createLinearGradient(0, 0, w, h);
+        g.addColorStop(0, '#1B3157'); g.addColorStop(0.5, '#2b3e6b'); g.addColorStop(1, '#5c3c4c');
+        ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+        const rg = ctx.createRadialGradient(w/2, h*0.42, 10, w/2, h*0.42, 220);
+        rg.addColorStop(0, 'rgba(232,211,176,0.35)'); rg.addColorStop(1, 'rgba(14,27,51,0)');
+        ctx.fillStyle = rg; ctx.fillRect(0, 0, w, h);
+        for (let i = 0; i < 40; i++) {
+          ctx.fillStyle = `rgba(232,211,176,${0.15 + (i % 5) * 0.1})`;
+          ctx.beginPath(); ctx.arc((Math.sin(i*13.7)*.5+.5)*w, (Math.cos(i*9.1)*.5+.5)*h, 1.5 + (i%3), 0, Math.PI*2); ctx.fill();
+        }
+      });
+      const storyCols = [['#243d6b','#c8977a'],['#1d355d','#9c666f'],['#2b4370','#d4b483'],['#182d52','#b88371']];
+      storyCols.forEach(([a, b], i) => {
+        ART['story_' + i] = bakeWebP(420, 520, (ctx, w, h) => {
+          const g = ctx.createLinearGradient(0, 0, 0, h);
+          g.addColorStop(0, a); g.addColorStop(1, b);
+          ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+          ctx.strokeStyle = 'rgba(248,243,234,0.34)'; ctx.lineWidth = 2;
+          ctx.strokeRect(20, 20, w - 40, h - 40);
+          ctx.fillStyle = 'rgba(248,243,234,0.16)';
+          ctx.beginPath(); ctx.arc(w/2, h*0.42, 74, 0, Math.PI*2); ctx.fill();
+        });
+      });
+    }
+
+    /* =========================================================================
+       3. DEMO ORDER & ADMIN SCHEMA NORMALIZER
+       ========================================================================= */
+    const DEMO_ORDER = {
+      slug: 'aarav-ananya',
+      customerPhone: '',
+      language: 'en',
+      active: true,
+      sections: {
+        active: true, showBookCover: true, showHeroPhoto: true, showHeroVideo: false, showVideo: false,
+        showSaveDate: true, showCountdown: true, showRituals: true, showStory: true,
+        showReception: true, showMap: true, showRsvp: true, showMusic: true, showFooter: true
+      },
+      couple: {
+        groomName: 'Aarav', groomParents: 'Rajesh & Sunita Mohanty',
+        brideName: 'Ananya', brideParents: 'Vikram & Kavita Patnaik',
+        topHeader: '|| SHRI GANESHAYA NAMAH ||',
+        inviteLine: 'Two souls, one timeless journey — celebrating love under the stars',
+        closingBlessing: 'We cannot wait to celebrate with you',
+        closingFamily: 'With love — Mohanty & Patnaik Families'
+      },
+      wedding: {
+        dateText: '12 February 2027', dayName: 'Friday', muhuratTime: '10:30 PM',
+        countdownISO: '2027-02-12T22:30', venueName: 'Mayfair Lagoon, Bhubaneswar',
+        venueAddress: '8-B, Jaydev Vihar, Bhubaneswar, Odisha 751013',
+        mapsLink: 'https://maps.google.com/?q=Mayfair+Lagoon+Bhubaneswar'
+      },
+      rituals: [
+        { title: 'Haldi Ceremony', date: 'WED • 10 FEB', time: '3:00 PM', venue: 'Garden Lawns', dressCode: 'Shades of Yellow', color: '#f3c42f', artPreset: 'haldi' },
+        { title: 'Mehendi Evening', date: 'THU • 11 FEB', time: '12:00 NOON', venue: 'The Courtyard', dressCode: 'Emerald & Mint Green', color: '#5e8c4b', artPreset: 'mehendi' },
+        { title: 'Sangeet Night', date: 'THU • 11 FEB', time: '7:30 PM', venue: 'Darbar Hall', dressCode: 'Indo-Western • Purple & Pink', color: '#a83da8', artPreset: 'sangeet' },
+        { title: 'Wedding & Pheras', date: 'FRI • 12 FEB', time: '7:00 PM', venue: 'The Royal Mandap', dressCode: 'Festive Red & Gold', color: '#8f1928', artPreset: 'mandap' }
+      ],
+      photos: {
+        heroUrl: '',
+        story: [
+          { url: '', caption: 'How we met — Quiet coffee & endless laughter', tag: '2023' },
+          { url: '', caption: 'Golden hour sunset by the ocean', tag: '2024' },
+          { url: '', caption: 'The proposal under starlight', tag: '2026' }
+        ]
+      },
+      video: { heroUrl: '', mode: 'none', title: '', url: '' },
+      reception: {
+        heading: 'Grand Reception', subtitle: 'Dinner & Celebration',
+        date: 'Saturday, 13 February 2027', time: '8:00 PM onwards',
+        venue: 'Royal Ballroom, Mayfair Lagoon', dressCode: 'BLACK TIE & SILK SAREES'
+      },
+      music: { mode: 'instrumental', url: '', title: 'Soft Wedding Instrumental' },
+      footer: {
+        enabled: true, label: 'CRAFTED & DESIGNED BY', companyName: 'Ak ⭐ Studio', tagline: '',
+        links: [{ type: 'instagram', text: '@akashbehera2580', url: 'https://instagram.com/akashbehera2580', enabled: true }]
+      }
+    };
+
+    function resolveLangKey(raw) {
+      const v = String(raw || 'odia-en').trim().toLowerCase().replace(/[\s_]+/g, '-');
+      if (v === 'odia' || v === 'only-odia' || v === 'odia-only' || v === 'pure-odia') return 'odia';
+      if (v === 'en' || v === 'english' || v === 'pure-english') return 'en';
+      if (v === 'hi' || v === 'hindi' || v === 'hinglish') return 'hi';
+      return 'odia-en';
+    }
+
+    function pickBool(...vals) {
+      for (const v of vals) {
+        if (v !== undefined && v !== null) {
+          if (typeof v === 'string') {
+            const s = v.trim().toLowerCase();
+            if (['false','0','off','no'].includes(s)) return false;
+            if (['true','1','on','yes'].includes(s)) return true;
+          }
+          return Boolean(v);
+        }
+      }
+      return true;
+    }
+
+    function getMonogram(groom, bride) {
+      const g = (Array.from(String(groom || 'A').trim())[0] || 'A').toUpperCase();
+      const b = (Array.from(String(bride || 'A').trim())[0] || 'A').toUpperCase();
+      return `${g}&${b}`;
+    }
+
+    function extractYoutubeId(url) {
+      const s = String(url || '').trim();
+      const m = s.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+      return m ? m[1] : '';
+    }
+
+    function normalizeOrder(rawOrder, globalFooter = null) {
+      const r = rawOrder && typeof rawOrder === 'object' ? rawOrder : DEMO_ORDER;
+      const c = r.couple || {};
+      const w = r.wedding || {};
+      const sec = Object.assign({}, r.toggles || {}, r.sections || {});
+      const rec = r.reception || {};
+      const mus = r.music || {};
+      const vid = r.video || {};
+      const langKey = resolveLangKey(r.language || r.lang);
+      const isPaused = r.active === false || String(r.status || '').toLowerCase() === 'paused' || sec.active === false;
+
+      const toggles = {
+        active: !isPaused,
+        bookCover: pickBool(sec.showBookCover, sec.bookCover),
+        heroBg: pickBool(sec.showHeroPhoto, sec.heroBg),
+        heroVideo: Boolean(sec.showHeroVideo) && Boolean(vid.heroUrl),
+        video: Boolean(sec.showVideo) && Boolean(vid.url) && vid.mode !== 'none',
+        saveTheDate: pickBool(sec.showSaveDate, sec.saveTheDate),
+        countdown: pickBool(sec.showCountdown, sec.countdown),
+        rituals: pickBool(sec.showRituals, sec.rituals),
+        story: pickBool(sec.showStory, sec.story),
+        reception: pickBool(sec.showReception, sec.reception),
+        location: pickBool(sec.showMap, sec.location),
+        rsvp: pickBool(sec.showRsvp, sec.rsvp),
+        music: pickBool(sec.showMusic, sec.music, r.showMusic, mus.enabled),
+        footer: pickBool(sec.showFooter, sec.footer)
+      };
+
+      const rawRituals = Array.isArray(r.rituals) ? r.rituals : DEMO_ORDER.rituals;
+      const rituals = rawRituals.map((it, idx) => ({
+        title: locPreset(it.title || it.name || `Event ${idx + 1}`, PRESET_RITUAL_TITLES, langKey),
+        dayDate: locDate(it.dayDate || it.date || '', langKey),
+        time: locDate(it.time || '', langKey),
+        venue: it.venue || it.place || '',
+        dressCode: locPreset(it.dressCode || '', PRESET_DRESS_CODES, langKey),
+        color: it.color || '#C8977A',
+        image: it.imageUrl || it.image || '',
+        artKey: it.artPreset || it.artKey || ['kalash','haldi','mehendi','sangeet','diya','mandap'][idx % 6]
+      }));
+
+      const rawStory = Array.isArray(r.photos?.story) ? r.photos.story : (Array.isArray(r.story) ? r.story : []);
+      const story = rawStory.map((it, idx) => ({
+        image: it.url || it.image || '',
+        caption: it.caption || `Moment ${idx + 1}`,
+        tag: langKey === 'odia' ? toOdiaNum(it.tag || '') : (it.tag || '')
+      }));
+
+      // Footer resolution
+      const fo = r.footerOverride && r.footerOverride.enabled ? r.footerOverride : null;
+      const directF = r.footer || r.studioCredit || null;
+      let footer = {
+        enabled: true, label: 'CRAFTED & DESIGNED BY', companyName: 'Ak ⭐ Studio', tagline: '',
+        links: [{ type: 'instagram', text: '@akashbehera2580', url: 'https://instagram.com/akashbehera2580', enabled: true }]
+      };
+      if (fo) {
+        footer = {
+          enabled: true, label: fo.label || 'CRAFTED & DESIGNED BY',
+          companyName: fo.studioName || 'Ak ⭐ Studio', tagline: fo.subtext || '',
+          links: fo.ctaText ? [{ type: 'instagram', text: fo.ctaText, url: fo.ctaUrl || '', enabled: true }] : []
+        };
+      } else if (directF) {
+        footer = {
+          enabled: directF.enabled !== false, label: directF.label ?? 'CRAFTED & DESIGNED BY',
+          companyName: directF.companyName || directF.studioName || 'Ak ⭐ Studio',
+          tagline: directF.tagline || directF.subtext || '',
+          links: Array.isArray(directF.links) ? directF.links : (Array.isArray(directF.items) ? directF.items : footer.links)
+        };
+      } else if (globalFooter) {
+        footer = {
+          enabled: globalFooter.enabled !== false, label: globalFooter.label ?? 'CRAFTED & DESIGNED BY',
+          companyName: globalFooter.studioName || globalFooter.companyName || 'Ak ⭐ Studio',
+          tagline: globalFooter.subtext || globalFooter.tagline || '',
+          links: Array.isArray(globalFooter.items) ? globalFooter.items : (Array.isArray(globalFooter.links) ? globalFooter.links : footer.links)
+        };
+      }
+      footer.label = locDefault(footer.label, 'footerLabel', langKey);
+
+      // Strict Music Normalization
+      const rawMode = String(mus.mode || 'instrumental').toLowerCase();
+      let musicMode = 'instrumental';
+      if (!toggles.music || rawMode === 'off' || rawMode === 'none') musicMode = 'off';
+      else if (rawMode === 'youtube') musicMode = 'youtube';
+      else if (['mp3','mp3_upload','library','direct_url'].includes(rawMode) && mus.url) musicMode = 'mp3';
+
+      const recTitle = locDefault(rec.heading || rec.title || 'Grand Reception', 'recTitle', langKey);
+      let recSub = locDefault(rec.subtitle || '', 'recSub', langKey);
+      if (recSub && recSub.toLowerCase() === recTitle.toLowerCase()) recSub = '';
+
+      return {
+        slug: r.slug || 'aarav-ananya',
+        customerPhone: String(r.customerPhone || '').replace(/[^0-9]/g, ''),
+        browserTitle: r.browserTitle || '',
+        langKey, toggles,
+        groomName: c.groomName || 'Aarav',
+        groomParents: c.groomParents || '',
+        brideName: c.brideName || 'Ananya',
+        brideParents: c.brideParents || '',
+        topLine: locDefault(c.topHeader || '', 'topLine', langKey),
+        inviteLine: locDefault(c.inviteLine || '', 'inviteLine', langKey),
+        closingLine: locDefault(c.closingBlessing || '', 'closingLine', langKey),
+        closingFamily: c.closingFamily || '',
+        weddingDate: locDate(w.dateText || '12 February 2027', langKey),
+        weddingDay: locDate(w.dayName || 'Friday', langKey),
+        muhuratTime: locDate(w.muhuratTime || '10:30 PM', langKey),
+        countdownISO: w.countdownISO || '2027-02-12T22:30',
+        venueName: w.venueName || 'Mayfair Lagoon, Bhubaneswar',
+        venueAddress: w.venueAddress || '',
+        mapsUrl: w.mapsLink || 'https://maps.google.com/?q=Mayfair+Lagoon+Bhubaneswar',
+        heroPhoto: r.photos?.heroUrl || r.heroPhoto || '',
+        groomPhoto: r.photos?.groomUrl || '',
+        bridePhoto: r.photos?.brideUrl || '',
+        video: {
+          heroUrl: vid.heroUrl || '',
+          mode: vid.mode || 'none',
+          title: vid.title || '',
+          url: vid.url || ''
+        },
+        rituals, story,
+        reception: {
+          title: recTitle, subtitle: recSub,
+          date: locDate(rec.date || '', langKey),
+          time: locDate(rec.time || '', langKey),
+          venue: rec.venue || '',
+          dressCode: locDefault(rec.dressCode || '', 'recDress', langKey)
+        },
+        music: { mode: musicMode, url: mus.url || '', title: mus.title || '' },
+        footer
+      };
+    }
+
+    /* =========================================================================
+       4. STATE & RENDER ENGINE
+       ========================================================================= */
+    const urlParams = new URLSearchParams(window.location.search);
+    const state = {
+      order: normalizeOrder(DEMO_ORDER),
+      slug: (urlParams.get('id') || '').trim(),
+      dbUrl: (urlParams.get('db') || '').trim().replace(/\/+$/, '').replace(/\.json$/i, ''),
+      guestName: (urlParams.get('guest') || '').trim(),
+      isEmbedded: window.self !== window.top,
+      hasLiveOrder: false,
+      opened: false,
+      evIdx: 0,
+      deckIdx: 0,
+      attending: 'yes',
+      guests: 2,
+      meal: 'Veg',
+      lastRsvpPayload: null,
+      cdTimer: null,
+      audioPlaying: false,
+      audioCtx: null,
+      instTimer: null,
+      instGain: null
+    };
+
+    let toastT = null;
+    function showToast(msg) {
+      const t = $('toast'); t.textContent = msg; t.classList.add('show');
+      clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    function copyText(text, okMsg) {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly', '');
+        ta.style.cssText = 'position:fixed;top:-9999px;opacity:0';
+        document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+        document.execCommand('copy'); document.body.removeChild(ta);
+        showToast(okMsg);
+      } catch { showToast('Copy unavailable'); }
+    }
+
+    function splitGraphemes(str) {
+      if (typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function') {
+        return Array.from(new Intl.Segmenter(undefined, { granularity: 'grapheme' }).segment(str), (s) => s.segment);
+      }
+      return Array.from(str);
+    }
+
+    function renderAnimatedName(el, text, delay) {
+      el.classList.remove('go');
+      el.innerHTML = splitGraphemes(String(text || ''))
+        .map((ch, i) => `<span class="ch" style="transition-delay:${delay + i * 50}ms">${ch === ' ' ? '&nbsp;' : esc(ch)}</span>`).join('');
+    }
+
+    function revealHero() {
+      requestAnimationFrame(() => {
+        $('arches-row').classList.add('go');
+        $('hero-groom').classList.add('go');
+        $('hero-bride').classList.add('go');
+      });
+    }
+
+    function getRitualSvg(key) {
+      const m = {
+        kalash: '<path d="M12 4c-2 2-3 4-3 6h6c0-2-1-4-3-6z"/><path d="M8 10h8l1 3a6 6 0 1 1-10 0l1-3z"/>',
+        haldi: '<path d="M4 13h16a7 7 0 0 1-14 0z"/><circle cx="12" cy="8" r="2.2"/>',
+        mehendi: '<path d="M12 3l6 11a6 6 0 1 1-12 0l6-11z"/><circle cx="12" cy="15" r="2"/>',
+        sangeet: '<path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/>',
+        diya: '<path d="M12 4c2 2.5 2.5 4.5 0 6.5-2.5-2-2-4 0-6.5z"/><path d="M4 14h16c-1 4-4.5 6-8 6s-7-2-8-6z"/>',
+        mandap: '<path d="M3 9l9-5 9 5"/><path d="M5 9v11M19 9v11M3 20h18"/>'
+      };
+      return `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E1B33" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${m[key] || m.kalash}</svg>`;
+    }
+
+    function getSocialSvg(type) {
+      const m = {
+        instagram: '<rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/>',
+        whatsapp: '<path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L4 20l1.1-4.3A8.5 8.5 0 1 1 21 11.5z"/>',
+        telegram: '<path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/>',
+        phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3 5.2 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L9 10.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7A2 2 0 0 1 22 16.9z"/>',
+        youtube: '<rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><polygon points="10 9.5 15.5 12 10 14.5" fill="currentColor" stroke="none"/>'
+      };
+      const p = m[String(type || '').toLowerCase()] || '<polygon points="12 2 15 9 22 9.5 16.5 14 18.2 21 12 17.3 5.8 21 7.5 14 2 9.5 9 9 12 2"/>';
+      return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+    }
+
+    function renderTimeline() {
+      const o = state.order;
+      const list = o.story.length ? o.story : DEMO_ORDER.photos.story;
+      $('timeline-items').innerHTML = list.map((it, i) => {
+        const src = it.image || ART['story_' + (i % 4)];
+        const leftText = i % 2 === 0;
+        const textHtml = `<div class="tl-text" style="text-align:${leftText ? 'right' : 'left'};">
+          ${it.tag ? `<div class="tl-year">${esc(it.tag)}</div>` : ''}
+          <p class="tl-cap">${esc(it.caption)}</p>
+        </div>`;
+        const imgHtml = `<div class="tl-photo-box"><div class="tl-arch"><img src="${esc(src)}" alt="${esc(it.caption)}" loading="lazy" /></div></div>`;
+        return `<div class="tl-item">${leftText ? textHtml : imgHtml}<span class="tl-dot"></span>${leftText ? imgHtml : textHtml}</div>`;
+      }).join('');
+    }
+
+    function renderEventPasses() {
+      const o = state.order;
+      const L = LANG_PACKS[o.langKey] || LANG_PACKS['odia-en'];
+      const list = o.rituals.length ? o.rituals : DEMO_ORDER.rituals;
+      if (state.evIdx >= list.length) state.evIdx = 0;
+
+      $('pass-track').innerHTML = list.map((it, idx) => {
+        const dt = [it.dayDate, it.time].filter(Boolean).join(' • ');
+        return `
+          <article class="pass-card" data-eidx="${idx}">
+            <div class="pass-top">
+              ${it.image ? `<img class="pass-thumb" src="${esc(it.image)}" alt="${esc(it.title)}" />` : `<div class="pass-ico">${getRitualSvg(it.artKey)}</div>`}
+              <h3 class="pass-name">${esc(it.title)}</h3>
+              <div class="pass-dt">${esc(dt)}</div>
+              <p class="pass-venue">${esc(it.venue)}</p>
+            </div>
+            <div class="pass-tear"><i></i></div>
+            <div class="pass-bot">
+              ${it.dressCode ? `
+                <div class="dress-box">
+                  <span class="dress-sw" style="background:${esc(it.color)};"></span>
+                  <div><small>${esc(L.dressCode)}</small><span>${esc(it.dressCode)}</span></div>
+                </div>` : ''}
+              <div class="pass-btns">
+                <button type="button" class="pass-mini-btn" data-ev-cal="${idx}">📅 ${esc(L.calBtn)}</button>
+                <a class="pass-mini-btn" href="${esc(o.mapsUrl)}" target="_blank" rel="noopener noreferrer">📍 ${esc(L.dirBtn)}</a>
+              </div>
+            </div>
+          </article>`;
+      }).join('');
+
+      $('ev-dots').innerHTML = list.map((_, i) => `<button type="button" class="car-dot" data-edot="${i}" aria-label="Event ${i+1}"></button>`).join('');
+      positionEvents();
+    }
+
+    function positionEvents() {
+      const cards = $('pass-track').querySelectorAll('.pass-card');
+      const total = cards.length;
+      if (!total) return;
+      const prev = (state.evIdx - 1 + total) % total;
+      const next = (state.evIdx + 1) % total;
+      cards.forEach((c, i) => {
+        c.classList.remove('pos-0','pos-1','pos-n1','pos-hide');
+        if (i === state.evIdx) c.classList.add('pos-0');
+        else if (total > 1 && i === next) c.classList.add('pos-1');
+        else if (total > 2 && i === prev) c.classList.add('pos-n1');
+        else if (total === 2 && i === prev) c.classList.add('pos-1');
+        else c.classList.add('pos-hide');
+      });
+      $('ev-dots').querySelectorAll('.car-dot').forEach((d, i) => d.classList.toggle('on', i === state.evIdx));
+    }
+
+    function renderDeck() {
+      const o = state.order;
+      const list = o.story.length ? o.story : DEMO_ORDER.photos.story;
+      if (state.deckIdx >= list.length) state.deckIdx = 0;
+      const stage = $('deck-stage');
+      stage.innerHTML = list.map((it, i) => {
+        const src = it.image || ART['story_' + (i % 4)];
+        return `
+          <div class="deck-card" data-didx="${i}">
+            <img src="${esc(src)}" alt="${esc(it.caption)}" />
+            <div class="deck-cap-bar"><p>${esc(it.caption)}</p></div>
+          </div>`;
+      }).join('');
+      positionDeck();
+    }
+
+    function positionDeck() {
+      const cards = Array.from($('deck-stage').querySelectorAll('.deck-card'));
+      const n = cards.length;
+      if (!n) return;
+      cards.forEach((card, i) => {
+        const offset = (i - state.deckIdx + n) % n;
+        if (offset === 0) {
+          card.style.zIndex = 5; card.style.opacity = '1';
+          card.style.transform = 'translate3d(0,0,0) scale(1) rotate(0deg)';
+          card.style.pointerEvents = 'auto';
+        } else if (offset === 1) {
+          card.style.zIndex = 4; card.style.opacity = '0.88';
+          card.style.transform = 'translate3d(12px,10px,0) scale(0.95) rotate(2.5deg)';
+          card.style.pointerEvents = 'none';
+        } else if (offset === 2) {
+          card.style.zIndex = 3; card.style.opacity = '0.7';
+          card.style.transform = 'translate3d(-10px,20px,0) scale(0.9) rotate(-2.5deg)';
+          card.style.pointerEvents = 'none';
+        } else {
+          card.style.zIndex = 1; card.style.opacity = '0';
+          card.style.transform = 'translate3d(0,26px,0) scale(0.85)';
+          card.style.pointerEvents = 'none';
+        }
+      });
+      const txt = `${state.deckIdx + 1} / ${n}`;
+      $('deck-count').textContent = state.order.langKey === 'odia' ? toOdiaNum(txt) : txt;
+    }
+
+    function renderVideoSection() {
+      const o = state.order;
+      const showVid = o.toggles.video && o.video.url && o.video.mode !== 'none';
+      $('sec-video').classList.toggle('hidden', !showVid);
+      const mp4El = $('main-mp4-video');
+      const ytWrap = $('main-yt-wrap');
+      const ytIf = $('main-yt-iframe');
+
+      if (!showVid) {
+        mp4El.pause(); mp4El.classList.add('hidden');
+        ytWrap.classList.add('hidden'); ytIf.src = '';
+        return;
+      }
+
+      const ytId = o.video.mode === 'youtube' ? extractYoutubeId(o.video.url) : '';
+      if (ytId) {
+        mp4El.pause(); mp4El.classList.add('hidden');
+        ytWrap.classList.remove('hidden');
+        const embedUrl = `https://www.youtube.com/embed/${ytId}?rel=0`;
+        if (ytIf.src !== embedUrl) ytIf.src = embedUrl;
+      } else {
+        ytWrap.classList.add('hidden'); ytIf.src = '';
+        mp4El.classList.remove('hidden');
+        if (mp4El.src !== o.video.url) mp4El.src = o.video.url;
+      }
+      $('main-video-title').textContent = o.video.title || '';
+      $('main-video-title').classList.toggle('hidden', !o.video.title);
+    }
+
+    function renderFooter() {
+      const o = state.order;
+      const f = o.footer;
+      const show = o.toggles.footer && f.enabled !== false;
+      $('sec-footer').classList.toggle('hidden', !show);
+      if (!show) return;
+      $('foot-label').textContent = f.label || '';
+      $('foot-label').classList.toggle('hidden', !f.label);
+      $('foot-company').textContent = f.companyName || 'Ak ⭐ Studio';
+      $('foot-tagline').textContent = f.tagline || '';
+      $('foot-tagline').classList.toggle('hidden', !f.tagline);
+      const links = (Array.isArray(f.links) ? f.links : []).filter((l) => l && l.enabled !== false && (l.text || l.label));
+      $('foot-links').innerHTML = links.map((l) => {
+        const text = l.text || l.label;
+        const href = String(l.url || '').trim();
+        const ico = getSocialSvg(l.type);
+        return href
+          ? `<a class="foot-pill" href="${esc(href)}" ${/^https?:/i.test(href) ? 'target="_blank" rel="noopener noreferrer"' : ''}>${ico}<span>${esc(text)}</span></a>`
+          : `<span class="foot-pill">${ico}<span>${esc(text)}</span></span>`;
+      }).join('');
+    }
+
+    function renderOrderToDOM() {
+      const o = state.order;
+      const L = LANG_PACKS[o.langKey] || LANG_PACKS['odia-en'];
+      const t = o.toggles;
+      const mono = getMonogram(o.groomName, o.brideName);
+
+      document.documentElement.lang = L.htmlLang;
+      document.title = o.browserTitle || `${L.plK} — ${o.groomName} ${L.joiner} ${o.brideName} | ${o.footer.companyName || 'Ak ⭐ Studio'}`;
+
+      // Preloader & Paused
+      $('pl-mono').textContent = mono;
+      $('pl-kicker').textContent = L.plK;
+      $('pl-sub').textContent = L.plS;
+      $('paused-kicker').textContent = L.pausedK;
+      $('paused-title').textContent = L.pausedH;
+      $('paused-sub').textContent = L.pausedP;
+      $('paused-screen').classList.toggle('show', !t.active);
+
+      // Envelope
+      const gName = state.guestName || L.guestFallback;
+      $('env-guest').textContent = `${L.dear} ${gName},`;
+      $('env-invited').textContent = L.youInvited;
+      $('slip-kicker').textContent = L.weddingOf;
+      $('slip-names').textContent = `${o.groomName} ${L.joiner} ${o.brideName}`;
+      $('slip-date').textContent = o.weddingDate;
+      $('wax-mono').textContent = mono;
+      $('seal-lbl').textContent = L.tapSeal;
+
+      if (!t.bookCover) {
+        $('envelope-overlay').classList.add('opened', 'hidden');
+        document.body.classList.remove('locked');
+        state.opened = true;
+        $('bottom-nav').classList.add('show');
+      } else {
+        $('envelope-overlay').classList.remove('hidden');
+        if (!state.opened) {
+          $('envelope-overlay').classList.remove('opened');
+          document.body.classList.add('locked');
+        }
+      }
+
+      // Hero Background Video or Photo
+      const mediaWrap = $('hero-media-bg');
+      const hv = $('hero-bg-video');
+      const hi = $('hero-bg-img');
+      if (t.heroVideo && o.video.heroUrl) {
+        mediaWrap.classList.remove('hidden');
+        hi.classList.add('hidden');
+        hv.classList.remove('hidden');
+        if (hv.src !== o.video.heroUrl) { hv.src = o.video.heroUrl; hv.play().catch(() => {}); }
+      } else if (t.heroBg && o.heroPhoto) {
+        mediaWrap.classList.remove('hidden');
+        hv.pause(); hv.classList.add('hidden');
+        hi.classList.remove('hidden');
+        hi.src = o.heroPhoto;
+      } else {
+        hv.pause();
+        mediaWrap.classList.add('hidden');
+      }
+
+      // Hero Two Arches (uses groomPhoto/bridePhoto -> else story[0]/[1] -> else fallback art)
+      const gImg = $('groom-arch-img');
+      const bImg = $('bride-arch-img');
+      gImg.onerror = () => { gImg.onerror = null; gImg.src = ART.groom; };
+      bImg.onerror = () => { bImg.onerror = null; bImg.src = ART.bride; };
+      gImg.src = o.groomPhoto || (o.story[0]?.image) || ART.groom;
+      bImg.src = o.bridePhoto || (o.story[1]?.image) || ART.bride;
+
+      $('hero-top-line').textContent = o.topLine;
+      $('lbl-wedding-of').textContent = L.weddingOf;
+      renderAnimatedName($('hero-groom'), o.groomName, 120);
+      $('lbl-weds').textContent = L.weds;
+      renderAnimatedName($('hero-bride'), o.brideName, 340);
+      $('lbl-son-of').textContent = L.sonOf;
+      $('hero-groom-parents').textContent = o.groomParents;
+      $('lbl-daughter-of').textContent = L.daughterOf;
+      $('hero-bride-parents').textContent = o.brideParents;
+      $('parents-grid').classList.toggle('hidden', !o.groomParents && !o.brideParents);
+      $('hero-date-city').textContent = o.weddingDate;
+      $('hero-city').textContent = o.venueName;
+      $('lbl-scroll').textContent = L.scroll;
+      if (state.opened) revealHero();
+
+      // Banner & Pre-Wedding Video
+      const showBannerPhoto = t.heroBg;
+      $('banner-photo-wrap').classList.toggle('hidden', !showBannerPhoto);
+      const bBanner = $('banner-img');
+      bBanner.onerror = () => { bBanner.onerror = null; bBanner.src = ART.banner; };
+      bBanner.src = o.heroPhoto || ART.banner;
+      $('banner-quote').textContent = o.inviteLine;
+
+      $('lbl-vid-k').textContent = L.vidK;
+      $('lbl-vid-h').textContent = L.vidH;
+      renderVideoSection();
+      $('sec-banner').classList.toggle('hidden', !showBannerPhoto && !t.video);
+
+      // Story Timeline & Gallery
+      $('sec-story').classList.toggle('hidden', !t.story);
+      $('blend-story-top').classList.toggle('hidden', !t.story);
+      $('lbl-story-k').textContent = L.storyK;
+      $('lbl-story-h').textContent = L.storyH;
+      $('lbl-story-sub').textContent = L.storySub;
+      if (t.story) renderTimeline();
+
+      // Countdown
+      const showCdSec = t.countdown || t.saveTheDate;
+      $('sec-countdown').classList.toggle('hidden', !showCdSec);
+      $('blend-cd-top').classList.toggle('hidden', !showCdSec);
+      $('flip-clock-wrap').classList.toggle('hidden', !t.countdown);
+      $('lbl-cd-k').textContent = L.cdK;
+      $('lbl-cd-h').textContent = L.cdH;
+      $('u-d').textContent = L.days; $('u-h').textContent = L.hrs; $('u-m').textContent = L.min; $('u-s').textContent = L.sec;
+      $('cd-date-txt').textContent = [o.weddingDay, o.weddingDate].filter(Boolean).join(', ');
+      $('cd-muhurat-txt').textContent = [o.muhuratTime, o.venueName].filter(Boolean).join(' • ');
+      $('lbl-add-cal').textContent = L.addCal;
+      startCountdown();
+
+      // Event Passes
+      $('sec-events').classList.toggle('hidden', !t.rituals);
+      $('blend-ev-top').classList.toggle('hidden', !t.rituals);
+      $('lbl-ev-k').textContent = L.evK;
+      $('lbl-ev-h').textContent = L.evH;
+      $('lbl-ev-sub').textContent = L.evSub;
+      if (t.rituals) renderEventPasses();
+
+      // Swipe-Deck Gallery
+      $('sec-gallery').classList.toggle('hidden', !t.story);
+      $('blend-gal-top').classList.toggle('hidden', !t.story && !t.reception);
+      $('lbl-gal-k').textContent = L.galK;
+      $('lbl-gal-h').textContent = L.galH;
+      $('lbl-gal-sub').textContent = L.galSub;
+      if (t.story) renderDeck();
+
+      // Grand Reception
+      $('sec-reception').classList.toggle('hidden', !t.reception);
+      $('lbl-rec-k').textContent = L.recK;
+      $('rec-title').textContent = o.reception.title;
+      $('rec-sub').textContent = o.reception.subtitle;
+      $('rec-sub').classList.toggle('hidden', !o.reception.subtitle);
+      $('rec-date').textContent = o.reception.date;
+      $('rec-time').textContent = o.reception.time;
+      $('rec-venue').textContent = o.reception.venue;
+      $('rec-dress').textContent = o.reception.dressCode ? `${L.dressCode}: ${o.reception.dressCode}` : '';
+      $('rec-dress').classList.toggle('hidden', !o.reception.dressCode);
+
+      // Venue
+      $('sec-venue').classList.toggle('hidden', !t.location);
+      $('blend-ven-top').classList.toggle('hidden', !t.location);
+      $('lbl-loc-k').textContent = L.locK;
+      $('lbl-loc-h').textContent = L.locH;
+      $('map-link-card').href = o.mapsUrl;
+      $('btn-directions').href = o.mapsUrl;
+      $('map-badge-name').textContent = o.venueName;
+      $('lbl-tap-maps').textContent = L.tapMaps;
+      $('venue-name-txt').textContent = o.venueName;
+      $('venue-addr-txt').textContent = o.venueAddress;
+      $('lbl-directions').textContent = L.directions;
+      $('lbl-copy-addr').textContent = L.copyAddr;
+      $('lbl-share-loc').textContent = L.shareLoc;
+
+      // RSVP
+      $('sec-rsvp').classList.toggle('hidden', !t.rsvp);
+      $('blend-rsvp-top').classList.toggle('hidden', !t.rsvp);
+      $('lbl-rsvp-k').textContent = L.rsvpK;
+      $('lbl-rsvp-h').textContent = L.rsvpH;
+      $('att-yes').textContent = L.accept;
+      $('att-no').textContent = L.decline;
+      $('lbl-rsvp-name').textContent = L.fName;
+      $('rsvp-name').placeholder = L.pName;
+      if (state.guestName && !$('rsvp-name').value) $('rsvp-name').value = state.guestName;
+      $('lbl-rsvp-phone').textContent = L.fPhone;
+      $('lbl-rsvp-cnt').textContent = L.fCnt;
+      $('cnt-val').textContent = o.langKey === 'odia' ? toOdiaNum(state.guests) : String(state.guests);
+      $('lbl-rsvp-meal').textContent = L.fMeal;
+      const mealBtns = $('meal-row').querySelectorAll('.meal-chip');
+      mealBtns.forEach((b, i) => { if (L.meals[i]) b.textContent = L.meals[i]; });
+      $('lbl-rsvp-msg').textContent = L.fMsg;
+      $('rsvp-msg').placeholder = L.pMsg;
+      $('btn-rsvp-submit').textContent = L.sendRsvp;
+      $('btn-rsvp-wa').textContent = L.sendWa;
+      $('rsvp-done-h').textContent = L.rsvpDoneH;
+      $('rsvp-done-p').textContent = L.rsvpDoneP;
+      $('btn-rsvp-again').textContent = L.updateRsvp;
+
+      // Closing & Footer
+      $('closing-msg').textContent = o.closingLine || L.defClose;
+      $('closing-fam').textContent = o.closingFamily;
+      $('lbl-share-inv').textContent = L.shareInv;
+      $('closing-mono').textContent = mono;
+      renderFooter();
+
+      // Floating Bottom Nav visibility & labels
+      $('nav-story').textContent = L.navStory; $('nav-story').classList.toggle('hidden', !t.story);
+      $('nav-events').textContent = L.navEvents; $('nav-events').classList.toggle('hidden', !t.rituals);
+      $('nav-venue').textContent = L.navVenue; $('nav-venue').classList.toggle('hidden', !t.location);
+      $('nav-rsvp').textContent = L.navRsvp; $('nav-rsvp').classList.toggle('hidden', !t.rsvp);
+
+      syncAudioUI();
+      sweepReveals();
+    }
+
+    /* =========================================================================
+       5. STARFIELD DUST + ENVELOPE OPENING & GOLD BURST
+       ========================================================================= */
+    function initStarDust() {
+      const c = $('dust-canvas'); const ctx = c.getContext('2d');
+      let w = 0, h = 0;
+      const resize = () => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = window.innerWidth; h = window.innerHeight;
+        c.width = w * dpr; c.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      };
+      resize(); window.addEventListener('resize', resize, { passive: true });
+      const stars = Array.from({ length: 32 }, () => ({
+        x: Math.random() * w, y: Math.random() * h, r: 0.7 + Math.random() * 1.6,
+        vy: -0.15 - Math.random() * 0.25, a: 0.2 + Math.random() * 0.65, da: (Math.random() - 0.5) * 0.015
+      }));
+      const loop = () => {
+        if (!document.hidden && !document.body.classList.contains('reduce-motion')) {
+          ctx.clearRect(0, 0, w, h);
+          for (const s of stars) {
+            s.y += s.vy; s.a += s.da;
+            if (s.a > 0.85 || s.a < 0.15) s.da *= -1;
+            if (s.y < -6) { s.y = h + 6; s.x = Math.random() * w; }
+            ctx.fillStyle = `rgba(232,211,176,${s.a.toFixed(2)})`;
+            ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill();
+          }
+        }
+        requestAnimationFrame(loop);
+      };
+      requestAnimationFrame(loop);
+    }
+
+    function fireGoldBurst() {
+      const c = $('burst-canvas'); const ctx = c.getContext('2d');
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = window.innerWidth, h = window.innerHeight;
+      c.width = w * dpr; c.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const cx = w / 2, cy = h / 2;
+      const cols = ['#E8D3B0','#C8977A','#FFF5E4','#E2BAA0'];
+      const pts = Array.from({ length: 42 }, (_, i) => {
+        const a = (Math.PI * 2 * i) / 42 + (Math.random() - .5) * .3;
+        const sp = 2.4 + Math.random() * 4.8;
+        return { x: cx, y: cy, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 1.2, r: 2 + Math.random() * 3, col: cols[i % 4], life: 1 };
+      });
+      const step = () => {
+        ctx.clearRect(0, 0, w, h);
+        let alive = false;
+        for (const p of pts) {
+          p.x += p.vx; p.y += p.vy; p.vy += 0.08; p.life -= 0.02;
+          if (p.life > 0) {
+            alive = true;
+            ctx.globalAlpha = p.life; ctx.fillStyle = p.col;
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+          }
+        }
+        ctx.globalAlpha = 1;
+        if (alive) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    function openEnvelope() {
+      if (state.opened) return;
+      state.opened = true;
+      $('env-stage').classList.add('opening');
+      try { if (navigator.vibrate) navigator.vibrate(28); } catch {}
+      fireGoldBurst();
+
+      if (state.hasLiveOrder && state.order.toggles.music && state.order.music.mode !== 'off') {
+        startAudioFadeIn();
+      } else {
+        stopAllAudio(); syncAudioUI();
+      }
+
+      setTimeout(() => {
+        $('envelope-overlay').classList.add('opened');
+        document.body.classList.remove('locked');
+        revealHero();
+        sweepReveals();
+      }, 920);
+    }
+
+    $('env-stage').addEventListener('click', openEnvelope);
+    $('seal-cue').addEventListener('click', openEnvelope);
+    $('env-stage').addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openEnvelope(); } });
+
+    /* =========================================================================
+       6. COUNTDOWN, .ICS CALENDAR, CAROUSELS, DECK & LIGHTBOX
+       ========================================================================= */
+    function startCountdown() {
+      clearInterval(state.cdTimer);
+      let prevS = '';
+      const tick = () => {
+        const o = state.order;
+        const target = new Date(o.countdownISO || '2027-02-12T22:30').getTime();
+        const diff = Math.max(0, (Number.isNaN(target) ? Date.now() : target) - Date.now());
+        const f = (n) => { const p = String(n).padStart(2, '0'); return o.langKey === 'odia' ? toOdiaNum(p) : p; };
+        const d = f(Math.floor(diff / 86400000));
+        const h = f(Math.floor((diff % 86400000) / 3600000));
+        const m = f(Math.floor((diff % 3600000) / 60000));
+        const s = f(Math.floor((diff % 60000) / 1000));
+        $('cd-d').textContent = d; $('cd-h').textContent = h; $('cd-m').textContent = m;
+        if (s !== prevS) {
+          prevS = s;
+          const sEl = $('cd-s');
+          sEl.classList.add('tick');
+          sEl.textContent = s;
+          setTimeout(() => sEl.classList.remove('tick'), 180);
+        }
+      };
+      tick(); state.cdTimer = setInterval(tick, 1000);
+    }
+
+    function downloadIcs(title, venue) {
+      const o = state.order;
+      const dt = new Date(o.countdownISO || '2027-02-12T22:30');
+      const start = Number.isNaN(dt.getTime()) ? new Date('2027-02-12T22:30:00') : dt;
+      const end = new Date(start.getTime() + 4 * 3600000);
+      const pad = (n) => String(n).padStart(2, '0');
+      const fmt = (d) => `${d.getUTCFullYear()}${pad(d.getUTCMonth()+1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
+      const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Ak Star Studio//Invite//EN','BEGIN:VEVENT',
+        `UID:${o.slug}-${Date.now()}@akstarstudio`, `DTSTAMP:${fmt(new Date())}`, `DTSTART:${fmt(start)}`, `DTEND:${fmt(end)}`,
+        `SUMMARY:${title}`, `LOCATION:${venue}`, `DESCRIPTION:${o.inviteLine || ''}`, 'END:VEVENT','END:VCALENDAR'].join('\r\n');
+      const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+      a.download = `${o.slug || 'wedding'}.ics`; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      showToast((LANG_PACKS[o.langKey] || LANG_PACKS['odia-en']).calSaved);
+    }
+
+    $('btn-calendar').addEventListener('click', () => {
+      const o = state.order;
+      downloadIcs(`Wedding of ${o.groomName} & ${o.brideName}`, `${o.venueName} ${o.venueAddress}`);
+    });
+
+    // Events Pass Swipe & Buttons
+    const stepEv = (dir) => {
+      const len = $('pass-track').querySelectorAll('.pass-card').length;
+      if (!len) return;
+      state.evIdx = (state.evIdx + dir + len) % len;
+      positionEvents();
+    };
+    $('ev-prev').addEventListener('click', () => stepEv(-1));
+    $('ev-next').addEventListener('click', () => stepEv(1));
+    $('ev-dots').addEventListener('click', (e) => {
+      const b = e.target.closest('[data-edot]'); if (!b) return;
+      state.evIdx = Number(b.getAttribute('data-edot')); positionEvents();
+    });
+    $('pass-track').addEventListener('click', (e) => {
+      const cal = e.target.closest('[data-ev-cal]');
+      if (cal) {
+        const it = state.order.rituals[Number(cal.getAttribute('data-ev-cal'))];
+        if (it) downloadIcs(`${it.title} — ${state.order.groomName} & ${state.order.brideName}`, it.venue || state.order.venueName);
+        return;
+      }
+      const card = e.target.closest('.pass-card');
+      if (!card) return;
+      if (card.classList.contains('pos-1')) stepEv(1);
+      else if (card.classList.contains('pos-n1')) stepEv(-1);
+    });
+    let evX = 0, evY = 0, evTrack = false;
+    $('pass-stage').addEventListener('touchstart', (e) => { evX = e.touches[0].clientX; evY = e.touches[0].clientY; evTrack = true; }, { passive: true });
+    $('pass-stage').addEventListener('touchend', (e) => {
+      if (!evTrack) return; evTrack = false;
+      const dx = e.changedTouches[0].clientX - evX, dy = e.changedTouches[0].clientY - evY;
+      if (Math.abs(dx) > 36 && Math.abs(dx) > Math.abs(dy)) stepEv(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
+    // Swipe-Deck Gallery & Lightbox
+    const stepDeck = (dir) => {
+      const len = $('deck-stage').querySelectorAll('.deck-card').length;
+      if (!len) return;
+      state.deckIdx = (state.deckIdx + dir + len) % len;
+      positionDeck();
+    };
+    $('deck-prev').addEventListener('click', () => stepDeck(-1));
+    $('deck-next').addEventListener('click', () => stepDeck(1));
+    let dkX = 0, dkY = 0, dkMoved = false;
+    $('deck-stage').addEventListener('touchstart', (e) => { dkX = e.touches[0].clientX; dkY = e.touches[0].clientY; dkMoved = false; }, { passive: true });
+    $('deck-stage').addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - dkX, dy = e.changedTouches[0].clientY - dkY;
+      if (Math.abs(dx) > 34 && Math.abs(dx) > Math.abs(dy)) { dkMoved = true; stepDeck(dx < 0 ? 1 : -1); }
+    }, { passive: true });
+    $('deck-stage').addEventListener('click', (e) => {
+      if (dkMoved) return;
+      const card = e.target.closest('.deck-card'); if (!card) return;
+      const img = card.querySelector('img'); const cap = card.querySelector('p');
+      $('lb-img').src = img.src; $('lb-cap').textContent = cap ? cap.textContent : '';
+      $('lightbox').classList.add('open');
+    });
+    $('lb-close').addEventListener('click', () => $('lightbox').classList.remove('open'));
+    $('lightbox').addEventListener('click', (e) => { if (e.target === $('lightbox')) $('lightbox').classList.remove('open'); });
+
+    /* =========================================================================
+       7. VENUE SHARE, RSVP (FIREBASE + WHATSAPP) & FLOATING NAV
+       ========================================================================= */
+    $('btn-copy-addr').addEventListener('click', () => {
+      const o = state.order;
+      copyText([o.venueName, o.venueAddress].filter(Boolean).join(', '), (LANG_PACKS[o.langKey] || LANG_PACKS['odia-en']).copied);
+    });
+
+    $('btn-share-loc').addEventListener('click', () => {
+      const o = state.order;
+      if (navigator.share) navigator.share({ title: o.venueName, text: o.venueAddress, url: o.mapsUrl }).catch(() => {});
+      else copyText(o.mapsUrl, (LANG_PACKS[o.langKey] || LANG_PACKS['odia-en']).copied);
+    });
+
+    $('btn-share-invite').addEventListener('click', () => {
+      const o = state.order;
+      const L = LANG_PACKS[o.langKey] || LANG_PACKS['odia-en'];
+      const shareUrl = window.location.href;
+      if (navigator.share) navigator.share({ title: document.title, text: `${o.groomName} & ${o.brideName} — ${o.weddingDate}`, url: shareUrl }).catch(() => {});
+      else copyText(shareUrl, L.linkCopied);
+    });
+
+    $('att-yes').addEventListener('click', () => {
+      state.attending = 'yes'; $('att-yes').classList.add('on'); $('att-no').classList.remove('on');
+      $('rsvp-yes-fields').classList.remove('hidden');
+    });
+    $('att-no').addEventListener('click', () => {
+      state.attending = 'no'; $('att-no').classList.add('on'); $('att-yes').classList.remove('on');
+      $('rsvp-yes-fields').classList.add('hidden');
+    });
+    $('cnt-minus').addEventListener('click', () => {
+      if (state.guests > 1) { state.guests--; $('cnt-val').textContent = state.order.langKey === 'odia' ? toOdiaNum(state.guests) : String(state.guests); }
+    });
+    $('cnt-plus').addEventListener('click', () => {
+      if (state.guests < 15) { state.guests++; $('cnt-val').textContent = state.order.langKey === 'odia' ? toOdiaNum(state.guests) : String(state.guests); }
+    });
+    $('meal-row').addEventListener('click', (e) => {
+      const b = e.target.closest('.meal-chip'); if (!b) return;
+      state.meal = b.getAttribute('data-meal') || 'Veg';
+      $('meal-row').querySelectorAll('.meal-chip').forEach((x) => x.classList.toggle('on', x === b));
+    });
+
+    $('rsvp-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const o = state.order;
+      const L = LANG_PACKS[o.langKey] || LANG_PACKS['odia-en'];
+      const name = $('rsvp-name').value.trim();
+      if (!name) { showToast(L.needName); $('rsvp-name').focus(); return; }
+
+      const rawMsg = $('rsvp-msg').value.trim();
+      const mealTag = state.attending === 'yes' ? `[Meal: ${state.meal}]` : '';
+      const combinedMsg = [mealTag, rawMsg].filter(Boolean).join(' ');
+
+      const payload = {
+        name, phone: $('rsvp-phone').value.trim(),
+        attending: state.attending,
+        guests: state.attending === 'yes' ? state.guests : 0,
+        meal: state.attending === 'yes' ? state.meal : '',
+        message: combinedMsg,
+        createdAt: Date.now()
+      };
+      state.lastRsvpPayload = payload;
+
+      const btn = $('btn-rsvp-submit'); btn.disabled = true;
+      try {
+        if (state.isEmbedded && window.parent) {
+          window.parent.postMessage({ type: 'AK_SUBMIT_RSVP', slug: state.slug || o.slug, payload }, '*');
+          window.parent.postMessage({ type: 'SUBMIT_RSVP', slug: state.slug || o.slug, payload }, '*');
+          window.parent.postMessage({ type: 'AK_RSVP_SUBMIT', slug: state.slug || o.slug, data: payload }, '*');
+        } else if (state.dbUrl && state.slug) {
+          await fetch(`${state.dbUrl}/rsvps/${encodeURIComponent(state.slug)}.json`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+          });
+        }
+      } catch {}
+
+      btn.disabled = false;
+      $('rsvp-form').classList.add('hidden');
+      $('rsvp-done').classList.remove('hidden');
+      $('btn-rsvp-wa').classList.toggle('hidden', !o.customerPhone);
+      showToast(L.rsvpDoneH);
+    });
+
+    $('btn-rsvp-wa').addEventListener('click', () => {
+      const o = state.order; const p = state.lastRsvpPayload;
+      if (!o.customerPhone || !p) return;
+      const text = `✨ RSVP for ${o.groomName} & ${o.brideName}\nName: ${p.name}\nStatus: ${p.attending === 'yes' ? `Attending (${p.guests} guests, ${p.meal})` : 'Regretfully Unable'}${p.message ? `\nNote: ${p.message}` : ''}`;
+      window.open(`https://wa.me/${o.customerPhone}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    });
+
+    $('btn-rsvp-again').addEventListener('click', () => {
+      $('rsvp-done').classList.add('hidden');
+      $('rsvp-form').classList.remove('hidden');
+    });
+
+    $('motion-btn').addEventListener('click', () => {
+      const on = document.body.classList.toggle('reduce-motion');
+      $('motion-btn').textContent = on ? '✦ Motion: Off' : '✦ Motion';
+    });
+
+    $('bottom-nav').addEventListener('click', (e) => {
+      const b = e.target.closest('[data-jump]'); if (!b) return;
+      const target = $(b.getAttribute('data-jump'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    /* =========================================================================
+       8. STRICT AUDIO ENGINE (MUSIC OFF BLOCKS BOTH MP3 & WEB AUDIO)
+       ========================================================================= */
+    function stopInstrumental() {
+      clearInterval(state.instTimer); state.instTimer = null;
+      if (state.instGain && state.audioCtx) {
+        try { state.instGain.gain.cancelScheduledValues(state.audioCtx.currentTime); state.instGain.gain.setValueAtTime(0.0001, state.audioCtx.currentTime); } catch {}
+      }
+      if (state.audioCtx && state.audioCtx.state === 'running') state.audioCtx.suspend().catch(() => {});
+    }
+
+    function stopAllAudio() {
+      state.audioPlaying = false;
+      const a = $('bg-audio');
+      if (a) { try { a.pause(); a.currentTime = 0; } catch {} }
+      stopInstrumental();
+    }
+
+    function syncAudioUI() {
+      const m = state.order.music;
+      const show = Boolean(state.hasLiveOrder && state.order.toggles.music && m.mode !== 'off');
+      $('audio-fab').classList.toggle('hidden', !show);
+      if (!show) {
+        if (!state.order.toggles.music || m.mode === 'off') stopAllAudio();
+        return;
+      }
+      const L = LANG_PACKS[state.order.langKey] || LANG_PACKS['odia-en'];
+      if (m.mode === 'youtube' && m.url) {
+        $('audio-eq').classList.add('hidden');
+        $('audio-fab-txt').classList.remove('hidden');
+        $('audio-fab-txt').textContent = '♪ ' + (m.title || L.ourSong);
+      } else {
+        $('audio-eq').classList.remove('hidden');
+        $('audio-fab-txt').classList.add('hidden');
+        $('audio-eq').classList.toggle('play', state.audioPlaying);
+      }
+    }
+
+    function startInstrumental() {
+      if (!state.audioPlaying || !state.order.toggles.music || state.order.music.mode === 'off') return stopInstrumental();
+      try {
+        const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+        if (!state.audioCtx) state.audioCtx = new AC();
+        if (state.audioCtx.state === 'suspended') state.audioCtx.resume();
+        const ctx = state.audioCtx;
+        const master = ctx.createGain();
+        master.gain.setValueAtTime(0.0001, ctx.currentTime);
+        master.gain.linearRampToValueAtTime(0.15, ctx.currentTime + 1.6);
+        const flt = ctx.createBiquadFilter(); flt.type = 'lowpass'; flt.frequency.value = 880;
+        flt.connect(master); master.connect(ctx.destination); state.instGain = master;
+        const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25];
+        const seq = [0, 2, 3, 4, 5, 4, 3, 2, 1, 2, 3, 5, 4, 3, 2, 0];
+        let step = 0;
+        const pluck = (freq, dur, vol, type) => {
+          const now = ctx.currentTime; const osc = ctx.createOscillator(); const g = ctx.createGain();
+          osc.type = type; osc.frequency.setValueAtTime(freq, now);
+          g.gain.setValueAtTime(0.0001, now); g.gain.linearRampToValueAtTime(vol, now + 0.05);
+          g.gain.exponentialRampToValueAtTime(0.0001, now + dur);
+          osc.connect(g); g.connect(flt); osc.start(now); osc.stop(now + dur + 0.05);
+        };
+        const play = () => {
+          if (!state.audioPlaying || !state.order.toggles.music || state.order.music.mode === 'off' || document.hidden) return;
+          if (step % 4 === 0) { pluck(130.81, 3.5, 0.2, 'sine'); pluck(196.00, 3.3, 0.13, 'sine'); }
+          pluck(notes[seq[step % seq.length]], 1.8, 0.2, 'triangle');
+          step++;
+        };
+        clearInterval(state.instTimer); play(); state.instTimer = setInterval(play, 780);
+      } catch {}
+    }
+
+    function startAudioFadeIn() {
+      const m = state.order.music;
+      if (!state.order.toggles.music || m.mode === 'off' || m.mode === 'youtube') { stopAllAudio(); syncAudioUI(); return; }
+      state.audioPlaying = true; syncAudioUI();
+      if (m.mode === 'mp3' && m.url) {
+        const a = $('bg-audio'); if (a.src !== m.url) a.src = m.url;
+        a.volume = 0.02;
+        a.play().then(() => {
+          const fade = () => {
+            if (!state.audioPlaying || !state.order.toggles.music || state.order.music.mode === 'off') { a.pause(); return; }
+            if (a.volume < 0.54) { a.volume = Math.min(0.55, a.volume + 0.025); requestAnimationFrame(fade); }
+          };
+          requestAnimationFrame(fade);
+        }).catch(() => { if (state.audioPlaying && state.order.toggles.music && state.order.music.mode !== 'off') startInstrumental(); });
+      } else { startInstrumental(); }
+    }
+
+    $('audio-fab').addEventListener('click', () => {
+      const m = state.order.music;
+      if (!state.order.toggles.music || m.mode === 'off') { stopAllAudio(); syncAudioUI(); return; }
+      if (m.mode === 'youtube' && m.url) { window.open(m.url, '_blank', 'noopener,noreferrer'); return; }
+      if (state.audioPlaying) { stopAllAudio(); syncAudioUI(); } else startAudioFadeIn();
+    });
+
+    /* =========================================================================
+       9. SCROLL REVEAL, TIMELINE LINE FILL & FLOATING NAV TRACKER
+       ========================================================================= */
+    const rvNodes = Array.from(document.querySelectorAll('.rv'));
+    const rvObs = typeof IntersectionObserver !== 'undefined'
+      ? new IntersectionObserver((entries) => {
+          entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); rvObs.unobserve(e.target); } });
+        }, { rootMargin: '220px 0px', threshold: 0.01 })
+      : null;
+    rvNodes.forEach((n) => rvObs ? rvObs.observe(n) : n.classList.add('in'));
+
+    function sweepReveals() {
+      const lim = window.innerHeight + 200;
+      rvNodes.forEach((n) => {
+        if (!n.classList.contains('in') && !n.classList.contains('hidden') && n.getBoundingClientRect().top <= lim) {
+          n.classList.add('in'); if (rvObs) rvObs.unobserve(n);
+        }
+      });
+    }
+
+    function onScrollUpdate() {
+      sweepReveals();
+      if (state.opened) {
+        $('bottom-nav').classList.toggle('show', window.scrollY > window.innerHeight * 0.65);
+      }
+      // Draw rose-gold story timeline line on scroll
+      const tl = $('timeline-wrap');
+      if (tl && !tl.closest('.hidden')) {
+        const r = tl.getBoundingClientRect();
+        const prog = Math.max(0, Math.min(1, (window.innerHeight * 0.65 - r.top) / Math.max(1, r.height)));
+        $('tl-fill').style.height = (prog * 100).toFixed(1) + '%';
+      }
+      // Highlight active bottom nav button
+      const ids = ['sec-story','sec-events','sec-venue','sec-rsvp'];
+      let activeId = '';
+      ids.forEach((id) => {
+        const el = $(id);
+        if (el && !el.classList.contains('hidden') && el.getBoundingClientRect().top <= window.innerHeight * 0.5) activeId = id;
+      });
+      $('bottom-nav').querySelectorAll('.bnav-btn').forEach((b) => b.classList.toggle('on', b.getAttribute('data-jump') === activeId));
+    }
+    window.addEventListener('scroll', onScrollUpdate, { passive: true });
+
+    /* =========================================================================
+       10. ROUTER BRIDGE + STANDALONE FIREBASE FETCH + BOOTSTRAP
+       ========================================================================= */
+    const MSG_TYPES = new Set(['AK_ORDER_SYNC','INVITE_DATA','ORDER_DATA','UPDATE_ORDER','AK_ORDER_UPDATE','SYNC_ORDER']);
+
+    function applyPayload(raw, globalFooter = null) {
+      if (!raw || typeof raw !== 'object') return;
+      const prevUrl = state.order.music.url, prevMode = state.order.music.mode;
+      const firstLive = !state.hasLiveOrder;
+      state.hasLiveOrder = true;
+      state.order = normalizeOrder(raw, globalFooter);
+      renderOrderToDOM();
+
+      if (!state.order.toggles.music || state.order.music.mode === 'off') {
+        stopAllAudio(); syncAudioUI(); return;
+      }
+      if (firstLive && state.opened && !state.audioPlaying && state.order.music.mode !== 'youtube') {
+        startAudioFadeIn(); return;
+      }
+      if (state.audioPlaying && (state.order.music.mode !== prevMode || (state.order.music.mode === 'mp3' && state.order.music.url !== prevUrl))) {
+        stopAllAudio(); startAudioFadeIn();
+      }
+    }
+
+    window.addEventListener('message', (event) => {
+      const msg = event.data; if (!msg || typeof msg !== 'object') return;
+      if (msg.type === 'AK_RSVP_RESULT') {
+        if (msg.ok) showToast((LANG_PACKS[state.order.langKey] || LANG_PACKS['odia-en']).rsvpDoneH);
+        return;
+      }
+      if (msg.slug) state.slug = String(msg.slug);
+      if (msg.dbUrl) state.dbUrl = String(msg.dbUrl).replace(/\/+$/, '');
+      const cand = msg.order || msg.payload || msg.data || (MSG_TYPES.has(msg.type) ? msg : null);
+      if (cand && typeof cand === 'object' && (cand.couple || cand.groomName || cand.wedding || cand.rituals || cand.sections || cand.toggles)) {
+        applyPayload(cand, msg.globalFooter || msg.footer || null);
+      }
+    });
+
+    async function loadStandalone() {
+      if (state.slug && state.dbUrl) {
+        const get = async (p) => { try { const r = await fetch(`${state.dbUrl}/${p}.json`, { cache: 'no-store' }); return r.ok ? await r.json() : null; } catch { return null; } };
+        const [ordA, foot] = await Promise.all([get(`orders/${encodeURIComponent(state.slug)}`), get('settings/footer')]);
+        const ord = ordA || await get(`invites/${encodeURIComponent(state.slug)}`);
+        if (ord && typeof ord === 'object') { applyPayload(ord, foot); return; }
+      }
+      if (!state.isEmbedded) { state.hasLiveOrder = true; syncAudioUI(); }
+    }
+
+    async function boot() {
+      const t0 = performance.now();
+      initFallbackArt();
+      renderOrderToDOM();
+      initStarDust();
+      await loadStandalone();
+      if (state.isEmbedded && window.parent) {
+        window.parent.postMessage({ type: 'DESIGN_READY' }, '*');
+        window.parent.postMessage({ type: 'AK_DESIGN_READY' }, '*');
+      }
+      const wait = Math.max(0, 380 - (performance.now() - t0));
+      setTimeout(() => { $('preloader').classList.add('done'); sweepReveals(); }, wait);
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
+    else boot();
+  </script>
+</body>
+</html>
