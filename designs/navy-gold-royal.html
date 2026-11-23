@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#071126" />
+  <title>Navy &amp; Gold Royal — Wedding Invitation | Ak ⭐ Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Oriya:wght@400;500;600;700&family=Noto+Serif+Oriya:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy1: #0A142A;
+      --navy2: #14264A;
+      --navy3: #050A17;
+      --gold1: #FFF1B8;
+      --gold2: #E5B95C;
+      --gold3: #9A6A1C;
+      --cream: #F4E5BF;
+      --parchment1: #FAF1DC;
+      --parchment2: #EBD8B2;
+      --ink: #17233B;
+      --muted: #5F687A;
+      --lineG: rgba(229, 185, 92, 0.42);
+      --lineN: rgba(244, 229, 191, 0.24);
+      --shGold: 0 18px 44px rgba(3, 8, 22, 0.56);
+      --shCard: 0 14px 32px rgba(8, 17, 38, 0.22);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html { margin: 0; padding: 0; width: 100%; max-width: 100%; overflow-x: clip; scroll-behavior: smooth; background: var(--navy1); }
+    body {
+      margin: 0; padding: 0; width: 100%; max-width: 100%; overflow-x: clip;
+      background: radial-gradient(circle at 50% 0%, var(--navy2) 0%, var(--navy1) 48%, var(--navy3) 100%);
+      color: var(--cream);
+      font-family: 'Montserrat', 'Noto Sans Oriya', 'Noto Sans Devanagari', system-ui, sans-serif;
+      font-size: 14.5px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+    }
+    body.locked { overflow: hidden; height: 100vh; height: 100svh; }
+    button, input, textarea, select { font-family: inherit; color: inherit; }
+    button { border: none; background: none; padding: 0; cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .script-name { font-family: 'Great Vibes', 'Noto Serif Oriya', 'Noto Sans Devanagari', Georgia, serif; }
+    .serif { font-family: 'Playfair Display', 'Noto Serif Oriya', 'Noto Sans Devanagari', Georgia, serif; }
+    .hidden { display: none !important; }
+
+    /* LOADER */
+    #preloader {
+      position: fixed; inset: 0; z-index: 150;
+      background: radial-gradient(circle at 50% 42%, var(--navy2), var(--navy3));
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+      transition: opacity .45s ease, visibility .45s ease;
+    }
+    #preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .pl-ring { position: relative; width: 92px; height: 92px; display: flex; align-items: center; justify-content: center; }
+    .pl-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: spinSlow 3.6s linear infinite; }
+    @keyframes spinSlow { to { transform: rotate(360deg); } }
+    .pl-mono { font-family: 'Playfair Display', 'Noto Serif Oriya', serif; font-size: 24px; font-weight: 700; color: var(--gold1); }
+    .pl-k { font-size: 10px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: var(--gold2); }
+
+    /* PAUSED SCREEN */
+    #paused-screen {
+      position: fixed; inset: 0; z-index: 135;
+      background: radial-gradient(circle at 50% 35%, var(--navy2), var(--navy3));
+      display: none; align-items: center; justify-content: center; padding: 24px; text-align: center;
+    }
+    #paused-screen.show { display: flex; }
+    .paused-card {
+      width: 100%; max-width: 370px; background: rgba(10, 20, 42, 0.95);
+      border: 1.5px solid var(--gold2); border-radius: 22px; padding: 30px 22px; box-shadow: var(--shGold);
+    }
+
+    /* AMBIENT PARTICLES & CORNERS */
+    #sparkle-canvas { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+    .corner-blooms {
+      position: fixed; inset: 0; pointer-events: none; z-index: 3; overflow: hidden;
+    }
+    .corner-rose {
+      position: absolute; width: 88px; height: 88px; opacity: .88;
+      transition: transform .45s cubic-bezier(.22,1,.36,1);
+    }
+    .corner-rose.tl { top: calc(4px + env(safe-area-inset-top, 0px)); left: 2px; }
+    .corner-rose.tr { top: calc(4px + env(safe-area-inset-top, 0px)); right: 2px; transform: scaleX(-1); }
+    .corner-rose.bl { bottom: calc(56px + env(safe-area-inset-bottom, 0px)); left: 2px; transform: scaleY(-1); }
+    .corner-rose.br { bottom: calc(56px + env(safe-area-inset-bottom, 0px)); right: 2px; transform: scale(-1, -1); }
+
+    /* 1. OPENING: 3D NAVY-VELVET BOOK WITH GOLD GANESH & RIBBON BOW */
+    #book-overlay {
+      position: fixed; inset: 0; z-index: 105;
+      background: radial-gradient(circle at 50% 30%, #1b325e 0%, var(--navy1) 58%, var(--navy3) 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: calc(20px + env(safe-area-inset-top, 0px)) 18px calc(24px + env(safe-area-inset-bottom, 0px));
+      text-align: center; overflow: hidden;
+      transition: opacity .82s cubic-bezier(.22,1,.36,1), transform .82s cubic-bezier(.22,1,.36,1), visibility .82s ease;
+    }
+    #book-overlay.opened { opacity: 0; transform: scale(1.12); visibility: hidden; pointer-events: none; }
+    #burst-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 14; }
+
+    .book-stage {
+      position: relative; z-index: 5; width: min(258px, 72vw); aspect-ratio: 3 / 4.05;
+      perspective: 1300px; cursor: pointer;
+    }
+    .book-3d {
+      position: relative; width: 100%; height: 100%; transform-style: preserve-3d;
+    }
+    .book-inner-page {
+      position: absolute; inset: 0; border-radius: 8px 18px 18px 8px;
+      background: linear-gradient(180deg, var(--parchment1), var(--parchment2));
+      border: 2px solid var(--gold2); color: var(--ink);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 20px 14px; box-shadow: inset 8px 0 18px rgba(14,27,51,.18);
+    }
+    .book-cover {
+      position: absolute; inset: 0; transform-origin: left center; transform-style: preserve-3d;
+      border-radius: 6px 18px 18px 6px;
+      background: linear-gradient(145deg, #1b3461 0%, #0d1b38 56%, #081226 100%);
+      border: 2px solid var(--gold2);
+      box-shadow: 10px 18px 38px rgba(2, 6, 16, 0.72), inset 0 0 0 5px rgba(229,185,92,.14);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 18px 14px; transition: transform .88s cubic-bezier(.22,1,.36,1);
+    }
+    .book-stage.opening .book-cover { transform: rotateY(-148deg); }
+
+    .book-spine {
+      position: absolute; left: 0; top: 0; bottom: 0; width: 18px;
+      background: linear-gradient(90deg, rgba(255,241,184,.28), rgba(0,0,0,.45), rgba(229,185,92,.2));
+      border-top-left-radius: 6px; border-bottom-left-radius: 6px;
+    }
+    .ganesh-halo {
+      width: 92px; height: 92px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,241,184,.24) 0%, rgba(229,185,92,.08) 65%, transparent 100%);
+      border: 1.5px solid var(--gold2); display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 24px rgba(229,185,92,.35); margin-top: 6px;
+    }
+    .ribbon-bow {
+      margin-top: 12px; padding: 6px 18px; border-radius: 999px;
+      background: linear-gradient(135deg, #2554a3, #132d61);
+      border: 1.5px solid var(--gold1); color: var(--gold1);
+      font-size: 11px; font-weight: 700; letter-spacing: .16em;
+      box-shadow: 0 8px 20px rgba(3,8,20,.45);
+    }
+
+    .tap-book-plate {
+      position: relative; z-index: 6; margin-top: 22px;
+      padding: 11px 22px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold1), var(--gold2), var(--gold3));
+      color: var(--navy3); font-size: 11.5px; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; box-shadow: 0 10px 26px rgba(229,185,92,.32);
+      display: inline-flex; align-items: center; gap: 8px;
+      animation: platePulse 2.2s ease-in-out infinite;
+    }
+    @keyframes platePulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
+
+    /* MAIN SHELL */
+    .app-shell {
+      width: 100%; max-width: 440px; margin-inline: auto;
+      position: relative; z-index: 2; padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .sec { position: relative; padding: 38px 18px; }
+    .gold-plate {
+      display: inline-block; padding: 7px 22px; border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255,241,184,.16), rgba(229,185,92,.08));
+      border: 1.3px solid var(--gold2); color: var(--gold1);
+      font-size: 10.5px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase;
+      box-shadow: 0 6px 20px rgba(0,0,0,.28);
+    }
+    .sec-head-center { text-align: center; margin-bottom: 20px; }
+    .sec-sub { font-size: 12.5px; color: rgba(244,229,191,.78); margin: 8px auto 0; max-width: 310px; }
+
+    .rv {
+      opacity: 0; transform: translate3d(0, 18px, 0);
+      transition: opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1);
+    }
+    .rv.in { opacity: 1; transform: translate3d(0, 0, 0); }
+
+    /* 2. FIRST PAGE: ROYAL NAVY & GOLD INVITATION CARD (1 PHONE SCREEN) */
+    .first-page {
+      position: relative; min-height: 100vh; min-height: 100svh;
+      display: flex; align-items: center; justify-content: center;
+      padding: calc(16px + env(safe-area-inset-top, 0px)) 14px 24px;
+      overflow: hidden;
+    }
+    .hero-bg-layer { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .hero-bg-layer video, .hero-bg-layer img { width: 100%; height: 100%; object-fit: cover; opacity: .24; }
+    .hero-bg-veil { position: absolute; inset: 0; background: radial-gradient(circle at 50% 25%, rgba(20,38,74,.65), rgba(6,13,30,.94)); }
+
+    .arch-card {
+      position: relative; z-index: 2; width: 100%; max-width: 396px;
+      border-radius: 196px 196px 26px 26px;
+      background: linear-gradient(180deg, rgba(22,41,79,.95) 0%, rgba(10,20,42,.98) 100%);
+      border: 2px solid var(--gold2);
+      padding: 22px 18px 24px; text-align: center;
+      box-shadow: var(--shGold), inset 0 0 0 5px rgba(229,185,92,.14);
+    }
+    .ganesh-emblem-box {
+      width: 68px; height: 68px; border-radius: 50%; margin: 0 auto 8px;
+      border: 1.5px solid var(--gold2);
+      background: radial-gradient(circle, rgba(255,241,184,.2), rgba(154,106,28,.12));
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 22px rgba(229,185,92,.3);
+    }
+    .top-inv-txt { font-size: 11px; font-weight: 600; letter-spacing: .12em; color: var(--gold1); margin: 0 0 4px; }
+    .together-txt { font-size: 10px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--gold2); margin: 0 0 8px; }
+
+    .typed-name {
+      font-family: 'Great Vibes', 'Noto Serif Oriya', 'Noto Sans Devanagari', Georgia, serif;
+      font-size: clamp(38px, 11.5vw, 52px); line-height: 1.15; color: var(--gold1);
+      text-shadow: 0 4px 18px rgba(229,185,92,.28); margin: 0;
+    }
+    .typed-name .ch {
+      display: inline-block; opacity: 0; transform: translate3d(0, 8px, 0);
+      transition: opacity .35s ease, transform .35s ease;
+    }
+    .typed-name.go .ch { opacity: 1; transform: translate3d(0, 0, 0); }
+
+    .parent-line { font-size: 12px; color: rgba(244,229,191,.85); margin: 3px 0 6px; }
+    .amp-gold { font-family: 'Playfair Display', 'Noto Serif Oriya', serif; font-size: 24px; color: var(--gold2); margin: 2px 0; }
+    .joyous-line { font-family: 'Playfair Display', 'Noto Serif Oriya', serif; font-style: italic; font-size: 14px; color: var(--cream); margin: 10px auto 12px; max-width: 280px; }
+
+    .date-row-box {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      padding: 10px 8px; border-top: 1px solid var(--lineN); border-bottom: 1px solid var(--lineN);
+      margin: 8px 0;
+    }
+    .date-side { font-size: 10.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold2); }
+    .date-big-num { font-family: 'Playfair Display', 'Noto Serif Oriya', serif; font-size: 30px; font-weight: 700; color: var(--gold1); line-height: 1; }
+    .venue-pin-line { font-size: 11.5px; color: var(--cream); margin-top: 8px; }
+    .scroll-down-cue { margin-top: 10px; font-size: 9.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--gold2); }
+
+    /* COUPLE HERO & VIDEO */
+    .hero-banner-box {
+      position: relative; border-radius: 22px; overflow: hidden;
+      border: 1.5px solid var(--gold2); box-shadow: var(--shGold); aspect-ratio: 16 / 10;
+    }
+    .hero-banner-box img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-banner-cap {
+      position: absolute; inset: auto 0 0; padding: 24px 14px 12px; text-align: center;
+      background: linear-gradient(180deg, transparent, rgba(5,10,23,.92));
+      font-family: 'Playfair Display', 'Noto Serif Oriya', serif; font-style: italic; font-size: 15px; color: var(--gold1);
+    }
+
+    .vid-box {
+      margin-top: 16px; border-radius: 20px; overflow: hidden;
+      border: 1.5px solid var(--gold2); background: #050a17; box-shadow: var(--shGold);
+    }
+    .vid-box video { width: 100%; display: block; max-height: 280px; background: #000; }
+    .yt-wrap { position: relative; width: 100%; aspect-ratio: 16 / 9; }
+    .yt-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .vid-cap { padding: 10px 14px; text-align: center; font-size: 12.5px; color: var(--gold1); font-weight: 600; }
+
+    /* 3. SAVE THE DATE — PARCHMENT SCROLL WITH TASSEL & COUNTDOWN */
+    .scroll-card {
+      position: relative; border-radius: 20px;
+      background: linear-gradient(180deg, var(--parchment1) 0%, var(--parchment2) 100%);
+      border: 2px solid var(--gold2); color: var(--ink);
+      padding: 20px 18px 22px; text-align: center; box-shadow: var(--shGold);
+    }
+    .scroll-rod {
+      height: 12px; border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold3), var(--gold1), var(--gold2), var(--gold3));
+      box-shadow: 0 4px 10px rgba(0,0,0,.25);
+    }
+    .tassel-trigger {
+      display: inline-flex; align-items: center; gap: 8px; margin: 12px auto 6px;
+      padding: 9px 18px; border-radius: 999px;
+      background: var(--navy2); color: var(--gold1); border: 1.5px solid var(--gold2);
+      font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .scroll-body {
+      max-height: 130px; overflow: hidden; transition: max-height .65s cubic-bezier(.22,1,.36,1);
+    }
+    .scroll-card.unrolled .scroll-body { max-height: 360px; }
+    .scroll-date-big { font-family: 'Playfair Display', 'Noto Serif Oriya', serif; font-size: 21px; font-weight: 700; color: var(--ink); margin: 10px 0 4px; }
+
+    .cd-row-4 {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 18px;
+    }
+    .cd-gold-box {
+      background: linear-gradient(180deg, #1b315c, #0b162e);
+      border: 1.4px solid var(--gold2); border-radius: 14px; padding: 11px 4px; text-align: center;
+    }
+    .cd-gold-num { font-family: 'Playfair Display', 'Noto Serif Oriya', serif; font-size: 26px; font-weight: 700; color: var(--gold1); display: block; line-height: 1.05; }
+    .cd-gold-lbl { font-size: 9.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold2); margin-top: 4px; display: block; }
+
+    /* 4. WEDDING FUNCTIONS — SWIPEABLE 3D PARCHMENT CAROUSEL */
+    .fn-stage { position: relative; margin-top: 14px; touch-action: pan-y; user-select: none; }
+    .fn-track { position: relative; width: 100%; height: 224px; perspective: 1000px; }
+    .fn-card {
+      position: absolute; top: 0; left: 50%; width: min(334px, 90vw); margin-left: calc(min(334px, 90vw) / -2);
+      border-radius: 20px; padding: 16px;
+      background: linear-gradient(155deg, var(--parchment1), var(--parchment2));
+      border: 1.8px solid var(--gold2); color: var(--ink); box-shadow: var(--shCard);
+      display: grid; grid-template-columns: 64px 1fr auto; gap: 12px; align-items: center;
+      transition: transform .42s cubic-bezier(.22,1,.36,1), opacity .42s ease;
+      pointer-events: none;
+    }
+    .fn-card.pos-0 { z-index: 5; opacity: 1; transform: translate3d(0,0,0) scale(1); pointer-events: auto; }
+    .fn-card.pos-1 { z-index: 3; opacity: .55; transform: translate3d(42%, 8px, -70px) scale(.88); }
+    .fn-card.pos-n1 { z-index: 3; opacity: .55; transform: translate3d(-42%, 8px, -70px) scale(.88); }
+    .fn-card.pos-hide { z-index: 1; opacity: 0; transform: translate3d(0, 14px, -140px) scale(.78); }
+
+    .fn-ico {
+      width: 60px; height: 60px; border-radius: 16px;
+      background: rgba(20, 38, 74, 0.08); border: 1.3px solid var(--gold2);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .fn-ico img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
+    .fn-title { font-family: 'Playfair Display', 'Noto Serif Oriya', serif; font-size: 20px; font-weight: 700; color: var(--ink); margin: 0; line-height: 1.2; }
+    .fn-meta { font-size: 11px; font-weight: 600; color: var(--gold3); margin: 3px 0; }
+    .fn-place { font-size: 12px; color: var(--muted); margin: 0; }
+    .fn-dress-col { text-align: center; min-width: 62px; border-left: 1px dashed rgba(154,106,28,.35); padding-left: 10px; }
+    .fn-swatch { width: 24px; height: 24px; border-radius: 50%; margin: 0 auto 5px; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.22); }
+    .fn-dress-txt { font-size: 10.5px; font-weight: 700; color: var(--ink); line-height: 1.25; }
+    .fn-foot-note { text-align: center; font-family: 'Playfair Display', 'Noto Serif Oriya', serif; font-style: italic; font-size: 14px; color: var(--gold1); margin-top: 14px; }
+
+    .car-nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 12px; }
+    .car-arr {
+      width: 38px; height: 38px; border-radius: 50%; border: 1.3px solid var(--gold2);
+      background: rgba(20,38,74,.88); color: var(--gold1); font-size: 20px;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .car-dots { display: flex; gap: 6px; }
+    .car-dot { width: 7px; height: 7px; border-radius: 999px; background: rgba(244,229,191,.28); transition: all .2s ease; }
+    .car-dot.on { width: 20px; background: var(--gold2); }
+
+    /* 5. OUR STORY POLAROID CAROUSEL + OUR SONG PLAYER */
+    .polaroid-stage {
+      position: relative; width: 268px; height: 326px; margin: 16px auto 0;
+      touch-action: pan-y; user-select: none;
+    }
+    .polaroid-card {
+      position: absolute; inset: 0; border-radius: 16px; padding: 12px 12px 48px;
+      background: linear-gradient(180deg, var(--parchment1), var(--parchment2));
+      border: 2px solid var(--gold2); box-shadow: var(--shGold);
+      transition: transform .42s cubic-bezier(.22,1,.36,1), opacity .38s ease;
+    }
+    .polaroid-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+    .polaroid-cap {
+      position: absolute; left: 12px; right: 12px; bottom: 10px; text-align: center;
+      font-family: 'Playfair Display', 'Noto Serif Oriya', serif; font-style: italic;
+      font-size: 14px; font-weight: 600; color: var(--ink);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    .song-plate {
+      margin: 18px auto 0; max-width: 356px; border-radius: 18px; padding: 14px 16px;
+      background: linear-gradient(135deg, rgba(255,241,184,.16), rgba(229,185,92,.08));
+      border: 1.4px solid var(--gold2); box-shadow: var(--shCard);
+    }
+    .song-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .song-title-txt { font-size: 13px; font-weight: 700; color: var(--gold1); }
+    .song-play-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold1), var(--gold2)); color: var(--navy3);
+      font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .song-bar { height: 5px; border-radius: 999px; background: rgba(244,229,191,.18); margin-top: 10px; overflow: hidden; }
+    .song-fill { height: 100%; width: 35%; background: linear-gradient(90deg, var(--gold2), var(--gold1)); transition: width .3s linear; }
+    .song-time { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--cream); margin-top: 5px; opacity: .85; }
+    .journey-end-txt { text-align: center; font-family: 'Great Vibes', 'Noto Serif Oriya', serif; font-size: 24px; color: var(--gold1); margin-top: 16px; }
+
+    /* 6. GRAND RECEPTION (DOUBLE GOLD BORDER ON NAVY) */
+    .rec-gold-card {
+      border-radius: 22px; padding: 28px 20px; text-align: center;
+      background: linear-gradient(160deg, #162b54 0%, #0a152c 100%);
+      border: 2px solid var(--gold2); box-shadow: var(--shGold);
+      outline: 2px solid rgba(255,241,184,.25); outline-offset: -8px;
+    }
+    .rec-gold-title { font-family: 'Great Vibes', 'Noto Serif Oriya', serif; font-size: 40px; color: var(--gold1); margin: 6px 0 2px; line-height: 1.2; }
+    .rec-gold-sub { font-size: 13.5px; color: var(--cream); margin: 0 0 12px; }
+    .rec-gold-date { font-family: 'Playfair Display', 'Noto Serif Oriya', serif; font-size: 20px; font-weight: 700; color: var(--gold1); margin: 10px 0 4px; }
+    .rec-gold-line { font-size: 12.5px; color: rgba(244,229,191,.86); margin: 3px 0; }
+    .rec-gold-badge {
+      display: inline-block; margin-top: 12px; padding: 6px 16px; border-radius: 999px;
+      border: 1.2px solid var(--gold2); color: var(--gold1); font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+    }
+
+    /* 7. LOCATION & 8. RSVP & 9. CLOSING */
+    .map-box {
+      position: relative; display: block; border-radius: 20px; overflow: hidden;
+      border: 1.6px solid var(--gold2); box-shadow: var(--shGold); margin-top: 14px;
+    }
+    .map-box svg { width: 100%; height: 184px; display: block; }
+    .route-anim { stroke: var(--gold2); stroke-width: 3; stroke-dasharray: 6 6; fill: none; animation: dashMove 14s linear infinite; }
+    @keyframes dashMove { to { stroke-dashoffset: -120; } }
+    .pin-anim { animation: pinBob 1.9s ease-in-out infinite; transform-origin: 300px 66px; }
+    @keyframes pinBob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+    .btn-gold {
+      min-height: 44px; padding: 0 18px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold1), var(--gold2), var(--gold3));
+      color: var(--navy3); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      box-shadow: 0 8px 22px rgba(229,185,92,.26);
+    }
+    .btn-gold-ghost {
+      min-height: 42px; padding: 0 16px; border-radius: 999px;
+      border: 1.3px solid var(--gold2); color: var(--gold1); background: rgba(229,185,92,.08);
+      font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    }
+
+    .rsvp-box {
+      border-radius: 22px; padding: 20px 16px;
+      background: linear-gradient(180deg, rgba(20,38,74,.92), rgba(9,18,38,.96));
+      border: 1.6px solid var(--gold2); box-shadow: var(--shGold);
+    }
+    .rsvp-choice-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+    .rsvp-choice {
+      min-height: 44px; border-radius: 999px; border: 1.3px solid var(--gold2);
+      background: rgba(255,255,255,.04); color: var(--cream); font-size: 12px; font-weight: 600;
+    }
+    .rsvp-choice.on { background: linear-gradient(135deg, var(--gold1), var(--gold2)); color: var(--navy3); font-weight: 700; }
+
+    .f-grp { margin-bottom: 13px; }
+    .f-lbl { display: block; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gold2); margin-bottom: 5px; }
+    .f-in, .f-ta {
+      width: 100%; min-height: 44px; padding: 10px 12px; border-radius: 12px;
+      border: 1.2px solid var(--lineG); background: rgba(6, 13, 29, 0.72); color: var(--cream); font-size: 14px; outline: none;
+    }
+    .f-ta { min-height: 76px; resize: vertical; }
+
+    .step-row { display: inline-flex; align-items: center; gap: 14px; padding: 4px 10px; border-radius: 999px; border: 1.2px solid var(--lineG); background: rgba(6,13,29,.65); }
+    .step-b { width: 32px; height: 32px; border-radius: 50%; background: var(--gold2); color: var(--navy3); font-weight: 700; font-size: 17px; }
+    .meal-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .m-chip { min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1.2px solid var(--lineG); font-size: 12px; font-weight: 600; color: var(--cream); }
+    .m-chip.on { background: var(--gold2); color: var(--navy3); border-color: var(--gold2); }
+
+    .closing-parchment {
+      border-radius: 22px; padding: 26px 18px; text-align: center;
+      background: linear-gradient(180deg, var(--parchment1), var(--parchment2));
+      border: 2px solid var(--gold2); color: var(--ink); box-shadow: var(--shGold);
+    }
+    .closing-quote { font-family: 'Playfair Display', 'Noto Serif Oriya', serif; font-size: 20px; font-weight: 700; color: var(--ink); margin: 10px 0 6px; line-height: 1.4; }
+    .closing-fam { font-family: 'Great Vibes', 'Noto Serif Oriya', serif; font-size: 28px; color: var(--gold3); margin: 4px 0 14px; }
+
+    .studio-foot { text-align: center; padding: 24px 16px 14px; }
+    .foot-k { font-size: 9.5px; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: var(--gold2); margin: 0; }
+    .foot-n { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 700; color: var(--gold1); margin: 4px 0 0; }
+    .foot-t { font-size: 12px; color: var(--cream); opacity: .8; margin: 4px 0 0; }
+    .foot-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 12px; }
+    .foot-pill {
+      display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 15px;
+      border-radius: 999px; background: rgba(255,255,255,.08); border: 1.2px solid var(--lineG);
+      color: var(--gold1); font-size: 12px; font-weight: 600;
+    }
+
+    /* AUDIO FAB + LIGHTBOX + TOAST */
+    #audio-fab {
+      position: fixed; right: max(14px, calc(50% - 206px)); top: calc(14px + env(safe-area-inset-top, 0px));
+      z-index: 80; min-width: 44px; height: 44px; padding: 0 12px; border-radius: 999px;
+      background: rgba(10,20,42,.92); border: 1.4px solid var(--gold2); color: var(--gold1);
+      display: inline-flex; align-items: center; justify-content: center; gap: 7px; box-shadow: var(--shCard);
+    }
+    .eq { display: inline-flex; align-items: flex-end; gap: 3px; height: 15px; }
+    .eq b { width: 2.8px; border-radius: 99px; background: var(--gold1); height: 5px; }
+    .eq.play b:nth-child(1) { animation: eqB .8s ease-in-out infinite; }
+    .eq.play b:nth-child(2) { animation: eqB .65s ease-in-out infinite .15s; }
+    .eq.play b:nth-child(3) { animation: eqB .9s ease-in-out infinite .3s; }
+    @keyframes eqB { 0%,100%{height:5px} 50%{height:15px} }
+
+    #lightbox {
+      position: fixed; inset: 0; z-index: 160; background: rgba(4,9,22,.95);
+      display: none; flex-direction: column; align-items: center; justify-content: center; padding: 20px;
+    }
+    #lightbox.open { display: flex; }
+    #lb-img { max-width: 95vw; max-height: 76vh; border-radius: 14px; border: 1.5px solid var(--gold2); }
+    #lb-cap { margin-top: 12px; color: var(--gold1); font-size: 15px; text-align: center; }
+    #lb-close {
+      position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: 16px;
+      width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,.12);
+      border: 1px solid var(--gold2); color: var(--gold1); font-size: 18px;
+    }
+
+    #toast {
+      position: fixed; left: 50%; bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+      transform: translate(-50%, 16px); z-index: 170;
+      background: var(--navy2); color: var(--gold1); border: 1.3px solid var(--gold2);
+      border-radius: 999px; padding: 10px 18px; font-size: 12.5px; font-weight: 600;
+      opacity: 0; pointer-events: none; max-width: calc(100% - 32px); text-align: center;
+      transition: opacity .24s ease, transform .24s ease;
+    }
+    #toast.show { opacity: 1; transform: translate(-50%, 0); }
+  </style>
+</head>
+<body>
+  <canvas id="sparkle-canvas" aria-hidden="true"></canvas>
+
+  <!-- CORNER BLUE & IVORY ROSES -->
+  <div class="corner-blooms" aria-hidden="true">
+    <svg class="corner-rose tl" viewBox="0 0 100 100"><circle cx="32" cy="32" r="24" fill="#1E4A9E" stroke="#E5B95C" stroke-width="1.5"/><circle cx="32" cy="32" r="13" fill="#366AC7"/><circle cx="62" cy="24" r="15" fill="#FAF1DC" stroke="#E5B95C" stroke-width="1.4"/><circle cx="22" cy="64" r="14" fill="#FAF1DC" stroke="#E5B95C" stroke-width="1.4"/><circle cx="48" cy="48" r="5" fill="#FFF1B8"/></svg>
+    <svg class="corner-rose tr" viewBox="0 0 100 100"><circle cx="32" cy="32" r="24" fill="#1E4A9E" stroke="#E5B95C" stroke-width="1.5"/><circle cx="32" cy="32" r="13" fill="#366AC7"/><circle cx="62" cy="24" r="15" fill="#FAF1DC" stroke="#E5B95C" stroke-width="1.4"/><circle cx="22" cy="64" r="14" fill="#FAF1DC" stroke="#E5B95C" stroke-width="1.4"/><circle cx="48" cy="48" r="5" fill="#FFF1B8"/></svg>
+    <svg class="corner-rose bl" viewBox="0 0 100 100"><circle cx="32" cy="32" r="24" fill="#1E4A9E" stroke="#E5B95C" stroke-width="1.5"/><circle cx="32" cy="32" r="13" fill="#366AC7"/><circle cx="62" cy="24" r="15" fill="#FAF1DC" stroke="#E5B95C" stroke-width="1.4"/><circle cx="22" cy="64" r="14" fill="#FAF1DC" stroke="#E5B95C" stroke-width="1.4"/><circle cx="48" cy="48" r="5" fill="#FFF1B8"/></svg>
+    <svg class="corner-rose br" viewBox="0 0 100 100"><circle cx="32" cy="32" r="24" fill="#1E4A9E" stroke="#E5B95C" stroke-width="1.5"/><circle cx="32" cy="32" r="13" fill="#366AC7"/><circle cx="62" cy="24" r="15" fill="#FAF1DC" stroke="#E5B95C" stroke-width="1.4"/><circle cx="22" cy="64" r="14" fill="#FAF1DC" stroke="#E5B95C" stroke-width="1.4"/><circle cx="48" cy="48" r="5" fill="#FFF1B8"/></svg>
+  </div>
+
+  <!-- LOADER -->
+  <div id="preloader">
+    <div class="pl-ring">
+      <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="45" stroke="rgba(229,185,92,.22)" stroke-width="1.8"/><path d="M50 5 A45 45 0 0 1 95 50" stroke="#E5B95C" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span id="pl-mono" class="pl-mono">A&amp;A</span>
+    </div>
+    <span id="pl-kicker" class="pl-k">NAVY &amp; GOLD ROYALE</span>
+  </div>
+
+  <!-- PAUSED OVERLAY -->
+  <div id="paused-screen">
+    <div class="paused-card">
+      <div class="gold-plate" id="paused-kicker">TEMPORARILY PAUSED</div>
+      <h2 id="paused-title" class="serif" style="color:var(--gold1); font-size:24px; margin:14px 0 6px;">Invitation Unavailable</h2>
+      <p id="paused-sub" style="color:var(--cream); font-size:13px; margin:0; opacity:.8;">This digital invitation is temporarily paused by the host family.</p>
+    </div>
+  </div>
+
+  <!-- 1. OPENING: 3D NAVY-VELVET BOOK WITH GOLD GANESH -->
+  <div id="book-overlay" role="dialog" aria-label="Royal Wedding Book">
+    <canvas id="burst-canvas" aria-hidden="true"></canvas>
+    <div id="book-stage" class="book-stage" role="button" tabindex="0" aria-label="Tap the book to open">
+      <div class="book-3d">
+        <div class="book-inner-page">
+          <small style="font-size:9px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold3); font-weight:700;">SHUBH VIVAAH</small>
+          <div id="book-inner-names" class="script-name" style="font-size:30px; color:var(--ink); margin:8px 0;">Aarav &amp; Ananya</div>
+          <small id="book-inner-date" style="font-size:10.5px; color:var(--muted);"></small>
+        </div>
+        <div class="book-cover">
+          <div class="book-spine"></div>
+          <div class="ganesh-halo">
+            <svg width="46" height="46" viewBox="0 0 64 64" fill="none" stroke="#FFF1B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 10c-4 0-7 3-7 6 0 2 1 4 3 5-5 1-9 6-9 12 0 5 3 9 7 11-1 3 1 7 5 8 4 1 8-1 8-5 0-2-2-4-4-4s-3 1-3 3"/><path d="M32 10c4 0 7 3 7 6 0 2-1 4-3 5 5 1 9 6 9 12 0 4-2 8-6 10"/></svg>
+          </div>
+          <div id="book-cover-mono" class="serif" style="font-size:20px; font-weight:700; color:var(--gold1); margin-top:10px; letter-spacing:.12em;">A&amp;A</div>
+          <div class="ribbon-bow" id="book-ribbon-lbl">ROYAL INVITE</div>
+        </div>
+      </div>
+    </div>
+    <button type="button" id="btn-open-book" class="tap-book-plate">
+      <span>☝</span><span id="lbl-tap-book">Tap the Book to Open</span>
+    </button>
+  </div>
+
+  <!-- AUDIO FAB -->
+  <button type="button" id="audio-fab" class="hidden" aria-label="Toggle music">
+    <span class="eq" id="audio-eq"><b></b><b></b><b></b></span>
+    <span id="audio-fab-txt" class="hidden" style="font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;">Our Song</span>
+  </button>
+  <audio id="bg-audio" loop preload="none" playsinline></audio>
+
+  <!-- MAIN SHELL -->
+  <main class="app-shell">
+
+    <!-- 2. FIRST PAGE (ARCH CARD WITH GOLD GANESH & TYPED COUPLE NAMES) -->
+    <section id="sec-first" class="first-page">
+      <div id="hero-bg-layer" class="hero-bg-layer hidden">
+        <video id="hero-bg-video" autoplay loop muted playsinline class="hidden"></video>
+        <img id="hero-bg-img" alt="" class="hidden" />
+        <div class="hero-bg-veil"></div>
+      </div>
+
+      <article class="arch-card">
+        <div class="ganesh-emblem-box">
+          <svg width="34" height="34" viewBox="0 0 64 64" fill="none" stroke="#FFF1B8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M32 10c-4 0-7 3-7 6 0 2 1 4 3 5-5 1-9 6-9 12 0 5 3 9 7 11-1 3 1 7 5 8 4 1 8-1 8-5 0-2-2-4-4-4s-3 1-3 3"/><path d="M32 10c4 0 7 3 7 6 0 2-1 4-3 5 5 1 9 6 9 12 0 4-2 8-6 10"/></svg>
+        </div>
+        <p id="top-inv-txt" class="top-inv-txt">॥ ଶ୍ରୀ ଗଣେଶାୟ ନମଃ ॥</p>
+        <p id="lbl-together" class="together-txt">TOGETHER WITH THEIR FAMILIES</p>
+
+        <h1 id="name-first" class="typed-name">Aarav</h1>
+        <p id="parents-first" class="parent-line"></p>
+
+        <div class="amp-gold">&amp;</div>
+
+        <h2 id="name-second" class="typed-name">Ananya</h2>
+        <p id="parents-second" class="parent-line"></p>
+
+        <p id="joyous-line" class="joyous-line"></p>
+
+        <div class="date-row-box">
+          <span id="date-day-lbl" class="date-side">FRIDAY</span>
+          <span id="date-big-num" class="date-big-num">12</span>
+          <span id="date-month-lbl" class="date-side">FEBRUARY 2027</span>
+        </div>
+
+        <div id="venue-pin-line" class="venue-pin-line">📍 Mayfair Lagoon, Bhubaneswar</div>
+        <div id="scroll-down-cue" class="scroll-down-cue">SCROLL DOWN ↓</div>
+      </article>
+    </section>
+
+    <!-- COUPLE PHOTO & PRE-WEDDING VIDEO -->
+    <section id="sec-media" class="sec rv">
+      <div id="hero-photo-card" class="hero-banner-box">
+        <img id="hero-photo-img" alt="Couple celebration" />
+        <div id="hero-photo-cap" class="hero-banner-cap"></div>
+      </div>
+
+      <div id="sec-video" class="hidden" style="margin-top:18px;">
+        <div class="sec-head-center" style="margin-bottom:10px;">
+          <span class="gold-plate" id="lbl-vid-plate">WEDDING FILM</span>
+        </div>
+        <div class="vid-box">
+          <video id="main-mp4" controls playsinline preload="metadata" class="hidden"></video>
+          <div id="main-yt-box" class="yt-wrap hidden">
+            <iframe id="main-yt-iframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Wedding Video"></iframe>
+          </div>
+          <div id="main-vid-cap" class="vid-cap hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SAVE THE DATE — PARCHMENT SCROLL & COUNTDOWN -->
+    <section id="sec-save-date" class="sec rv">
+      <div class="sec-head-center">
+        <span class="gold-plate" id="lbl-std-plate">SAVE THE DATE</span>
+      </div>
+
+      <div id="parchment-scroll" class="scroll-card">
+        <div class="scroll-rod"></div>
+        <div class="scroll-body" id="scroll-body">
+          <div id="scroll-date-txt" class="scroll-date-big">Friday, 12 February 2027</div>
+          <div id="scroll-time-txt" style="font-size:13px; font-weight:600; color:var(--gold3);">10:30 PM</div>
+          <div id="scroll-rings-lbl" class="serif" style="font-style:italic; font-size:16px; color:var(--ink); margin-top:8px;">💍 Our Wedding</div>
+        </div>
+        <button type="button" id="btn-pull-tassel" class="tassel-trigger">
+          <span>🎗</span><span id="lbl-pull-tassel">Pull the Tassel to Reveal</span>
+        </button>
+        <div class="scroll-rod"></div>
+      </div>
+
+      <div id="cd-boxes" class="cd-row-4">
+        <div class="cd-gold-box"><span id="cd-d" class="cd-gold-num">00</span><span id="u-d" class="cd-gold-lbl">DAYS</span></div>
+        <div class="cd-gold-box"><span id="cd-h" class="cd-gold-num">00</span><span id="u-h" class="cd-gold-lbl">HRS</span></div>
+        <div class="cd-gold-box"><span id="cd-m" class="cd-gold-num">00</span><span id="u-m" class="cd-gold-lbl">MIN</span></div>
+        <div class="cd-gold-box"><span id="cd-s" class="cd-gold-num">00</span><span id="u-s" class="cd-gold-lbl">SEC</span></div>
+      </div>
+
+      <div style="text-align:center; margin-top:16px;">
+        <button type="button" id="btn-add-cal" class="btn-gold">
+          <span>📅</span><span id="lbl-add-cal">Add to Calendar</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 4. WEDDING FUNCTIONS — SWIPEABLE 3D PARCHMENT CAROUSEL -->
+    <section id="sec-functions" class="sec rv">
+      <div class="sec-head-center">
+        <span class="gold-plate" id="lbl-fn-plate">WEDDING FUNCTIONS</span>
+        <p class="sec-sub" id="lbl-fn-sub">Swipe through each sacred celebration</p>
+      </div>
+      <div id="fn-stage" class="fn-stage">
+        <div id="fn-track" class="fn-track"></div>
+        <div class="car-nav">
+          <button type="button" id="fn-prev" class="car-arr" aria-label="Previous function">‹</button>
+          <div id="fn-dots" class="car-dots"></div>
+          <button type="button" id="fn-next" class="car-arr" aria-label="Next function">›</button>
+        </div>
+      </div>
+      <p id="fn-foot-note" class="fn-foot-note">Be a part of our special moments!</p>
+    </section>
+
+    <!-- 5. OUR STORY POLAROID CAROUSEL + OUR SONG PLAYER -->
+    <section id="sec-story" class="sec rv">
+      <div class="sec-head-center">
+        <span class="gold-plate" id="lbl-story-plate">OUR STORY</span>
+      </div>
+      <div id="polaroid-stage" class="polaroid-stage"></div>
+      <div class="car-nav">
+        <button type="button" id="st-prev" class="car-arr" aria-label="Previous photo">‹</button>
+        <div id="st-dots" class="car-dots"></div>
+        <button type="button" id="st-next" class="car-arr" aria-label="Next photo">›</button>
+      </div>
+
+      <div id="our-song-widget" class="song-plate">
+        <div class="song-top">
+          <div>
+            <div style="font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold2); font-weight:700;" id="lbl-our-song-k">♪ OUR SONG</div>
+            <div id="song-name-disp" class="song-title-txt">Soft Wedding Instrumental</div>
+          </div>
+          <button type="button" id="song-play-toggle" class="song-play-btn" aria-label="Play or pause song">▶</button>
+        </div>
+        <div class="song-bar"><div id="song-prog-bar" class="song-fill"></div></div>
+        <div class="song-time"><span id="song-cur-t">00:00</span><span id="song-tot-t">03:30</span></div>
+      </div>
+
+      <p id="lbl-journey-end" class="journey-end-txt">Thank you for being a part of our journey...</p>
+    </section>
+
+    <!-- 6. GRAND RECEPTION -->
+    <section id="sec-reception" class="sec rv">
+      <div class="rec-gold-card">
+        <span class="gold-plate" id="lbl-rec-k">YOU ARE INVITED TO THE</span>
+        <h2 id="rec-heading" class="rec-gold-title">Grand Reception</h2>
+        <p id="rec-sub" class="rec-gold-sub"></p>
+        <p id="rec-date" class="rec-gold-date"></p>
+        <p id="rec-time" class="rec-gold-line"></p>
+        <p id="rec-venue" class="rec-gold-line"></p>
+        <span id="rec-dress" class="rec-gold-badge"></span>
+      </div>
+    </section>
+
+    <!-- 7. LOCATION & MAP -->
+    <section id="sec-venue" class="sec rv">
+      <div class="sec-head-center">
+        <span class="gold-plate" id="lbl-loc-plate">HOW TO REACH</span>
+      </div>
+      <a id="map-anchor" class="map-box" href="#" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 400 184" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="184" fill="#0F2042"/>
+          <path d="M0 112 Q 120 90 220 128 T 400 105 L 400 184 L 0 184 Z" fill="#18386E"/>
+          <path d="M-10 60 L 410 135 M110 -10 L 180 194" stroke="rgba(244,229,191,.26)" stroke-width="7" fill="none"/>
+          <path class="route-anim" d="M 70 142 Q 165 98, 225 112 T 300 66"/>
+          <circle cx="70" cy="142" r="5" fill="#FFF1B8"/>
+          <g class="pin-anim">
+            <path d="M300 38c-8.5 0-15 6.6-15 15 0 11 15 24 15 24s15-13 15-24c0-8.4-6.5-15-15-15z" fill="#E5B95C" stroke="#081226" stroke-width="2"/>
+            <circle cx="300" cy="53" r="5" fill="#081226"/>
+          </g>
+        </svg>
+      </a>
+      <h3 id="ven-name" class="serif" style="text-align:center; font-size:22px; color:var(--gold1); margin:14px 0 4px;"></h3>
+      <p id="ven-addr" style="text-align:center; font-size:12.5px; color:var(--cream); opacity:.82; margin:0 auto 14px; max-width:320px;"></p>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:9px;">
+        <a id="ven-dir-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-gold">
+          <span>🧭</span><span id="lbl-get-dir">Get Directions</span>
+        </a>
+        <button type="button" id="ven-copy-btn" class="btn-gold-ghost">
+          <span>📋</span><span id="lbl-copy-addr">Copy Address</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 8. RSVP -->
+    <section id="sec-rsvp" class="sec rv">
+      <div class="sec-head-center">
+        <span class="gold-plate" id="lbl-rsvp-plate">KINDLY RESPOND</span>
+        <h2 id="lbl-rsvp-q" class="serif" style="font-size:26px; color:var(--gold1); margin:10px 0 0;">Will you join us?</h2>
+      </div>
+      <div class="rsvp-box">
+        <form id="rsvp-form" novalidate>
+          <div class="rsvp-choice-row">
+            <button type="button" id="btn-acc" class="rsvp-choice on">Joyfully Accept</button>
+            <button type="button" id="btn-dec" class="rsvp-choice">Regretfully Decline</button>
+          </div>
+          <div class="f-grp">
+            <label for="in-name" id="lbl-in-name" class="f-lbl">YOUR NAME</label>
+            <input id="in-name" class="f-in" type="text" required placeholder="e.g. Prema Singh" />
+          </div>
+          <div class="f-grp">
+            <label for="in-phone" id="lbl-in-phone" class="f-lbl">PHONE (OPTIONAL)</label>
+            <input id="in-phone" class="f-in" type="tel" placeholder="+91 98765 43210" />
+          </div>
+          <div id="acc-extras">
+            <div class="f-grp">
+              <span id="lbl-in-guests" class="f-lbl">GUESTS</span>
+              <div class="step-row">
+                <button type="button" id="g-minus" class="step-b">−</button>
+                <span id="g-val" style="font-weight:700; min-width:22px; text-align:center;">2</span>
+                <button type="button" id="g-plus" class="step-b">+</button>
+              </div>
+            </div>
+            <div class="f-grp">
+              <span id="lbl-in-meal" class="f-lbl">MEAL</span>
+              <div class="meal-chips" id="meal-chips">
+                <button type="button" class="m-chip on" data-meal="Veg">Veg</button>
+                <button type="button" class="m-chip" data-meal="Non-veg">Non-veg</button>
+                <button type="button" class="m-chip" data-meal="Jain">Jain</button>
+              </div>
+            </div>
+          </div>
+          <div class="f-grp">
+            <label for="in-msg" id="lbl-in-msg" class="f-lbl">BLESSINGS (OPTIONAL)</label>
+            <textarea id="in-msg" class="f-ta" placeholder="Wishing you a lifetime of happiness..."></textarea>
+          </div>
+          <button type="submit" id="btn-sub-rsvp" class="btn-gold" style="width:100%;">Confirm RSVP</button>
+        </form>
+
+        <div id="rsvp-ty" class="hidden" style="text-align:center; padding:12px 4px;">
+          <div style="font-size:32px; color:var(--gold1);">✦</div>
+          <h3 id="ty-h" class="serif" style="font-size:25px; color:var(--gold1); margin:6px 0;">Thank You!</h3>
+          <p id="ty-p" style="font-size:13px; color:var(--cream); margin:0 0 14px;">Your response has been recorded.</p>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <button type="button" id="btn-ty-wa" class="btn-gold hidden" style="width:100%;">Send on WhatsApp</button>
+            <button type="button" id="btn-ty-again" class="btn-gold-ghost">Update Response</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CLOSING PARCHMENT CARD & STUDIO FOOTER -->
+    <section id="sec-closing" class="sec rv">
+      <div class="closing-parchment">
+        <svg width="34" height="34" viewBox="0 0 64 64" fill="none" stroke="#9A6A1C" stroke-width="2.2" style="margin:0 auto;"><path d="M32 10c-4 0-7 3-7 6 0 2 1 4 3 5-5 1-9 6-9 12 0 5 3 9 7 11-1 3 1 7 5 8 4 1 8-1 8-5 0-2-2-4-4-4s-3 1-3 3"/><path d="M32 10c4 0 7 3 7 6 0 2-1 4-3 5 5 1 9 6 9 12 0 4-2 8-6 10"/></svg>
+        <p id="close-quote" class="closing-quote">We look forward to celebrating this special day with you!</p>
+        <p id="close-fam" class="closing-fam"></p>
+        <button type="button" id="btn-share-inv" class="btn-gold">
+          <span>💌</span><span id="lbl-share-inv">Share Invitation</span>
+        </button>
+        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:12.5px; color:var(--muted); margin:12px 0 0;" id="lbl-new-chap">Join us in our new chapter...</p>
+      </div>
+    </section>
+
+    <footer id="sec-footer" class="studio-foot rv">
+      <p id="foot-k" class="foot-k">CRAFTED &amp; DESIGNED BY</p>
+      <p id="foot-n" class="foot-n">Ak ⭐ Studio</p>
+      <p id="foot-t" class="foot-t hidden"></p>
+      <div id="foot-pills" class="foot-pills"></div>
+    </footer>
+  </main>
+
+  <!-- LIGHTBOX & TOAST -->
+  <div id="lightbox"><button type="button" id="lb-close">✕</button><img id="lb-img" alt="" /><p id="lb-cap"></p></div>
+  <div id="toast"></div>
+
+  <script type="module" defer>
+    'use strict';
+    const $ = (id) => document.getElementById(id);
+    const ODIA_D = ['୦','୧','୨','୩','୪','୫','୬','୭','୮','୯'];
+    const HI_D = ['०','१','२','३','४','५','६','७','८','९'];
+    const toOdia = (s) => String(s).replace(/\d/g, (d) => ODIA_D[Number(d)]);
+    const toLatin = (s) => String(s).replace(/[୦-୯]/g, (d) => String(ODIA_D.indexOf(d))).replace(/[०-९]/g, (d) => String(HI_D.indexOf(d)));
+    const esc = (s) => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+    const LANGS = {
+      'odia-en': {
+        lang: 'or', tapBook: 'Tap the Book to Open', ribbon: 'ROYAL INVITE',
+        pausedK: 'TEMPORARILY PAUSED', pausedH: 'Invitation Unavailable', pausedP: 'This digital invitation is temporarily paused.',
+        topInv: '॥ ଶ୍ରୀ ଗଣେଶାୟ ନମଃ ॥', together: 'TOGETHER WITH THEIR FAMILIES',
+        joyous: 'Cordially invite you to join the occasion of their joyous union', scroll: 'SCROLL DOWN ↓',
+        vidK: 'WEDDING FILM', stdK: 'SAVE THE DATE', pullTassel: 'Pull the Tassel to Reveal',
+        rings: '💍 Our Wedding', days: 'DAYS', hrs: 'HRS', min: 'MIN', sec: 'SEC', addCal: 'Add to Calendar',
+        fnK: 'WEDDING FUNCTIONS', fnSub: 'Swipe through each sacred celebration', fnFoot: 'Be a part of our special moments!',
+        storyK: 'OUR STORY', ourSongK: '♪ OUR SONG', ourSong: 'Our Song', journeyEnd: 'Thank you for being a part of our journey...',
+        recK: 'YOU ARE INVITED TO THE', recT: 'Grand Reception', recS: 'ପ୍ରୀତିଭୋଜ ଓ ଅଭ୍ୟର୍ଥନା', recD: 'BLACK TIE & SILK SAREES',
+        locK: 'HOW TO REACH', getDir: 'Get Directions', copyAddr: 'Copy Address', copied: 'Address copied!',
+        rsvpK: 'KINDLY RESPOND', rsvpQ: 'Will you join us?', acc: 'Joyfully Accept', dec: 'Regretfully Decline',
+        fName: 'YOUR NAME', pName: 'e.g. Prema Singh', fPhone: 'PHONE (OPTIONAL)', fGuests: 'GUESTS',
+        fMeal: 'MEAL', meals: ['Veg','Non-veg','Jain'], fMsg: 'BLESSINGS (OPTIONAL)', pMsg: 'Wishing you a lifetime of happiness...',
+        subRsvp: 'Confirm RSVP', sendWa: 'Send on WhatsApp', tyH: 'Thank You!', tyP: 'Your response has been recorded.',
+        again: 'Update Response', closeQ: 'We look forward to celebrating this special day with you!',
+        shareInv: 'Share Invitation', newChap: 'Join us in our new chapter...', footL: 'CRAFTED & DESIGNED BY',
+        calOk: 'Calendar (.ics) downloaded!', needName: 'Please enter your name', linkCopied: 'Link copied!'
+      },
+      'odia': {
+        lang: 'or', tapBook: 'ଖୋଲିବା ପାଇଁ ବହି ଟ୍ୟାପ୍ କରନ୍ତୁ', ribbon: 'ଶାହୀ ନିମନ୍ତ୍ରଣ',
+        pausedK: 'ସାମୟିକ ବନ୍ଦ', pausedH: 'ନିମନ୍ତ୍ରଣ ଉପଲବ୍ଧ ନାହିଁ', pausedP: 'ଏହି ନିମନ୍ତ୍ରଣ ପତ୍ର ସାମୟିକ ଭାବେ ବନ୍ଦ ରଖାଯାଇଛି।',
+        topInv: '॥ ଶ୍ରୀ ଗଣେଶାୟ ନମଃ ॥', together: 'ସପରିବାର ସାଦର ନିମନ୍ତ୍ରଣ',
+        joyous: 'ଆପଣଙ୍କୁ ସପରିବାର ଏହି ଶୁଭ ବିବାହ ଉତ୍ସବକୁ ସାଦର ନିମନ୍ତ୍ରଣ କରୁଛୁ', scroll: 'ତଳକୁ ଦେଖନ୍ତୁ ↓',
+        vidK: 'ବିବାହ ଭିଡିଓ', stdK: 'ଶୁଭ ତାରିଖ', pullTassel: 'ଖୋଲିବା ପାଇଁ ଟାସେଲ୍ ଟାଣନ୍ତୁ',
+        rings: '💍 ଶୁଭ ବିବାହ', days: 'ଦିନ', hrs: 'ଘଣ୍ଟା', min: 'ମିନିଟ୍', sec: 'ସେକେଣ୍ଡ୍', addCal: 'କ୍ୟାଲେଣ୍ଡରରେ ଯୋଡ଼ନ୍ତୁ',
+        fnK: 'ମାଙ୍ଗଳିକ କାର୍ଯ୍ୟକ୍ରମ', fnSub: 'ପ୍ରତ୍ୟେକ ଉତ୍ସବ ଦେଖିବା ପାଇଁ ସ୍ୱାଇପ୍ କରନ୍ତୁ', fnFoot: 'ଆମ ଖୁସିର ମୁହୂର୍ତ୍ତରେ ସାମିଲ ହୁଅନ୍ତୁ!',
+        storyK: 'ଆମ କାହାଣୀ', ourSongK: '♪ ଆମ ଗୀତ', ourSong: 'ଆମ ଗୀତ', journeyEnd: 'ଆମ ଯାତ୍ରାର ଅଂଶ ହୋଇଥିବାରୁ ଅଶେଷ ଧନ୍ୟବାଦ...',
+        recK: 'ସାଦର ନିମନ୍ତ୍ରଣ', recT: 'ପ୍ରୀତିଭୋଜ ଓ ଅଭ୍ୟର୍ଥନା', recS: 'ଭବ୍ୟ ଅଭ୍ୟର୍ଥନା ଉତ୍ସବ', recD: 'ପାରମ୍ପରିକ ପୋଷାକ',
+        locK: 'ବିବାହ ସ୍ଥଳ', getDir: 'ରାସ୍ତା ଦେଖନ୍ତୁ', copyAddr: 'ଠିକଣା କପି', copied: 'ଠିକଣା କପି ହେଲା!',
+        rsvpK: 'ଆପଣଙ୍କ ଉତ୍ତର', rsvpQ: 'ଆପଣ ଯୋଗ ଦେବେ କି?', acc: 'ହଁ, ଆସିବୁ', dec: 'ଅସମର୍ଥ',
+        fName: 'ଆପଣଙ୍କ ନାମ', pName: 'ଯଥା: ଆକାଶ ଓ ସିଲା', fPhone: 'ଫୋନ୍ ନମ୍ବର (ଇଚ୍ଛାଧୀନ)', fGuests: 'ଅତିଥି ସଂଖ୍ୟା',
+        fMeal: 'ଭୋଜନ ପସନ୍ଦ', meals: ['ନିରାମିଷ','ଆମିଷ','ଜୈନ'], fMsg: 'ଶୁଭେଚ୍ଛା ବାର୍ତ୍ତା (ଇଚ୍ଛାଧୀନ)', pMsg: 'ନବଦମ୍ପତିଙ୍କ ପାଇଁ ଆଶୀର୍ବାଦ ଲେଖନ୍ତୁ...',
+        subRsvp: 'ଉତ୍ତର ପଠାନ୍ତୁ', sendWa: 'ହ୍ୱାଟ୍ସଆପ୍‌ରେ ପଠାନ୍ତୁ', tyH: 'ଧନ୍ୟବାଦ!', tyP: 'ଆପଣଙ୍କ ଉତ୍ତର ସଂରକ୍ଷିତ ହେଲା।',
+        again: 'ଉତ୍ତର ବଦଳାନ୍ତୁ', closeQ: 'ଆପଣଙ୍କ ଆଶୀର୍ବାଦ ଓ ଉପସ୍ଥିତି ଆମର ଏକାନ୍ତ କାମ୍ୟ',
+        shareInv: 'ନିମନ୍ତ୍ରଣ ସେୟାର୍ କରନ୍ତୁ', newChap: 'ଆମ ନୂଆ ଜୀବନରେ ଆପଣଙ୍କ ଆଶୀର୍ବାଦ କାମନା...', footL: 'ନିର୍ମାଣ ଓ ଡିଜାଇନ୍',
+        calOk: 'କ୍ୟାଲେଣ୍ଡର ଫାଇଲ୍ ଡାଉନଲୋଡ୍ ହେଲା!', needName: 'ଦୟାକରି ଆପଣଙ୍କ ନାମ ଲେଖନ୍ତୁ', linkCopied: 'ଲିଙ୍କ୍ କପି ହେଲା!'
+      },
+      'en': {
+        lang: 'en', tapBook: 'Tap the Book to Open', ribbon: 'ROYAL INVITE',
+        pausedK: 'TEMPORARILY PAUSED', pausedH: 'Invitation Unavailable', pausedP: 'This digital invitation is temporarily paused.',
+        topInv: '|| SHRI GANESHAYA NAMAH ||', together: 'TOGETHER WITH THEIR FAMILIES',
+        joyous: 'Cordially invite you to join the occasion of their joyous union', scroll: 'SCROLL DOWN ↓',
+        vidK: 'WEDDING FILM', stdK: 'SAVE THE DATE', pullTassel: 'Pull the Tassel to Reveal',
+        rings: '💍 Our Wedding', days: 'DAYS', hrs: 'HRS', min: 'MIN', sec: 'SEC', addCal: 'Add to Calendar',
+        fnK: 'WEDDING FUNCTIONS', fnSub: 'Swipe through each sacred celebration', fnFoot: 'Be a part of our special moments!',
+        storyK: 'OUR STORY', ourSongK: '♪ OUR SONG', ourSong: 'Our Song', journeyEnd: 'Thank you for being a part of our journey...',
+        recK: 'YOU ARE INVITED TO THE', recT: 'Grand Reception', recS: 'Dinner & Celebration', recD: 'BLACK TIE & SILK SAREES',
+        locK: 'HOW TO REACH', getDir: 'Get Directions', copyAddr: 'Copy Address', copied: 'Address copied!',
+        rsvpK: 'KINDLY RESPOND', rsvpQ: 'Will you join us?', acc: 'Joyfully Accept', dec: 'Regretfully Decline',
+        fName: 'YOUR NAME', pName: 'e.g. Prema Singh', fPhone: 'PHONE (OPTIONAL)', fGuests: 'GUESTS',
+        fMeal: 'MEAL', meals: ['Veg','Non-veg','Jain'], fMsg: 'BLESSINGS (OPTIONAL)', pMsg: 'Wishing you a lifetime of happiness...',
+        subRsvp: 'Confirm RSVP', sendWa: 'Send on WhatsApp', tyH: 'Thank You!', tyP: 'Your response has been recorded.',
+        again: 'Update Response', closeQ: 'We look forward to celebrating this special day with you!',
+        shareInv: 'Share Invitation', newChap: 'Join us in our new chapter...', footL: 'CRAFTED & DESIGNED BY',
+        calOk: 'Calendar (.ics) downloaded!', needName: 'Please enter your name', linkCopied: 'Link copied!'
+      },
+      'hi': {
+        lang: 'hi', tapBook: 'खोलने के लिए किताब टैप करें', ribbon: 'शाही आमंत्रण',
+        pausedK: 'अस्थायी रूप से बंद', pausedH: 'निमंत्रण उपलब्ध नहीं है', pausedP: 'यह निमंत्रण अस्थायी रूप से रोका गया है।',
+        topInv: '॥ श्री गणेशाय नमः ॥', together: 'परिवार सहित सादर आमंत्रण',
+        joyous: 'इस शुभ विवाह उत्सव में पधारकर वर-वधू को आशीर्वाद प्रदान करें', scroll: 'नीचे स्क्रॉल करें ↓',
+        vidK: 'वेडिंग फ़िल्म', stdK: 'शुभ तिथि', pullTassel: 'खोलने के लिए टैसल खींचें',
+        rings: '💍 शुभ विवाह', days: 'दिन', hrs: 'घंटे', min: 'मिनट', sec: 'सेकंड', addCal: 'कैलेंडर में जोड़ें',
+        fnK: 'विवाह समारोह', fnSub: 'सभी कार्यक्रम देखने के लिए स्वाइप करें', fnFoot: 'हमारे खास पलों का हिस्सा बनें!',
+        storyK: 'हमारी कहानी', ourSongK: '♪ हमारा गीत', ourSong: 'हमारा गीत', journeyEnd: 'हमारे सफ़र का हिस्सा बनने के लिए धन्यवाद...',
+        recK: 'सादर आमंत्रण', recT: 'भव्य रिसेप्शन', recS: 'प्रीतिभोज एवं स्वागत समारोह', recD: 'पारंपरिक एवं उत्सव परिधान',
+        locK: 'विवाह स्थल', getDir: 'रास्ता देखें', copyAddr: 'पता कॉपी', copied: 'पता कॉपी हो गया!',
+        rsvpK: 'कृपया उत्तर दें', rsvpQ: 'क्या आप शामिल होंगे?', acc: 'सहर्ष स्वीकार', dec: 'असमर्थ हैं',
+        fName: 'आपका नाम', pName: 'जैसे: प्रेम सिंह', fPhone: 'फ़ोन (वैकल्पिक)', fGuests: 'अतिथि',
+        fMeal: 'भोजन', meals: ['शाकाहारी','मांसाहारी','जैन'], fMsg: 'शुभकामनाएं (वैकल्पिक)', pMsg: 'वर-वधू को शुभ आशीर्वाद लिखें...',
+        subRsvp: 'RSVP कन्फर्म करें', sendWa: 'व्हाट्सएप पर भेजें', tyH: 'धन्यवाद!', tyP: 'आपका उत्तर दर्ज कर लिया गया है।',
+        again: 'उत्तर बदलें', closeQ: 'इस शुभ अवसर पर आपके पधारने की प्रतीक्षा में...',
+        shareInv: 'निमंत्रण शेयर करें', newChap: 'हमारे नए सफ़र में साथ जुड़ें...', footL: 'निर्मित एवं डिज़ाइन',
+        calOk: 'कैलेंडर फ़ाइल डाउनलोड हो गई!', needName: 'कृपया अपना नाम लिखें', linkCopied: 'लिंक कॉपी हो गया!'
+      }
+    };
+
+    const KNOWN_DEF = {
+      topInv: new Set(['॥ ଶ୍ରୀ ଗଣେଶାୟ ନମଃ ॥','॥ श्री गणेशाय नमः ॥','|| SHRI GANESHAYA NAMAH ||']),
+      joyous: new Set(['ଆପଣଙ୍କୁ ସପରିବାର ଏହି ଶୁଭ ବିବାହ ଉତ୍ସବକୁ ସାଦର ନିମନ୍ତ୍ରଣ କରୁଛୁ','ଆପଣଙ୍କୁ ସପରିବାର ଶୁଭ ବିବାହ ଉତ୍ସବକୁ ସାଦର ନିମନ୍ତ୍ରଣ','Cordially invite you to join the occasion of their joyous union','इस शुभ विवाह उत्सव में पधारकर वर-वधू को आशीर्वाद प्रदान करें','आप सपरिवार इस शुभ विवाह उत्सव में पधारकर वर-वधू को आशीर्वाद प्रदान करें']),
+      closeQ: new Set(['ଆପଣଙ୍କ ଆଶୀର୍ବାଦ ଓ ଉପସ୍ଥିତି ଆମର ଏକାନ୍ତ କାମ୍ୟ','ଆପଣଙ୍କ ଆଶୀର୍ବାଦ ଆମର ଏକାନ୍ତ କାମ୍ୟ','We look forward to celebrating this special day with you!','इस शुभ अवसर पर आपके पधारने की प्रतीक्षा में...','आपका आशीर्वाद एवं उपस्थिति हमारी कामना है']),
+      recT: new Set(['Grand Reception','ପ୍ରୀତିଭୋଜ','ପ୍ରୀତିଭୋଜ ଓ ଅଭ୍ୟର୍ଥନା','भव्य रिसेप्शन']),
+      recS: new Set(['ପ୍ରୀତିଭୋଜ ଓ ଅଭ୍ୟର୍ଥନା','ଭବ୍ୟ ଅଭ୍ୟର୍ଥନା ଉତ୍ସବ','Dinner & Celebration','प्रीतिभोज एवं स्वागत समारोह']),
+      recD: new Set(['BLACK TIE & SILK SAREES','ପାରମ୍ପରିକ ପୋଷାକ','ପାରମ୍ପରିକ ଓ ଉତ୍ସବ ପୋଷାକ','पारंपरिक एवं उत्सव परिधान']),
+      footL: new Set(['CRAFTED & DESIGNED BY','ନିର୍ମାଣ ଓ ଡିଜାଇନ୍','निर्मित एवं डिज़ाइन'])
+    };
+
+    const RITUAL_MAP = [
+      { k: ['ନିର୍ବନ୍ଧ ଓ ମଙ୍ଗଳକୃତ୍ୟ','Mata Pujan'], 'odia-en': 'ନିର୍ବନ୍ଧ ଓ ମଙ୍ଗଳକୃତ୍ୟ', odia: 'ନିର୍ବନ୍ଧ ଓ ମଙ୍ଗଳକୃତ୍ୟ', en: 'Mata Pujan', hi: 'माता पूजन' },
+      { k: ['ହଳଦୀ ଉତ୍ସବ','Haldi Ceremony','Haldi'], 'odia-en': 'ହଳଦୀ ଉତ୍ସବ', odia: 'ହଳଦୀ ଉତ୍ସବ', en: 'Haldi', hi: 'हल्दी' },
+      { k: ['ମେହେନ୍ଦୀ ସନ୍ଧ୍ୟା','Mehendi'], 'odia-en': 'ମେହେନ୍ଦୀ ସନ୍ଧ୍ୟା', odia: 'ମେହେନ୍ଦୀ ସନ୍ଧ୍ୟା', en: 'Mehendi', hi: 'मेहंदी' },
+      { k: ['ସଙ୍ଗୀତ ସନ୍ଧ୍ୟା','Sangeet Night','Sangeet'], 'odia-en': 'ସଙ୍ଗୀତ ସନ୍ଧ୍ୟା', odia: 'ସଙ୍ଗୀତ ସନ୍ଧ୍ୟା', en: 'Sangeet', hi: 'संगीत' },
+      { k: ['ମଙ୍ଗୁଳା ସ୍ନାନ ଓ ବରଯାତ୍ରୀ','Ghat Sthapana'], 'odia-en': 'ମଙ୍ଗୁଳା ସ୍ନାନ ଓ ବରଯାତ୍ରୀ', odia: 'ମଙ୍ଗୁଳା ସ୍ନାନ ଓ ବରଯାତ୍ରୀ', en: 'Ghat Sthapana', hi: 'घट स्थापना' },
+      { k: ['ଶୁଭ ବିବାହ ଓ ହସ୍ତଗଣ୍ଠି','Baraat & Pheras'], 'odia-en': 'ଶୁଭ ବିବାହ ଓ ହସ୍ତଗଣ୍ଠି', odia: 'ଶୁଭ ବିବାହ ଓ ହସ୍ତଗଣ୍ଠି', en: 'Baraat & Pheras', hi: 'बारात एवं फेरे' }
+    ];
+
+    const DRESS_MAP = [
+      { k: ['Traditional Pata & Kurta','Traditional Wear'], 'odia-en': 'Traditional Pata & Kurta', odia: 'ପାରମ୍ପରିକ ପାଟ ଓ କୁର୍ତ୍ତା', en: 'Traditional Attire', hi: 'पारंपरिक परिधान' },
+      { k: ['Shades of Yellow','Wear Yellow'], 'odia-en': 'Shades of Yellow', odia: 'ହଳଦିଆ ପୋଷାକ', en: 'Wear Yellow', hi: 'पीले परिधान' },
+      { k: ['Emerald & Mint Green','Wear Green'], 'odia-en': 'Emerald & Mint Green', odia: 'ସବୁଜ ପୋଷାକ', en: 'Wear Green', hi: 'हरे परिधान' },
+      { k: ['Indo-Western • Purple & Pink','Indo-Western, Purple & Pink'], 'odia-en': 'Indo-Western • Purple & Pink', odia: 'ଉତ୍ସବ ପୋଷାକ', en: 'Indo-Western', hi: 'इंडो-वेस्टर्न' },
+      { k: ['Orange & Saffron'], 'odia-en': 'Orange & Saffron', odia: 'କମଳା ଓ ଗେରୁଆ', en: 'Saffron & Gold', hi: 'केसरिया' },
+      { k: ['Festive Red & Gold'], 'odia-en': 'Festive Red & Gold', odia: 'ଉତ୍ସବ ଲାଲ୍ ଓ ସୁନେଲି', en: 'Festive Red & Gold', hi: 'लाल एवं सुनहरा' }
+    ];
+
+    function locVal(val, setKey, fbVal, langKey) {
+      const t = String(val || '').trim();
+      if (!t) return fbVal || '';
+      return KNOWN_DEF[setKey]?.has(t) ? (fbVal || '') : t;
+    }
+
+    function locMap(val, arr, langKey) {
+      const t = String(val || '').trim(); if (!t) return '';
+      const f = arr.find((x) => x.k.some((k) => k.toLowerCase() === t.toLowerCase()));
+      return f ? (f[langKey] || t) : t;
+    }
+
+    function locDate(str, langKey) {
+      let out = String(str || ''); if (!out) return '';
+      const M = [['January','ଜାନୁଆରୀ','जनवरी'],['February','ଫେବୃଆରୀ','फ़रवरी'],['March','ମାର୍ଚ୍ଚ','मार्च'],['April','ଅପ୍ରେଲ୍','अप्रैल'],['May','ମେ','मई'],['June','ଜୁନ୍','जून'],['July','ଜୁଲାଇ','जुलाई'],['August','ଅଗଷ୍ଟ','अगस्त'],['September','ସେପ୍ଟେମ୍ବର','सितंबर'],['October','ଅକ୍ଟୋବର','अक्टूबर'],['November','ନଭେମ୍ବର','नवंबर'],['December','ଡିସେମ୍ବର','दिसंबर']];
+      const D = [['Sunday','ରବିବାର','रविवार'],['Monday','ସୋମବାର','सोमवार'],['Tuesday','ମଙ୍ଗଳବାର','मंगलवार'],['Wednesday','ବୁଧବାର','बुधवार'],['Thursday','ଗୁରୁବାର','गुरुवार'],['Friday','ଶୁକ୍ରବାର','शुक्रवार'],['Saturday','ଶନିବାର','शनिवार']];
+      if (langKey === 'odia') {
+        M.forEach(([e,o]) => out = out.replace(new RegExp(`\\b${e}\\b`,'gi'), o));
+        D.forEach(([e,o]) => out = out.replace(new RegExp(`\\b${e}\\b`,'gi'), o));
+        out = toOdia(out.replace(/\bonwards\b/gi,'ରୁ').replace(/\bAM\b/gi,'ସକାଳ').replace(/\bPM\b/gi,'ସନ୍ଧ୍ୟା'));
+      } else if (langKey === 'hi') {
+        M.forEach(([e,o,h]) => out = out.replace(new RegExp(`\\b${e}\\b`,'gi'), h).replaceAll(o, h));
+        D.forEach(([e,o,h]) => out = out.replace(new RegExp(`\\b${e}\\b`,'gi'), h).replaceAll(o, h));
+        out = toLatin(out.replace(/\bonwards\b/gi,'से आगे').replace(/\bAM\b/gi,'सुबह').replace(/\bPM\b/gi,'शाम'));
+      } else if (langKey === 'en') {
+        M.forEach(([e,o,h]) => out = out.replaceAll(o, e).replaceAll(h, e));
+        D.forEach(([e,o,h]) => out = out.replaceAll(o, e).replaceAll(h, e));
+        out = toLatin(out);
+      }
+      return out;
+    }
+
+    const ART = {};
+    function initArt() {
+      const makeBox = (c1, c2, lbl) => {
+        const c = document.createElement('canvas'); c.width = 480; c.height = 300;
+        const ctx = c.getContext('2d');
+        const g = ctx.createLinearGradient(0, 0, 480, 300);
+        g.addColorStop(0, c1); g.addColorStop(1, c2);
+        ctx.fillStyle = g; ctx.fillRect(0, 0, 480, 300);
+        ctx.strokeStyle = 'rgba(229,185,92,.45)'; ctx.lineWidth = 3; ctx.strokeRect(14, 14, 452, 272);
+        ctx.fillStyle = 'rgba(255,241,184,.72)'; ctx.font = '600 22px Georgia, serif'; ctx.textAlign = 'center';
+        ctx.fillText(lbl, 240, 155);
+        return c.toDataURL('image/png');
+      };
+      ART.hero = makeBox('#18305C', '#081226', 'Royal Union');
+      ['✦','❀','❋','✧'].forEach((sym, i) => { ART['s' + i] = makeBox('#1D3769', '#09142B', sym); });
+    }
+
+    function resolveLang(raw) {
+      const v = String(raw || 'odia-en').trim().toLowerCase().replace(/[\s_]+/g, '-');
+      if (v === 'odia' || v === 'only-odia' || v === 'odia-only') return 'odia';
+      if (v === 'en' || v === 'english' || v === 'pure-english') return 'en';
+      if (v === 'hi' || v === 'hindi' || v === 'hinglish') return 'hi';
+      return 'odia-en';
+    }
+
+    function pickBool(...vals) {
+      for (const v of vals) {
+        if (v !== undefined && v !== null) {
+          if (typeof v === 'string') {
+            const s = v.trim().toLowerCase();
+            if (['false','0','off','no'].includes(s)) return false;
+            if (['true','1','on','yes'].includes(s)) return true;
+          }
+          return Boolean(v);
+        }
+      }
+      return true;
+    }
+
+    function ytId(u) {
+      const m = String(u || '').trim().match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+      return m ? m[1] : '';
+    }
+
+    const DEMO = {
+      slug: 'prema-sumit', customerPhone: '', language: 'en', active: true,
+      sections: { active: true, showBookCover: true, showHeroPhoto: true, showHeroVideo: false, showVideo: false, showSaveDate: true, showCountdown: true, showRituals: true, showStory: true, showReception: true, showMap: true, showRsvp: true, showMusic: true, showFooter: true },
+      couple: { groomName: 'Prema Singh', groomParents: 'Ramesh Singh & Sita Devi', brideName: 'Sumit Gupta', brideParents: 'Mohan Gupta & Neeta Gupta', topHeader: '|| SHRI GANESHAYA NAMAH ||', inviteLine: 'Cordially invite you to join the occasion of their joyous union', closingBlessing: 'We look forward to celebrating this special day with you!', closingFamily: 'With love, The Singh & Gupta Families' },
+      wedding: { dateText: 'Sunday, 28th July 2024', dayName: 'Sunday', muhuratTime: '8:00 AM', countdownISO: '2027-07-28T08:00', venueName: '123 Anand Vihar, New Delhi', venueAddress: '123 Anand Vihar, New Delhi', mapsLink: 'https://maps.google.com/?q=Anand+Vihar+New+Delhi' },
+      rituals: [
+        { title: 'Mata Pujan', date: 'SAT • 27 JUL', time: '10:00 AM', venue: 'Home', dressCode: 'Traditional', color: '#E5B95C', artPreset: 'kalash' },
+        { title: 'Haldi', date: 'SAT • 27 JUL', time: '4:00 PM', venue: 'Home', dressCode: 'Wear Yellow', color: '#F3C42F', artPreset: 'haldi' },
+        { title: 'Mehendi', date: 'SUN • 28 JUL', time: '11:00 AM', venue: 'Home', dressCode: 'Wear Green', color: '#5E8C4B', artPreset: 'mehendi' },
+        { title: 'Sangeet', date: 'SUN • 28 JUL', time: '7:00 PM', venue: 'Party Hall', dressCode: 'Indo-Western', color: '#A83DA8', artPreset: 'sangeet' }
+      ],
+      photos: { heroUrl: '', story: [{ url: '', caption: 'Two hearts... One beautiful journey...', tag: '2024' }, { url: '', caption: 'Golden moments together', tag: '2025' }, { url: '', caption: 'Forever begins', tag: '2026' }] },
+      video: { heroUrl: '', mode: 'none', title: '', url: '' },
+      reception: { heading: 'Grand Reception', subtitle: 'Dinner & Celebration', date: 'Monday, 29th July 2024', time: '7:00 PM onwards', venue: 'Grand Hall', dressCode: 'FORMAL BLUE' },
+      music: { mode: 'instrumental', url: '', title: 'Soft Wedding Instrumental' },
+      footer: { enabled: true, label: 'CRAFTED & DESIGNED BY', companyName: 'Ak ⭐ Studio', tagline: '', links: [{ type: 'instagram', text: '@akashbehera2580', url: 'https://instagram.com/akashbehera2580', enabled: true }] }
+    };
+
+    function normalizeOrder(raw, gFooter = null) {
+      const r = raw && typeof raw === 'object' ? raw : DEMO;
+      const c = r.couple || {}, w = r.wedding || {}, sec = Object.assign({}, r.toggles || {}, r.sections || {});
+      const rec = r.reception || {}, mus = r.music || {}, vid = r.video || {};
+      const langKey = resolveLang(r.language || r.lang);
+      const L = LANGS[langKey] || LANGS['odia-en'];
+      const paused = r.active === false || String(r.status || '').toLowerCase() === 'paused' || sec.active === false;
+
+      const toggles = {
+        active: !paused,
+        bookCover: pickBool(sec.showBookCover, sec.bookCover),
+        heroPhoto: pickBool(sec.showHeroPhoto, sec.heroBg),
+        heroVideo: Boolean(sec.showHeroVideo) && Boolean(vid.heroUrl),
+        video: Boolean(sec.showVideo) && Boolean(vid.url) && vid.mode !== 'none',
+        saveDate: pickBool(sec.showSaveDate, sec.saveTheDate),
+        countdown: pickBool(sec.showCountdown, sec.countdown),
+        rituals: pickBool(sec.showRituals, sec.rituals),
+        story: pickBool(sec.showStory, sec.story),
+        reception: pickBool(sec.showReception, sec.reception),
+        map: pickBool(sec.showMap, sec.location),
+        rsvp: pickBool(sec.showRsvp, sec.rsvp),
+        music: pickBool(sec.showMusic, sec.music, r.showMusic, mus.enabled),
+        footer: pickBool(sec.showFooter, sec.footer)
+      };
+
+      const rituals = (Array.isArray(r.rituals) ? r.rituals : DEMO.rituals).map((it, i) => ({
+        title: locMap(it.title || it.name || `Event ${i+1}`, RITUAL_MAP, langKey),
+        dayDate: locDate(it.dayDate || it.date || '', langKey),
+        time: locDate(it.time || '', langKey),
+        venue: it.venue || it.place || '',
+        dressCode: locMap(it.dressCode || '', DRESS_MAP, langKey),
+        color: it.color || '#E5B95C',
+        image: it.imageUrl || it.image || '',
+        artKey: it.artPreset || it.artKey || ['kalash','haldi','mehendi','sangeet','diya','mandap'][i % 6]
+      }));
+
+      const story = (Array.isArray(r.photos?.story) ? r.photos.story : (Array.isArray(r.story) ? r.story : [])).map((it, i) => ({
+        image: it.url || it.image || '',
+        caption: it.caption || `Moment ${i+1}`,
+        tag: langKey === 'odia' ? toOdia(it.tag || '') : (it.tag || '')
+      }));
+
+      const fo = r.footerOverride && r.footerOverride.enabled ? r.footerOverride : null;
+      const df = r.footer || r.studioCredit || null;
+      let footer = { enabled: true, label: L.footL, companyName: 'Ak ⭐ Studio', tagline: '', links: [{ type: 'instagram', text: '@akashbehera2580', url: 'https://instagram.com/akashbehera2580', enabled: true }] };
+      if (fo) footer = { enabled: true, label: locVal(fo.label, 'footL', L.footL, langKey), companyName: fo.studioName || 'Ak ⭐ Studio', tagline: fo.subtext || '', links: fo.ctaText ? [{ type: 'instagram', text: fo.ctaText, url: fo.ctaUrl || '', enabled: true }] : [] };
+      else if (df) footer = { enabled: df.enabled !== false, label: locVal(df.label, 'footL', L.footL, langKey), companyName: df.companyName || df.studioName || 'Ak ⭐ Studio', tagline: df.tagline || df.subtext || '', links: Array.isArray(df.links) ? df.links : (Array.isArray(df.items) ? df.items : footer.links) };
+      else if (gFooter) footer = { enabled: gFooter.enabled !== false, label: locVal(gFooter.label, 'footL', L.footL, langKey), companyName: gFooter.studioName || gFooter.companyName || 'Ak ⭐ Studio', tagline: gFooter.subtext || gFooter.tagline || '', links: Array.isArray(gFooter.items) ? gFooter.items : (Array.isArray(gFooter.links) ? gFooter.links : footer.links) };
+
+      const rm = String(mus.mode || 'instrumental').toLowerCase();
+      let musicMode = 'instrumental';
+      if (!toggles.music || rm === 'off' || rm === 'none') musicMode = 'off';
+      else if (rm === 'youtube') musicMode = 'youtube';
+      else if (['mp3','mp3_upload','library','direct_url'].includes(rm) && mus.url) musicMode = 'mp3';
+
+      const recT = locVal(rec.heading || rec.title, 'recT', L.recT, langKey);
+      let recS = locVal(rec.subtitle || '', 'recS', L.recS, langKey);
+      if (recS && recS.toLowerCase() === recT.toLowerCase()) recS = '';
+
+      return {
+        slug: r.slug || 'prema-sumit', customerPhone: String(r.customerPhone || '').replace(/[^0-9]/g, ''),
+        browserTitle: r.browserTitle || '', langKey, toggles,
+        groomName: c.groomName || 'Prema Singh', groomParents: c.groomParents || '',
+        brideName: c.brideName || 'Sumit Gupta', brideParents: c.brideParents || '',
+        topInv: locVal(c.topHeader, 'topInv', L.topInv, langKey),
+        inviteLine: locVal(c.inviteLine, 'joyous', L.joyous, langKey),
+        closingLine: locVal(c.closingBlessing, 'closeQ', L.closeQ, langKey),
+        closingFamily: c.closingFamily || '',
+        weddingDate: locDate(w.dateText || 'Sunday, 28th July 2024', langKey),
+        weddingDay: locDate(w.dayName || 'Sunday', langKey),
+        muhuratTime: locDate(w.muhuratTime || '8:00 AM', langKey),
+        countdownISO: w.countdownISO || '2027-07-28T08:00',
+        venueName: w.venueName || '123 Anand Vihar, New Delhi',
+        venueAddress: w.venueAddress || '',
+        mapsUrl: w.mapsLink || 'https://maps.google.com/?q=Anand+Vihar+New+Delhi',
+        heroPhoto: r.photos?.heroUrl || r.heroPhoto || '',
+        video: { heroUrl: vid.heroUrl || '', mode: vid.mode || 'none', title: vid.title || '', url: vid.url || '' },
+        rituals, story,
+        reception: { title: recT, subtitle: recS, date: locDate(rec.date || '', langKey), time: locDate(rec.time || '', langKey), venue: rec.venue || '', dressCode: locVal(rec.dressCode, 'recD', L.recD, langKey) },
+        music: { mode: musicMode, url: mus.url || '', title: mus.title || '' },
+        footer
+      };
+    }
+
+    const qp = new URLSearchParams(window.location.search);
+    const st = {
+      order: normalizeOrder(DEMO), slug: (qp.get('id') || '').trim(),
+      dbUrl: (qp.get('db') || '').trim().replace(/\/+$/, '').replace(/\.json$/i, ''),
+      embedded: window.self !== window.top, live: false, opened: false,
+      fnIdx: 0, stIdx: 0, att: 'yes', guests: 2, meal: 'Veg', lastRsvp: null,
+      cdT: null, playing: false, actx: null, itimer: null, igain: null
+    };
+
+    let toastT = null;
+    function toast(msg) { const t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2500); }
+    function copyStr(txt, ok) {
+      try {
+        const ta = document.createElement('textarea'); ta.value = txt; ta.setAttribute('readonly', '');
+        ta.style.cssText = 'position:fixed;top:-9999px;opacity:0'; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta); toast(ok);
+      } catch { toast('Copy unavailable'); }
+    }
+
+    function setTypedName(el, txt, baseDelay) {
+      el.classList.remove('go');
+      const segs = typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function'
+        ? Array.from(new Intl.Segmenter(undefined, { granularity: 'grapheme' }).segment(String(txt || '')), (x) => x.segment)
+        : Array.from(String(txt || ''));
+      el.innerHTML = segs.map((ch, i) => `<span class="ch" style="transition-delay:${baseDelay + i * 45}ms">${ch === ' ' ? '&nbsp;' : esc(ch)}</span>`).join('');
+    }
+
+    function playHeroTyping() {
+      requestAnimationFrame(() => { $('name-first').classList.add('go'); $('name-second').classList.add('go'); });
+    }
+
+    function fnSvg(k) {
+      const m = {
+        kalash: '<path d="M12 4c-2 2-3 4-3 6h6c0-2-1-4-3-6z"/><path d="M8 10h8l1 3a6 6 0 1 1-10 0l1-3z"/>',
+        haldi: '<path d="M4 13h16a7 7 0 0 1-14 0z"/><circle cx="12" cy="8" r="2.2"/>',
+        mehendi: '<path d="M12 3l6 11a6 6 0 1 1-12 0l6-11z"/>',
+        sangeet: '<path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/>',
+        diya: '<path d="M12 4c2 2.5 2.5 4.5 0 6.5-2.5-2-2-4 0-6.5z"/><path d="M4 14h16c-1 4-4.5 6-8 6s-7-2-8-6z"/>',
+        mandap: '<path d="M3 9l9-5 9 5"/><path d="M5 9v11M19 9v11M3 20h18"/>'
+      };
+      return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#17233B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${m[k] || m.kalash}</svg>`;
+    }
+
+    function socSvg(t) {
+      const m = {
+        instagram: '<rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/>',
+        whatsapp: '<path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L4 20l1.1-4.3A8.5 8.5 0 1 1 21 11.5z"/>',
+        telegram: '<path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/>',
+        phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3 5.2 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.7l.7 2.6a2 2 0 0 1-.5 2.1L9 10.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5l2.6.7A2 2 0 0 1 22 16.9z"/>'
+      };
+      return `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">${m[String(t||'').toLowerCase()] || '<circle cx="12" cy="12" r="4"/>'}</svg>`;
+    }
+
+    function renderFunctions() {
+      const list = st.order.rituals.length ? st.order.rituals : DEMO.rituals;
+      if (st.fnIdx >= list.length) st.fnIdx = 0;
+      $('fn-track').innerHTML = list.map((it, i) => `
+        <article class="fn-card" data-fi="${i}">
+          <div class="fn-ico">${it.image ? `<img src="${esc(it.image)}" alt="${esc(it.title)}"/>` : fnSvg(it.artKey)}</div>
+          <div>
+            <h3 class="fn-title">${esc(it.title)}</h3>
+            <div class="fn-meta">${esc([it.dayDate, it.time].filter(Boolean).join(' • '))}</div>
+            <p class="fn-place">${esc(it.venue)}</p>
+          </div>
+          ${it.dressCode ? `<div class="fn-dress-col"><div class="fn-swatch" style="background:${esc(it.color)}"></div><div class="fn-dress-txt">${esc(it.dressCode)}</div></div>` : ''}
+        </article>`).join('');
+      $('fn-dots').innerHTML = list.map((_, i) => `<button type="button" class="car-dot" data-fd="${i}" aria-label="Function ${i+1}"></button>`).join('');
+      posFn();
+    }
+
+    function posFn() {
+      const cards = $('fn-track').querySelectorAll('.fn-card'); const n = cards.length; if (!n) return;
+      const prev = (st.fnIdx - 1 + n) % n, next = (st.fnIdx + 1) % n;
+      cards.forEach((c, i) => {
+        c.classList.remove('pos-0','pos-1','pos-n1','pos-hide');
+        if (i === st.fnIdx) c.classList.add('pos-0');
+        else if (i === next) c.classList.add('pos-1');
+        else if (n > 2 && i === prev) c.classList.add('pos-n1');
+        else c.classList.add('pos-hide');
+      });
+      $('fn-dots').querySelectorAll('.car-dot').forEach((d, i) => d.classList.toggle('on', i === st.fnIdx));
+    }
+
+    function renderStory() {
+      const list = st.order.story.length ? st.order.story : DEMO.photos.story;
+      if (st.stIdx >= list.length) st.stIdx = 0;
+      $('polaroid-stage').innerHTML = list.map((it, i) => `
+        <div class="polaroid-card" data-si="${i}">
+          <img src="${esc(it.image || ART['s' + (i % 4)])}" alt="${esc(it.caption)}" />
+          <div class="polaroid-cap">${esc(it.caption)}</div>
+        </div>`).join('');
+      $('st-dots').innerHTML = list.map((_, i) => `<button type="button" class="car-dot" data-sd="${i}" aria-label="Story ${i+1}"></button>`).join('');
+      posStory();
+    }
+
+    function posStory() {
+      const cards = Array.from($('polaroid-stage').querySelectorAll('.polaroid-card')); const n = cards.length; if (!n) return;
+      cards.forEach((c, i) => {
+        const off = (i - st.stIdx + n) % n;
+        if (off === 0) { c.style.zIndex = 5; c.style.opacity = '1'; c.style.transform = 'translate3d(0,0,0) rotate(0deg) scale(1)'; c.style.pointerEvents = 'auto'; }
+        else if (off === 1) { c.style.zIndex = 3; c.style.opacity = '.85'; c.style.transform = 'translate3d(16px,8px,0) rotate(4deg) scale(.95)'; c.style.pointerEvents = 'none'; }
+        else if (off === n - 1 && n > 2) { c.style.zIndex = 3; c.style.opacity = '.85'; c.style.transform = 'translate3d(-16px,8px,0) rotate(-4deg) scale(.95)'; c.style.pointerEvents = 'none'; }
+        else { c.style.zIndex = 1; c.style.opacity = '0'; c.style.transform = 'translate3d(0,18px,0) scale(.86)'; c.style.pointerEvents = 'none'; }
+      });
+      $('st-dots').querySelectorAll('.car-dot').forEach((d, i) => d.classList.toggle('on', i === st.stIdx));
+    }
+
+    function renderVideo() {
+      const o = st.order, show = o.toggles.video && o.video.url && o.video.mode !== 'none';
+      $('sec-video').classList.toggle('hidden', !show);
+      const mp4 = $('main-mp4'), yb = $('main-yt-box'), yf = $('main-yt-iframe');
+      if (!show) { mp4.pause(); mp4.classList.add('hidden'); yb.classList.add('hidden'); yf.src = ''; return; }
+      const id = o.video.mode === 'youtube' ? ytId(o.video.url) : '';
+      if (id) {
+        mp4.pause(); mp4.classList.add('hidden'); yb.classList.remove('hidden');
+        const u = `https://www.youtube.com/embed/${id}?rel=0`;
+        if (yf.src !== u) yf.src = u;
+      } else {
+        yb.classList.add('hidden'); yf.src = ''; mp4.classList.remove('hidden');
+        if (mp4.src !== o.video.url) mp4.src = o.video.url;
+      }
+      $('main-vid-cap').textContent = o.video.title || '';
+      $('main-vid-cap').classList.toggle('hidden', !o.video.title);
+    }
+
+    function renderFooter() {
+      const o = st.order, f = o.footer, show = o.toggles.footer && f.enabled !== false;
+      $('sec-footer').classList.toggle('hidden', !show);
+      if (!show) return;
+      $('foot-k').textContent = f.label || ''; $('foot-k').classList.toggle('hidden', !f.label);
+      $('foot-n').textContent = f.companyName || 'Ak ⭐ Studio';
+      $('foot-t').textContent = f.tagline || ''; $('foot-t').classList.toggle('hidden', !f.tagline);
+      const links = (Array.isArray(f.links) ? f.links : []).filter((x) => x && x.enabled !== false && (x.text || x.label));
+      $('foot-pills').innerHTML = links.map((x) => {
+        const txt = x.text || x.label, href = String(x.url || '').trim();
+        return href ? `<a class="foot-pill" href="${esc(href)}" ${/^https?:/i.test(href) ? 'target="_blank" rel="noopener noreferrer"' : ''}>${socSvg(x.type)}<span>${esc(txt)}</span></a>`
+          : `<span class="foot-pill">${socSvg(x.type)}<span>${esc(txt)}</span></span>`;
+      }).join('');
+    }
+
+    function renderAll() {
+      const o = st.order, L = LANGS[o.langKey] || LANGS['odia-en'], t = o.toggles;
+      const gCh = Array.from(String(o.groomName || 'A').trim())[0] || 'A';
+      const bCh = Array.from(String(o.brideName || 'A').trim())[0] || 'A';
+      const mono = `${gCh.toUpperCase()}&${bCh.toUpperCase()}`;
+
+      document.documentElement.lang = L.lang;
+      document.title = o.browserTitle || `${o.groomName} & ${o.brideName} | ${o.footer.companyName || 'Ak ⭐ Studio'}`;
+
+      $('pl-mono').textContent = mono; $('pl-kicker').textContent = L.tapBook;
+      $('paused-kicker').textContent = L.pausedK; $('paused-title').textContent = L.pausedH; $('paused-sub').textContent = L.pausedP;
+      $('paused-screen').classList.toggle('show', !t.active);
+
+      $('book-inner-names').textContent = `${o.groomName} & ${o.brideName}`;
+      $('book-inner-date').textContent = o.weddingDate;
+      $('book-cover-mono').textContent = mono;
+      $('book-ribbon-lbl').textContent = L.ribbon;
+      $('lbl-tap-book').textContent = L.tapBook;
+
+      if (!t.bookCover) { $('book-overlay').classList.add('opened','hidden'); document.body.classList.remove('locked'); st.opened = true; }
+      else { $('book-overlay').classList.remove('hidden'); if (!st.opened) { $('book-overlay').classList.remove('opened'); document.body.classList.add('locked'); } }
+
+      const bgL = $('hero-bg-layer'), hv = $('hero-bg-video'), hi = $('hero-bg-img');
+      if (t.heroVideo && o.video.heroUrl) { bgL.classList.remove('hidden'); hi.classList.add('hidden'); hv.classList.remove('hidden'); if (hv.src !== o.video.heroUrl) { hv.src = o.video.heroUrl; hv.play().catch(()=>{}); } }
+      else if (t.heroPhoto && o.heroPhoto) { bgL.classList.remove('hidden'); hv.pause(); hv.classList.add('hidden'); hi.classList.remove('hidden'); hi.src = o.heroPhoto; }
+      else { hv.pause(); bgL.classList.add('hidden'); }
+
+      $('top-inv-txt').textContent = o.topInv; $('lbl-together').textContent = L.together;
+      setTypedName($('name-first'), o.groomName, 100);
+      $('parents-first').textContent = o.groomParents; $('parents-first').classList.toggle('hidden', !o.groomParents);
+      setTypedName($('name-second'), o.brideName, 320);
+      $('parents-second').textContent = o.brideParents; $('parents-second').classList.toggle('hidden', !o.brideParents);
+      $('joyous-line').textContent = o.inviteLine;
+
+      const dtObj = new Date(o.countdownISO || '2027-07-28T08:00');
+      const dayNum = Number.isNaN(dtObj.getTime()) ? '28' : String(dtObj.getDate()).padStart(2, '0');
+      $('date-day-lbl').textContent = o.weddingDay;
+      $('date-big-num').textContent = o.langKey === 'odia' ? toOdia(dayNum) : dayNum;
+      $('date-month-lbl').textContent = o.weddingDate;
+      $('venue-pin-line').textContent = `📍 ${o.venueName}`;
+      $('scroll-down-cue').textContent = L.scroll;
+      if (st.opened) playHeroTyping();
+
+      $('hero-photo-card').classList.toggle('hidden', !t.heroPhoto);
+      const hp = $('hero-photo-img'); hp.onerror = () => { hp.onerror = null; hp.src = ART.hero; }; hp.src = o.heroPhoto || ART.hero;
+      $('hero-photo-cap').textContent = o.inviteLine; $('hero-photo-cap').classList.toggle('hidden', !o.inviteLine);
+      $('lbl-vid-plate').textContent = L.vidK;
+      renderVideo();
+      $('sec-media').classList.toggle('hidden', !t.heroPhoto && !t.video);
+
+      $('sec-save-date').classList.toggle('hidden', !t.saveDate && !t.countdown);
+      $('parchment-scroll').classList.toggle('hidden', !t.saveDate);
+      $('cd-boxes').classList.toggle('hidden', !t.countdown);
+      $('lbl-std-plate').textContent = L.stdK;
+      $('scroll-date-txt').textContent = o.weddingDate;
+      $('scroll-time-txt').textContent = o.muhuratTime;
+      $('scroll-rings-lbl').textContent = L.rings;
+      $('lbl-pull-tassel').textContent = L.pullTassel;
+      $('u-d').textContent = L.days; $('u-h').textContent = L.hrs; $('u-m').textContent = L.min; $('u-s').textContent = L.sec;
+      $('lbl-add-cal').textContent = L.addCal;
+      runCd();
+
+      $('sec-functions').classList.toggle('hidden', !t.rituals);
+      $('lbl-fn-plate').textContent = L.fnK; $('lbl-fn-sub').textContent = L.fnSub; $('fn-foot-note').textContent = L.fnFoot;
+      if (t.rituals) renderFunctions();
+
+      $('sec-story').classList.toggle('hidden', !t.story);
+      $('lbl-story-plate').textContent = L.storyK; $('lbl-our-song-k').textContent = L.ourSongK;
+      $('song-name-disp').textContent = o.music.title || L.ourSong;
+      $('lbl-journey-end').textContent = L.journeyEnd;
+      if (t.story) renderStory();
+
+      $('sec-reception').classList.toggle('hidden', !t.reception);
+      $('lbl-rec-k').textContent = L.recK; $('rec-heading').textContent = o.reception.title;
+      $('rec-sub').textContent = o.reception.subtitle; $('rec-sub').classList.toggle('hidden', !o.reception.subtitle);
+      $('rec-date').textContent = o.reception.date; $('rec-time').textContent = o.reception.time; $('rec-venue').textContent = o.reception.venue;
+      $('rec-dress').textContent = o.reception.dressCode; $('rec-dress').classList.toggle('hidden', !o.reception.dressCode);
+
+      $('sec-venue').classList.toggle('hidden', !t.map);
+      $('lbl-loc-plate').textContent = L.locK; $('map-anchor').href = o.mapsUrl; $('ven-dir-btn').href = o.mapsUrl;
+      $('ven-name').textContent = o.venueName; $('ven-addr').textContent = o.venueAddress;
+      $('lbl-get-dir').textContent = L.getDir; $('lbl-copy-addr').textContent = L.copyAddr;
+
+      $('sec-rsvp').classList.toggle('hidden', !t.rsvp);
+      $('lbl-rsvp-plate').textContent = L.rsvpK; $('lbl-rsvp-q').textContent = L.rsvpQ;
+      $('btn-acc').textContent = L.acc; $('btn-dec').textContent = L.dec;
+      $('lbl-in-name').textContent = L.fName; $('in-name').placeholder = L.pName;
+      $('lbl-in-phone').textContent = L.fPhone; $('lbl-in-guests').textContent = L.fGuests;
+      $('g-val').textContent = o.langKey === 'odia' ? toOdia(st.guests) : String(st.guests);
+      $('lbl-in-meal').textContent = L.fMeal;
+      $('meal-chips').querySelectorAll('.m-chip').forEach((b, i) => { if (L.meals[i]) b.textContent = L.meals[i]; });
+      $('lbl-in-msg').textContent = L.fMsg; $('in-msg').placeholder = L.pMsg;
+      $('btn-sub-rsvp').textContent = L.subRsvp; $('btn-ty-wa').textContent = L.sendWa;
+      $('ty-h').textContent = L.tyH; $('ty-p').textContent = L.tyP; $('btn-ty-again').textContent = L.again;
+
+      $('sec-closing').classList.toggle('hidden', !t.map && !t.rsvp && !t.reception);
+      $('close-quote').textContent = o.closingLine; $('close-fam').textContent = o.closingFamily;
+      $('lbl-share-inv').textContent = L.shareInv; $('lbl-new-chap').textContent = L.newChap;
+      renderFooter();
+      syncAudio();
+      sweep();
+    }
+
+    function burst() {
+      const c = $('burst-canvas'), ctx = c.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 2);
+      c.width = window.innerWidth * dpr; c.height = window.innerHeight * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const cx = window.innerWidth / 2, cy = window.innerHeight / 2, cols = ['#FFF1B8','#E5B95C','#6AA3FF','#FAF1DC'];
+      const pts = Array.from({ length: 40 }, (_, i) => {
+        const a = (Math.PI * 2 * i) / 40, sp = 2.2 + Math.random() * 4.5;
+        return { x: cx, y: cy, vx: Math.cos(a)*sp, vy: Math.sin(a)*sp - 1, r: 2 + Math.random()*3, col: cols[i%4], life: 1 };
+      });
+      const step = () => {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight); let alive = false;
+        for (const p of pts) { p.x += p.vx; p.y += p.vy; p.vy += .08; p.life -= .022; if (p.life > 0) { alive = true; ctx.globalAlpha = p.life; ctx.fillStyle = p.col; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill(); } }
+        ctx.globalAlpha = 1; if (alive) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+
+    function openBook() {
+      if (st.opened) return; st.opened = true; $('book-stage').classList.add('opening'); burst();
+      if (st.live && st.order.toggles.music && st.order.music.mode !== 'off') playMusic();
+      else { stopMusic(); syncAudio(); }
+      setTimeout(() => { $('book-overlay').classList.add('opened'); document.body.classList.remove('locked'); playHeroTyping(); sweep(); }, 900);
+    }
+    $('book-stage').addEventListener('click', openBook); $('btn-open-book').addEventListener('click', openBook);
+    $('btn-pull-tassel').addEventListener('click', () => { $('parchment-scroll').classList.toggle('unrolled'); burst(); });
+
+    function runCd() {
+      clearInterval(st.cdT);
+      const tick = () => {
+        const tg = new Date(st.order.countdownISO || '2027-07-28T08:00').getTime();
+        const diff = Math.max(0, (Number.isNaN(tg) ? Date.now() : tg) - Date.now());
+        const p = (n) => { const s = String(n).padStart(2, '0'); return st.order.langKey === 'odia' ? toOdia(s) : s; };
+        $('cd-d').textContent = p(Math.floor(diff / 86400000));
+        $('cd-h').textContent = p(Math.floor((diff % 86400000) / 3600000));
+        $('cd-m').textContent = p(Math.floor((diff % 3600000) / 60000));
+        $('cd-s').textContent = p(Math.floor((diff % 60000) / 1000));
+      };
+      tick(); st.cdT = setInterval(tick, 1000);
+    }
+
+    function makeIcs(title, loc) {
+      const dt = new Date(st.order.countdownISO || '2027-07-28T08:00');
+      const s = Number.isNaN(dt.getTime()) ? new Date() : dt, e = new Date(s.getTime() + 4 * 3600000);
+      const pad = (n) => String(n).padStart(2, '0');
+      const f = (d) => `${d.getUTCFullYear()}${pad(d.getUTCMonth()+1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}00Z`;
+      const ics = ['BEGIN:VCALENDAR','VERSION:2.0','BEGIN:VEVENT',`DTSTART:${f(s)}`,`DTEND:${f(e)}`,`SUMMARY:${title}`,`LOCATION:${loc}`,'END:VEVENT','END:VCALENDAR'].join('\r\n');
+      const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+      a.download = `${st.order.slug || 'wedding'}.ics`; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      toast((LANGS[st.order.langKey] || LANGS['odia-en']).calOk);
+    }
+    $('btn-add-cal').addEventListener('click', () => makeIcs(`${st.order.groomName} & ${st.order.brideName} Wedding`, st.order.venueName));
+
+    const moveFn = (d) => { const n = $('fn-track').querySelectorAll('.fn-card').length; if (n) { st.fnIdx = (st.fnIdx + d + n) % n; posFn(); } };
+    $('fn-prev').addEventListener('click', () => moveFn(-1)); $('fn-next').addEventListener('click', () => moveFn(1));
+    $('fn-dots').addEventListener('click', (e) => { const b = e.target.closest('[data-fd]'); if (b) { st.fnIdx = Number(b.getAttribute('data-fd')); posFn(); } });
+    let fx = 0, fy = 0, ft = false;
+    $('fn-stage').addEventListener('touchstart', (e) => { fx = e.touches[0].clientX; fy = e.touches[0].clientY; ft = true; }, { passive: true });
+    $('fn-stage').addEventListener('touchend', (e) => { if (!ft) return; ft = false; const dx = e.changedTouches[0].clientX - fx, dy = e.changedTouches[0].clientY - fy; if (Math.abs(dx) > 34 && Math.abs(dx) > Math.abs(dy)) moveFn(dx < 0 ? 1 : -1); }, { passive: true });
+
+    const moveSt = (d) => { const n = $('polaroid-stage').querySelectorAll('.polaroid-card').length; if (n) { st.stIdx = (st.stIdx + d + n) % n; posStory(); } };
+    $('st-prev').addEventListener('click', () => moveSt(-1)); $('st-next').addEventListener('click', () => moveSt(1));
+    $('st-dots').addEventListener('click', (e) => { const b = e.target.closest('[data-sd]'); if (b) { st.stIdx = Number(b.getAttribute('data-sd')); posStory(); } });
+    let sx = 0, sy = 0, sm = false;
+    $('polaroid-stage').addEventListener('touchstart', (e) => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; sm = false; }, { passive: true });
+    $('polaroid-stage').addEventListener('touchend', (e) => { const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy; if (Math.abs(dx) > 32 && Math.abs(dx) > Math.abs(dy)) { sm = true; moveSt(dx < 0 ? 1 : -1); } }, { passive: true });
+    $('polaroid-stage').addEventListener('click', (e) => { if (sm) return; const c = e.target.closest('.polaroid-card'); if (!c) return; $('lb-img').src = c.querySelector('img').src; $('lb-cap').textContent = c.querySelector('.polaroid-cap').textContent; $('lightbox').classList.add('open'); });
+    $('lb-close').addEventListener('click', () => $('lightbox').classList.remove('open'));
+    $('lightbox').addEventListener('click', (e) => { if (e.target === $('lightbox')) $('lightbox').classList.remove('open'); });
+
+    $('ven-copy-btn').addEventListener('click', () => copyStr([st.order.venueName, st.order.venueAddress].filter(Boolean).join(', '), (LANGS[st.order.langKey] || LANGS['odia-en']).copied));
+    $('btn-share-inv').addEventListener('click', () => {
+      const L = LANGS[st.order.langKey] || LANGS['odia-en'];
+      if (navigator.share) navigator.share({ title: document.title, url: location.href }).catch(()=>{});
+      else copyStr(location.href, L.linkCopied);
+    });
+
+    $('btn-acc').addEventListener('click', () => { st.att = 'yes'; $('btn-acc').classList.add('on'); $('btn-dec').classList.remove('on'); $('acc-extras').classList.remove('hidden'); });
+    $('btn-dec').addEventListener('click', () => { st.att = 'no'; $('btn-dec').classList.add('on'); $('btn-acc').classList.remove('on'); $('acc-extras').classList.add('hidden'); });
+    $('g-minus').addEventListener('click', () => { if (st.guests > 1) { st.guests--; $('g-val').textContent = st.order.langKey === 'odia' ? toOdia(st.guests) : String(st.guests); } });
+    $('g-plus').addEventListener('click', () => { if (st.guests < 15) { st.guests++; $('g-val').textContent = st.order.langKey === 'odia' ? toOdia(st.guests) : String(st.guests); } });
+    $('meal-chips').addEventListener('click', (e) => { const b = e.target.closest('.m-chip'); if (!b) return; st.meal = b.getAttribute('data-meal') || 'Veg'; $('meal-chips').querySelectorAll('.m-chip').forEach((x) => x.classList.toggle('on', x === b)); });
+
+    $('rsvp-form').addEventListener('submit', async (e) => {
+      e.preventDefault(); const o = st.order, L = LANGS[o.langKey] || LANGS['odia-en'], name = $('in-name').value.trim();
+      if (!name) { toast(L.needName); $('in-name').focus(); return; }
+      const msg = [st.att === 'yes' ? `[Meal: ${st.meal}]` : '', $('in-msg').value.trim()].filter(Boolean).join(' ');
+      const payload = { name, phone: $('in-phone').value.trim(), attending: st.att, guests: st.att === 'yes' ? st.guests : 0, meal: st.att === 'yes' ? st.meal : '', message: msg, createdAt: Date.now() };
+      st.lastRsvp = payload;
+      try {
+        if (st.embedded && window.parent) {
+          window.parent.postMessage({ type: 'AK_SUBMIT_RSVP', slug: st.slug || o.slug, payload }, '*');
+          window.parent.postMessage({ type: 'SUBMIT_RSVP', slug: st.slug || o.slug, payload }, '*');
+        } else if (st.dbUrl && st.slug) {
+          await fetch(`${st.dbUrl}/rsvps/${encodeURIComponent(st.slug)}.json`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        }
+      } catch {}
+      if (st.att === 'yes') burst();
+      $('rsvp-form').classList.add('hidden'); $('rsvp-ty').classList.remove('hidden');
+      $('btn-ty-wa').classList.toggle('hidden', !o.customerPhone);
+      toast(L.tyH);
+    });
+
+    $('btn-ty-wa').addEventListener('click', () => {
+      const o = st.order, p = st.lastRsvp; if (!o.customerPhone || !p) return;
+      const txt = `✨ RSVP: ${o.groomName} & ${o.brideName}\nName: ${p.name}\nStatus: ${p.attending === 'yes' ? `Accept (${p.guests}, ${p.meal})` : 'Decline'}${p.message ? `\nNote: ${p.message}` : ''}`;
+      window.open(`https://wa.me/${o.customerPhone}?text=${encodeURIComponent(txt)}`, '_blank', 'noopener');
+    });
+    $('btn-ty-again').addEventListener('click', () => { $('rsvp-ty').classList.add('hidden'); $('rsvp-form').classList.remove('hidden'); });
+
+    function stopMusic() {
+      st.playing = false; clearInterval(st.itimer); st.itimer = null;
+      const a = $('bg-audio'); if (a) { try { a.pause(); a.currentTime = 0; } catch {} }
+      if (st.igain && st.actx) { try { st.igain.gain.setValueAtTime(0.0001, st.actx.currentTime); } catch {} }
+      if (st.actx && st.actx.state === 'running') st.actx.suspend().catch(()=>{});
+      $('song-play-toggle').textContent = '▶'; $('song-prog-bar').style.width = '20%';
+    }
+
+    function syncAudio() {
+      const m = st.order.music, show = Boolean(st.live && st.order.toggles.music && m.mode !== 'off');
+      $('audio-fab').classList.toggle('hidden', !show);
+      $('our-song-widget').classList.toggle('hidden', !show || m.mode === 'youtube');
+      if (!show) { if (!st.order.toggles.music || m.mode === 'off') stopMusic(); return; }
+      const L = LANGS[st.order.langKey] || LANGS['odia-en'];
+      if (m.mode === 'youtube' && m.url) { $('audio-eq').classList.add('hidden'); $('audio-fab-txt').classList.remove('hidden'); $('audio-fab-txt').textContent = '♪ ' + (m.title || L.ourSong); }
+      else { $('audio-eq').classList.remove('hidden'); $('audio-fab-txt').classList.add('hidden'); $('audio-eq').classList.toggle('play', st.playing); $('song-play-toggle').textContent = st.playing ? '❚❚' : '▶'; }
+    }
+
+    function playMusic() {
+      const m = st.order.music; if (!st.order.toggles.music || m.mode === 'off' || m.mode === 'youtube') { stopMusic(); syncAudio(); return; }
+      st.playing = true; syncAudio();
+      if (m.mode === 'mp3' && m.url) {
+        const a = $('bg-audio'); if (a.src !== m.url) a.src = m.url;
+        a.volume = 0.02;
+        a.play().then(() => {
+          const f = () => { if (!st.playing || !st.order.toggles.music || st.order.music.mode === 'off') { a.pause(); return; } if (a.volume < 0.55) { a.volume = Math.min(0.55, a.volume + 0.025); requestAnimationFrame(f); } };
+          requestAnimationFrame(f);
+        }).catch(() => {});
+        return;
+      }
+      try {
+        const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return;
+        if (!st.actx) st.actx = new AC(); if (st.actx.state === 'suspended') st.actx.resume();
+        const g = st.actx.createGain(); g.gain.setValueAtTime(0.14, st.actx.currentTime); g.connect(st.actx.destination); st.igain = g;
+        const notes = [261.63, 329.63, 392.0, 493.88, 523.25]; let idx = 0, pct = 20;
+        const hit = () => {
+          if (!st.playing || !st.order.toggles.music || st.order.music.mode === 'off') return;
+          const now = st.actx.currentTime, o = st.actx.createOscillator(), og = st.actx.createGain();
+          o.type = 'triangle'; o.frequency.setValueAtTime(notes[idx++ % notes.length], now);
+          og.gain.setValueAtTime(0.001, now); og.gain.linearRampToValueAtTime(0.18, now + 0.04); og.gain.exponentialRampToValueAtTime(0.0001, now + 1.5);
+          o.connect(og); og.connect(g); o.start(now); o.stop(now + 1.55);
+          pct = (pct + 4) % 100; $('song-prog-bar').style.width = pct + '%';
+        };
+        clearInterval(st.itimer); hit(); st.itimer = setInterval(hit, 820);
+      } catch {}
+    }
+
+    const toggleMusic = () => {
+      const m = st.order.music; if (!st.order.toggles.music || m.mode === 'off') { stopMusic(); syncAudio(); return; }
+      if (m.mode === 'youtube' && m.url) { window.open(m.url, '_blank', 'noopener,noreferrer'); return; }
+      if (st.playing) { stopMusic(); syncAudio(); } else playMusic();
+    };
+    $('audio-fab').addEventListener('click', toggleMusic); $('song-play-toggle').addEventListener('click', toggleMusic);
+
+    const rvList = Array.from(document.querySelectorAll('.rv'));
+    const io = typeof IntersectionObserver !== 'undefined' ? new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '200px 0px', threshold: 0.01 }) : null;
+    rvList.forEach((n) => io ? io.observe(n) : n.classList.add('in'));
+    function sweep() { const lim = window.innerHeight + 180; rvList.forEach((n) => { if (!n.classList.contains('in') && !n.classList.contains('hidden') && n.getBoundingClientRect().top <= lim) { n.classList.add('in'); if (io) io.unobserve(n); } }); }
+    window.addEventListener('scroll', sweep, { passive: true });
+
+    const MSG_SET = new Set(['AK_ORDER_SYNC','INVITE_DATA','ORDER_DATA','UPDATE_ORDER','AK_ORDER_UPDATE','SYNC_ORDER']);
+    function applyOrder(raw, gf = null) {
+      if (!raw || typeof raw !== 'object') return;
+      const pu = st.order.music.url, pm = st.order.music.mode, first = !st.live;
+      st.live = true; st.order = normalizeOrder(raw, gf); renderAll();
+      if (!st.order.toggles.music || st.order.music.mode === 'off') { stopMusic(); syncAudio(); return; }
+      if (first && st.opened && !st.playing && st.order.music.mode !== 'youtube') { playMusic(); return; }
+      if (st.playing && (st.order.music.mode !== pm || (st.order.music.mode === 'mp3' && st.order.music.url !== pu))) { stopMusic(); playMusic(); }
+    }
+
+    window.addEventListener('message', (ev) => {
+      const m = ev.data; if (!m || typeof m !== 'object') return;
+      if (m.slug) st.slug = String(m.slug);
+      if (m.dbUrl) st.dbUrl = String(m.dbUrl).replace(/\/+$/, '');
+      const c = m.order || m.payload || m.data || (MSG_SET.has(m.type) ? m : null);
+      if (c && typeof c === 'object' && (c.couple || c.groomName || c.wedding || c.rituals || c.sections || c.toggles)) applyOrder(c, m.globalFooter || m.footer || null);
+    });
+
+    async function loadRemote() {
+      if (st.slug && st.dbUrl) {
+        const g = async (p) => { try { const r = await fetch(`${st.dbUrl}/${p}.json`, { cache: 'no-store' }); return r.ok ? await r.json() : null; } catch { return null; } };
+        const [a, f] = await Promise.all([g(`orders/${encodeURIComponent(st.slug)}`), g('settings/footer')]);
+        const o = a || await g(`invites/${encodeURIComponent(st.slug)}`);
+        if (o && typeof o === 'object') { applyOrder(o, f); return; }
+      }
+      if (!st.embedded) { st.live = true; syncAudio(); }
+    }
+
+    function sparkles() {
+      const c = $('sparkle-canvas'), ctx = c.getContext('2d'); let w = 0, h = 0;
+      const rsz = () => { const dpr = Math.min(window.devicePixelRatio || 1, 2); w = window.innerWidth; h = window.innerHeight; c.width = w*dpr; c.height = h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); };
+      rsz(); window.addEventListener('resize', rsz, { passive: true });
+      const pts = Array.from({ length: 28 }, () => ({ x: Math.random()*w, y: Math.random()*h, r: .8+Math.random()*1.6, vy: -.18-.random()*.25, a: .2+Math.random()*.6 }));
+      const tick = () => {
+        if (!document.hidden) { ctx.clearRect(0,0,w,h); for (const p of pts) { p.y += p.vy; if (p.y < -6) { p.y = h+6; p.x = Math.random()*w; } ctx.fillStyle = `rgba(255,241,184,${p.a})`; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); } }
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+
+    async function boot() {
+      const t0 = performance.now(); initArt(); renderAll(); sparkles(); await loadRemote();
+      if (st.embedded && window.parent) { window.parent.postMessage({ type: 'DESIGN_READY' }, '*'); window.parent.postMessage({ type: 'AK_DESIGN_READY' }, '*'); }
+      setTimeout(() => { $('preloader').classList.add('done'); sweep(); }, Math.max(0, 360 - (performance.now() - t0)));
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true }); else boot();
+  </script>
+</body>
+</html>
